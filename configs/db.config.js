@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 mongoose
-  .connect("mongodb://localhost/movies-db-dev", {
+  .connect("mongodb://localhost/freestudents-db-dev", {
     useCreateIndex: true,
     useNewUrlParser: true,
     useUnifiedTopology: true
