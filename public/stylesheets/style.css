@@ -14,11 +14,4 @@ a {
   flex-wrap: wrap;
 }
 
-.movie-item {
-  width: 30%;
-  margin: 15px;
-}
 
-.movie-item img {
-  width: 50%;
-}
