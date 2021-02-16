@@ -53,6 +53,7 @@ app.use('/', require('./routes/messages.routes'));
 app.use('/', require('./routes/profile.routes'));
 app.use('/', require('./routes/schedule.routes'));
 app.use('/', require('./routes/user.routes'));
+app.use('/', require('./routes/admin.routes'));
 
 // Catch all error handler
 app.use((error, req, res) => {
