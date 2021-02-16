@@ -1,7 +1,10 @@
 const express = require("express");
 const router = express.Router();
 
-/* GET home page */
-router.get("/", (req, res, next) => res.render("index"));
+
+router.get("/schedule/:id", (req, res, next) => {
+    const { id } = req.params;
+    res.render("user/main/#schedule")
+});
 
 module.exports = router;
