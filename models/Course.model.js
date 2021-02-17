@@ -2,6 +2,8 @@ const mongoose = require("mongoose");
 const { Schema, model } = mongoose;
 
 const courseSchema = new Schema(
+
+    // SIGNUP DO PROFESSOR:
     {
         name: {
         type: String,
@@ -10,18 +12,24 @@ const courseSchema = new Schema(
         },
         category: { 
             type: Schema.Types.ObjectId, ref: 'Category',
-            required: [true, 'Category is required.'],
+            required: [true, 'Categoria é necessário.'],
+        },
+        content: { 
+            type: Schema.Types.ObjectId, ref: 'Content',
+            required: [true, 'Conteúdo é necessário.'],
         },
         description: {
             type: String,
-            required: [true, 'Description needed.'],
+            required: [true, 'Escreva uma descriçào.'],
         },
+
+        // 
         user: { type: Schema.Types.ObjectId, ref: 'User' },
         classes: Number,
-        Availability: [Date],
-        type_of_place: String,
-        prefered_place: String,
-        times_lecturing: Number,
+        WeekAvailability: [String],
+        HourAvailability: [String],
+        type_of_platform: String,
+        times_lectured: Number,
         status: String,
     },
     {
