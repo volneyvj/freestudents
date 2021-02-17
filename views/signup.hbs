@@ -1,19 +1,86 @@
 
+<div class="formulario" id="form1-signUp">
+
 
 <h2>Pagina de SignUp</h2>
 
-{{!-- <div id="form">
   <h2>Signup</h2>
-  <form action="/signup" method="POST">
-    <label for="input-email">E-mail</label>
-    <input type="text" id="input-email" name="email" placeholder="Your E-mail" />
 
-    <label for="input-password">Password</label>
+  {{!-- formulário 0 --}}
+  <form action="/signup" method="POST">
+
+    <label for="input-completeName">Nome completo</label>
+    <input type="text" id="input-completeName" name="completeName" placeholder="Insira seu Nome completo" />
+
+    <label for="input-username">Username</label>
+    <input type="text" id="input-username" name="username" placeholder="Insira seu username" />
+
+    <label for="input-email">E-mail</label>
+    <input type="text" id="input-email" name="email" placeholder="Insira seu e-mail" />
+
+    <label for="input-password">Senha</label>
     <input type="password" name="password" id="input-password" placeholder="********" />
 
-    <button type="submit">Create account</button>
-    {{#if errorMessage}}
-    <p class="error">{{errorMessage}} </p>
-    {{/if}}
+    <label for="input-password">Confirme a senha</label>
+    <input type="password" name="password" id="input-password" placeholder="********" />
+
+    <label for="input-telefone">Telefone</label>
+    <input type="text" id="input-telefone" name="telefone" placeholder="Telefone" />
   </form>
-</div> --}}
+
+
+  <div class="subtitulo-signUp">
+    <h3 class="h3-signUp"> O que você irá fazer na FreeStudents? </h3>
+    <h4 class="h4-signUp"> Lembrando que você pode selecionar os dois! ;)</h4>
+  </div>
+  <div class="checkbox">
+    <div>
+
+      <input type="checkbox" id="queroAprender" name="queroAprender">
+      <label for="queroAprender">Quero Aprender</label>
+    </div>
+
+    <div>
+      <input type="checkbox" id="queroEnsinar" name="QueroEnsinar">
+      <label for="queroEnsinar">Quero Ensinar</label>
+    </div>
+
+  </div>
+
+
+  {{!--formulário 1 "Quero aprender" --}}
+
+  <h3 class="h3-signUp"> Quero Aprender! </h3>
+  <div class="checkbox-select">
+    <div class="custom-select  subtitulo-signUp " style="width:200px;">
+      <select>
+        <option value="0">Selecione a categoria:</option>
+        <option value="1">Educação</option>
+        <option value="2">Idiomas</option>
+        <option value="3">Tecnologia</option>
+        <option value="4">Business</option>
+        <option value="5">Mentoria</option>
+      </select>
+    </div>
+  </div>
+  {{!-- Precisa ser variável conforme a seleção de cima --}}
+  <div class="custom-select subtitulo-signUp" style="width:200px;">
+    <select>
+      <option value="0">Selecione o conteúdo:</option>
+      <option value="1">Inglês</option>
+      <option value="2">Espanhol</option>
+      <option value="3">Francês</option>
+      <option value="4">Italiano</option>
+      <option value="5">Japonês</option>
+    </select>
+  </div>
+
+
+  {{!-- <button type="submit">Criar conta</button> --}}
+
+
+  {{#if errorMessage}}
+  <p class="error">{{errorMessage}} </p>
+  {{/if}}
+
+</div>

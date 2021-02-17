@@ -3,8 +3,8 @@ const { Schema, model } = mongoose;
 
 const categorySchema = new Schema(
     {
-        name: String,
-        status: String,
+        name: String,  
+        status: String,  
     },
 );
 
