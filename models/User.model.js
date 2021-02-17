@@ -15,6 +15,10 @@ const userSchema = new Schema(
             type: String,
             required: [true, 'Senha é necessario.'],
         },
+        name: {
+            type: String,
+            required: [true, 'Nome é necessario.'],
+        },
         teacher: Boolean,
         student: Boolean,
         city: String,
@@ -31,6 +35,7 @@ const userSchema = new Schema(
             match: [/^(?:\+)[0-9]{2}\s?(?:\()[0-9]{2}(?:\))\s?[0-9]{4,5}(?:-)[0-9]{4}$/, "Insira telefone completo com DDD"],
             type: String,
         },
+        imageUrl: String, 
 
 
         // somente para quem clicar no QUERO SER PROFESSOR
