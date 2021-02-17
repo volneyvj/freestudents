@@ -7,9 +7,6 @@
     <label for="input-completeName">Nome completo</label>
     <input type="text" id="input-completeName" name="completeName" placeholder="Insira seu Nome completo" />
 
-    <label for="input-username">Username</label>
-    <input type="text" id="input-username" name="username" placeholder="Insira seu username" />
-
     <label for="input-email">E-mail</label>
     <input type="text" id="input-email" name="email" placeholder="Insira seu e-mail" />
 
@@ -50,23 +47,20 @@
     <div class="custom-select  subtitulo-signUp " style="width:200px;">
       <select>
         <option value="0">Selecione a categoria:</option>
-        <option value="1">Educação</option>
-        <option value="2">Idiomas</option>
-        <option value="3">Tecnologia</option>
-        <option value="4">Business</option>
-        <option value="5">Mentoria</option>
+        {{#each category}}
+        <option value="{{this.id}}">{{this.name}}</option>
+        {{/each}}
       </select>
     </div>
   </div>
   {{!-- Precisa ser variável conforme a seleção de cima --}}
   <div class="custom-select subtitulo-signUp" style="width:200px;">
+    
     <select>
-      <option value="0">Selecione o conteúdo:</option>
-      <option value="1">Inglês</option>
-      <option value="2">Espanhol</option>
-      <option value="3">Francês</option>
-      <option value="4">Italiano</option>
-      <option value="5">Japonês</option>
+<option value="0">Selecione o conteúdo:</option>
+      {{#each content}}
+      <option value="{{this.id}}">{{this.name}}</option>
+    {{/each}}
     </select>
   </div>
 
