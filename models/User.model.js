@@ -19,8 +19,10 @@ const userSchema = new Schema(
             type: String,
             required: [true, 'Nome é necessario.'],
         },
-        teacher: Boolean,
-        student: Boolean,
+        phone: {
+            match: [/^(?:\+)[0-9]{2}\s?(?:\()[0-9]{2}(?:\))\s?[0-9]{4,5}(?:-)[0-9]{4}$/, "Insira telefone completo com DDD"],
+            type: String,
+        },
         city: String,
         state: String,
         birthdate: Date,
@@ -32,10 +34,17 @@ const userSchema = new Schema(
         other_com_username: String,
         about: String,
         phone: {
-            match: [/^(?:\+)[0-9]{2}\s?(?:\()[0-9]{2}(?:\))\s?[0-9]{4,5}(?:-)[0-9]{4}$/, "Insira telefone completo com DDD"],
+            // match: [/^(?:\+)[0-9]{2}\s?(?:\()[0-9]{2}(?:\))\s?[0-9]{4,5}(?:-)[0-9]{4}$/, "Insira telefone completo com DDD"],
             type: String,
         },
+      
         imageUrl: String, 
+        student_category: Boolean,
+        student_content: Boolean, 
+        teacher_category: Boolean,
+        teacher_content: Boolean, 
+        title_course: String,
+       
 
 
         // somente para quem clicar no QUERO SER PROFESSOR

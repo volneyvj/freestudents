@@ -4,7 +4,10 @@ const { Schema, model } = mongoose;
 const categorySchema = new Schema(
     {
         name: String,  
-        status: String,  
+        status: String, 
+        content: [{
+            content_name:  String,
+        }] 
     },
 );
 

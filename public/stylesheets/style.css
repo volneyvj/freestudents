@@ -55,11 +55,14 @@ form button {
   margin-bottom: 10px;
   text-align: center;
   width: 100%;
-
+  font-size: 23px;
+  
 }
 
 .subtitulo-signUp {
-  margin: 35px;
+
+  margin-top: 10px;
+  margin-bottom: 20px;
 }
 
 .checkbox-select {

@@ -1,19 +1,14 @@
-
+<script src="/public/javascripts/"></script>
 <div class="formulario" id="form1-signUp">
 
 
-<h2>Pagina de SignUp</h2>
-
-  <h2>Signup</h2>
+  <h2>Pagina de SignUp</h2>
 
   {{!-- formulário 0 --}}
   <form action="/signup" method="POST">
 
     <label for="input-completeName">Nome completo</label>
-    <input type="text" id="input-completeName" name="completeName" placeholder="Insira seu Nome completo" />
-
-    <label for="input-username">Username</label>
-    <input type="text" id="input-username" name="username" placeholder="Insira seu username" />
+    <input type="text" id="input-completeName" name="name" placeholder="Insira seu Nome completo" />
 
     <label for="input-email">E-mail</label>
     <input type="text" id="input-email" name="email" placeholder="Insira seu e-mail" />
@@ -22,65 +17,195 @@
     <input type="password" name="password" id="input-password" placeholder="********" />
 
     <label for="input-password">Confirme a senha</label>
-    <input type="password" name="password" id="input-password" placeholder="********" />
+    <input type="password" name="confirmedPassword" id="input-password" placeholder="********" />
 
     <label for="input-telefone">Telefone</label>
     <input type="text" id="input-telefone" name="telefone" placeholder="Telefone" />
-  </form>
 
 
-  <div class="subtitulo-signUp">
-    <h3 class="h3-signUp"> O que você irá fazer na FreeStudents? </h3>
-    <h4 class="h4-signUp"> Lembrando que você pode selecionar os dois! ;)</h4>
-  </div>
-  <div class="checkbox">
-    <div>
+    <h4 class="h4-signUp">Selecione seu estado</h4>
 
-      <input type="checkbox" id="queroAprender" name="queroAprender">
-      <label for="queroAprender">Quero Aprender</label>
-    </div>
+    <label for="input-city">Cidade</label>
+    <input type="text" id="input-city" name="city" placeholder="Insira sua cidade" />
 
-    <div>
-      <input type="checkbox" id="queroEnsinar" name="QueroEnsinar">
-      <label for="queroEnsinar">Quero Ensinar</label>
-    </div>
+    <select name="estate" class="custom-select subtitulo-signUp">
+      <option value="0">Selecione</option>
+      <option value="1">AC</option>
+      <option value="2">AL</option>
+      <option value="3">AP</option>
+      <option value="4">AM</option>
+      <option value="5">BA</option>
+      <option value="6">CE</option>
+      <option value="7">ES</option>
+      <option value="8">GO</option>
+      <option value="9">MA</option>
+      <option value="10">MT</option>
+      <option value="11">MS</option>
+      <option value="12">MG</option>
+      <option value="13">PA</option>
+      <option value="14">PB</option>
+      <option value="15">PR</option>
+      <option value="16">PE</option>
+      <option value="17">PI</option>
+      <option value="18">RJ</option>
+      <option value="19">RN</option>
+      <option value="20">RS</option>
+      <option value="21">RO</option>
+      <option value="22">RR</option>
+      <option value="23">SC</option>
+      <option value="24">SP</option>
+      <option value="25">SE</option>
+      <option value="26">TO</option>
+      <option value="26">DF</option>
 
-  </div>
-
-
-  {{!--formulário 1 "Quero aprender" --}}
-
-  <h3 class="h3-signUp"> Quero Aprender! </h3>
-  <div class="checkbox-select">
-    <div class="custom-select  subtitulo-signUp " style="width:200px;">
-      <select>
-        <option value="0">Selecione a categoria:</option>
-        <option value="1">Educação</option>
-        <option value="2">Idiomas</option>
-        <option value="3">Tecnologia</option>
-        <option value="4">Business</option>
-        <option value="5">Mentoria</option>
-      </select>
-    </div>
-  </div>
-  {{!-- Precisa ser variável conforme a seleção de cima --}}
-  <div class="custom-select subtitulo-signUp" style="width:200px;">
-    <select>
-      <option value="0">Selecione o conteúdo:</option>
-      <option value="1">Inglês</option>
-      <option value="2">Espanhol</option>
-      <option value="3">Francês</option>
-      <option value="4">Italiano</option>
-      <option value="5">Japonês</option>
     </select>
-  </div>
+
+    <label for="input-city">Data de nascimento</label>
+    <input type="date" id="input-birthdate" name="birthdate" placeholder="Insira sua data de nascimento" />
 
 
-  {{!-- <button type="submit">Criar conta</button> --}}
+    <h4 class="h4-signUp" name="how_got_to_us">Como ficou sabendo da FreeStudents?</h4>
+    <select class="custom-select subtitulo-signUp">
+      <option value="0">Selecione uma opção</option>
+      <option value="1">Amigos</option>
+      <option value="2">Redes Sociais</option>
+      <option value="3">Google</option>
+
+      <label for="input-outros">Outros meios</label>
+      <input type="text" id="input-outros" name="how_got_to_us" placeholder="Insira o outro meio" />
+
+    </select>
+    <label for="input-skypeUsername">Skype Username</label>
+    <input type="text" id="input-skype" name="skype_username" placeholder="Insira seu skype username" />
+
+    <label for="input-zoomUsername">Zoom Username</label>
+    <input type="text" id="input-zoom" name="zoom_username" placeholder="Insira seu zoom username" />
+
+    <label for="input-teamsUsername">Teams Username</label>
+    <input type="text" id="input-teams" name="teams_username" placeholder="Insira seu teams username" />
+
+    <label for="input-teamsUsername">Outras plataformas</label>
+    <input type="text" id="input-teams" name="other_com" placeholder="Insira o nome da plataforma" />
+
+    <label for="input-teamsUsername">Username da plataforma</label>
+    <input type="text" id="input-teams" name="other_com_username" placeholder="Insira o username da plataforma" />
+
+    <label for="input-about">Uma descrição sobre você: </label>
+    <input type="text" id="input-about" name="about" placeholder="Insira o texto aqui" />
+
+    <section>
+      <h4 class="h4-signUp">Insira sua foto aqui</h4>
+      <form action="/upload" method="post" enctype="multipart/form-data">
+        <input type="file" name="imageUrl" />
+        <input type="submit" value="Save" />
+      </form>
+    </section>
+
+    <div class="subtitulo-signUp">
+      <h3 class="h3-signUp"> O que você quer fazer na FreeStudents? </h3>
+      <h4 class="h4-signUp"> Lembrando que você pode selecionar os dois! ;)</h4>
+    </div>
+
+    <div class="checkbox">
+      <button onclick="queroAprenderForm()" type="button">Quero aprender</button>
+      <button onclick="queroEnsinarForm()" type="button">Quero Ensinar</button>
+
+      {{!-- formulário 1 --}}
+
+      <div id='formQueroAprender' style="display: none">
+
+        <h4 class="h4-signUp"> O que você quer aprender? Veja as opções:</h4>
+
+        <select name='student-category' class="custom-select subtitulo-signUp">
+          <option value="0">Selecione a categoria:</option>
+          {{#each data.foundCategories}}
+          <option value="{{this.id}}">{{this.name}}</option>
+          {{/each}}
+        </select>
+
+        <select name="student_content" class="custom-select subtitulo-signUp">
+
+          <option value="0">Selecione o conteúdo:</option>
+          {{#each data.foundContents}}
+          <option value="{{this.id}}">{{this.name}}</option>
+          {{/each}}
+        </select>
+      </div>
+
+      {{!-- formulário 2 --}}
+
+      <div id='formQueroEnsinar' style="display: none">
+        <h4 class="h4-signUp"> Você quer dar aula do quê? Veja as opções:</h4>
+        <select name="teacher_category" class="custom-select subtitulo-signUp">
+          <option value="0">Selecione a categoria:</option>
+          {{#each data.foundCategories}}
+          <option value="{{this.id}}">{{this.name}}</option>
+          {{/each}}
+        </select>
+
+        <select name="teacher-content" class="custom-select subtitulo-signUp">
+          <option value="0">Selecione o conteúdo:</option>
+          {{#each data.foundContents}}
+          <option value="{{this.id}}">{{this.name}}</option>
+          {{/each}}
+        </select>
+      </div>
+
+      <label for="input-about">Título do seu curso </label>
+      <input type="text" id="input-about" name="title_course" placeholder="Insira o título aqui" />
 
 
-  {{#if errorMessage}}
-  <p class="error">{{errorMessage}} </p>
-  {{/if}}
+      <ul class="list-group list-group-horizontal">
+        <li class="list-group-item"> <input class="form-check-input me-1" type="checkbox" value="0"> SEG </li>
+        <li class="list-group-item"> <input class="form-check-input me-1" type="checkbox" value="1">Manhã</li>
+        <li class="list-group-item"><input class="form-check-input me-1" type="checkbox" value="2">Tarde</li>
+        <li class="list-group-item"><input class="form-check-input me-1" type="checkbox" value="3">Noite</li>
+      </ul>
+      <ul class="list-group list-group-horizontal-sm">
+        <li class="list-group-item"> <input class="form-check-input me-1" type="checkbox" value="4"> TER </li>
+        <li class="list-group-item"> <input class="form-check-input me-1" type="checkbox" value="5">Manhã</li>
+        <li class="list-group-item"><input class="form-check-input me-1" type="checkbox" value="6">Tarde</li>
+        <li class="list-group-item"><input class="form-check-input me-1" type="checkbox" value="7">Noite</li>
+      </ul>
+      <ul class="list-group list-group-horizontal-sm">
+        <li class="list-group-item"> <input class="form-check-input me-1" type="checkbox" value="8"> QUA </li>
+        <li class="list-group-item"> <input class="form-check-input me-1" type="checkbox" value="9">Manhã</li>
+        <li class="list-group-item"><input class="form-check-input me-1" type="checkbox" value="10">Tarde</li>
+        <li class="list-group-item"><input class="form-check-input me-1" type="checkbox" value="11">Noite</li>
+      </ul>
+      <ul class="list-group list-group-horizontal-sm">
+        <li class="list-group-item"> <input class="form-check-input me-1" type="checkbox" value="12"> QUI </li>
+        <li class="list-group-item"> <input class="form-check-input me-1" type="checkbox" value="13">Manhã</li>
+        <li class="list-group-item"><input class="form-check-input me-1" type="checkbox" value="14">Tarde</li>
+        <li class="list-group-item"><input class="form-check-input me-1" type="checkbox" value="15">Noite</li>
+      </ul>
+      <ul class="list-group list-group-horizontal-sm">
+        <li class="list-group-item"> <input class="form-check-input me-1" type="checkbox" value="16"> SEX </li>
+        <li class="list-group-item"> <input class="form-check-input me-1" type="checkbox" value="17">Manhã</li>
+        <li class="list-group-item"><input class="form-check-input me-1" type="checkbox" value="18">Tarde</li>
+        <li class="list-group-item"><input class="form-check-input me-1" type="checkbox" value="19">Noite</li>
+      </ul>
+      <ul class="list-group list-group-horizontal-sm">
+        <li class="list-group-item"> <input class="form-check-input me-1" type="checkbox" value="20"> SAB </li>
+        <li class="list-group-item"> <input class="form-check-input me-1" type="checkbox" value="21">Manhã</li>
+        <li class="list-group-item"><input class="form-check-input me-1" type="checkbox" value="22">Tarde</li>
+        <li class="list-group-item"><input class="form-check-input me-1" type="checkbox" value="23">Noite</li>
+      </ul>
+      <ul class="list-group list-group-horizontal-sm">
+        <li class="list-group-item"> <input class="form-check-input me-1" type="checkbox" value="24"> DOM </li>
+        <li class="list-group-item"> <input class="form-check-input me-1" type="checkbox" value="25">Manhã</li>
+        <li class="list-group-item"><input class="form-check-input me-1" type="checkbox" value="26">Tarde</li>
+        <li class="list-group-item"><input class="form-check-input me-1" type="checkbox" value="27">Noite</li>
+      </ul>
+    </div>
+</div>
+
+</form>
+
+
+
+{{#if errorMessage}}
+<p class="error">{{errorMessage}} </p>
+{{/if}}
 
 </div>
