@@ -4,9 +4,23 @@ const bcryptjs = require('bcryptjs');
 const saltRounds = 10;
 const User = require('../models/User.model');
 const mongoose = require('mongoose');
+const Category = require('../models/Category.model')
+const Content = require('../models/Content.model')
 
 
-router.get('/signup', (req, res) => res.render('signup'));
+router.get('/signup', (req, res) => { 
+  Category.find()
+    .then(allCategories => {  
+      const foundCategories = allCategories 
+      
+ Content.find() 
+    .then(allContents => {  
+      const foundContents = allContents 
+      res.render('signup', {data: {foundCategories, foundContents}}) 
+    }) 
+    .catch(error => next(error));
+   }) 
+});
 
 router.post('/signup', (req, res, next) => {
     const { email, password } = req.body;
