@@ -1,7 +1,5 @@
 const express = require("express");
 const router = express.Router();
-
-
 const User = require("../models/User.model");
 
 // // ********* require fileUploader in order to use it *********
@@ -12,20 +10,108 @@ const User = require("../models/User.model");
 // // ****************************************************************************************
 
 router.get("/user/:id/", (req, res) => {
-    const { id } = req.params;
+  const {
+    id
+  } = req.params;
   User.findById(id)
     .then((userFound) => {
-      res.render("user/main.hbs", { user: userFound });
+      res.render("user/main.hbs", {
+        user: userFound
+      });
     })
     .catch((err) => console.log(`Error while getting the user from the DB: ${err}`));
 });
 
 router.get("/user/:id/edit", (req, res) => {
-  const { id } = req.params;
+  const {
+    id
+  } = req.params;
   User.findById(id)
     .then((userToEdit) => res.render("user/edit.hbs", userToEdit))
     .catch((error) => console.log(`Error while getting a single user for edit: ${error}`));
 });
+
+//formulário 0 // 
+
+router.post('/signup', (req, res, next) => {
+
+  const {
+    email,
+    password,
+    completeName,
+    telefone,
+    city,
+    estate,
+    birthdate,
+    how_got_to_us,
+    skype_username,
+    zoom_username,
+    teams_username,
+    other_com,
+    other_com_username,
+    about,
+    imageUrl,
+    student_category,
+    student_content,
+    teacher_category,
+    teacher_content,
+    title_course,
+
+  } = req.body;
+
+  return user.create({
+    email,
+    password,
+    completeName,
+    telefone,
+    city,
+    estate,
+    birthdate,
+    how_got_to_us,
+    skype_username,
+    zoom_username,
+    teams_username,
+    other_com,
+    other_com_username,
+    about,
+    imageUrl,
+    student_category,
+    student_content,
+    teacher_category,
+    teacher_content,
+    title_course,
+  })
+   if (!email || !password) {
+    res.render('user/login', {
+      errorMessage: '!Please provide your email and password.'
+    });
+    return;
+  }
+  console.log(req.session);
+
+  User.findOne({
+      completeName
+    })
+    .then(user => {
+      if (!user) {
+        res.render('auth/login', {
+          errorMessage: 'USER  not registered.'
+        });
+        return;
+      } else if (bcryptjs.compareSync(password, user.password)) {
+        //   console.log(`${username} and password ${user.password}`)
+        req.session.currentUser = user;
+        res.redirect('/user/view_profile.hbs');
+      } else {
+        res.render('auth/login', {
+          errorMessage: 'Incorrect password.'
+        });
+      }
+    })
+    .catch(error => next(error));
+});
+
+
 
 // // ****************************************************************************************
 // // GET route to display the form to create a new movie
