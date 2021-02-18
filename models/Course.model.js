@@ -28,7 +28,6 @@ const courseSchema = new Schema(
         classes: Number,
         WeekAvailability: [String],
         HourAvailability: [String],
-        type_of_platform: String,
         times_lectured: Number,
         status: String,
     },

@@ -33,6 +33,11 @@ const userSchema = new Schema(
         other_com: String,
         other_com_username: String,
         about: String,
+        phone: {
+            // match: [/^(?:\+)[0-9]{2}\s?(?:\()[0-9]{2}(?:\))\s?[0-9]{4,5}(?:-)[0-9]{4}$/, "Insira telefone completo com DDD"],
+            type: String,
+        },
+      
         imageUrl: String, 
         student_category: Boolean,
         student_content: Boolean, 

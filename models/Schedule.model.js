@@ -6,7 +6,7 @@ const scheduleSchema = new Schema(
         course: { type: Schema.Types.ObjectId, ref: 'Course' },
         teacher: { type: Schema.Types.ObjectId, ref: 'User' },
         student: { type: Schema.Types.ObjectId, ref: 'User' },
-        schedule_dates: [Dates],
+        schedule_dates: [Date],
         status: String,
     },
     {
