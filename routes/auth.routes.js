@@ -29,7 +29,7 @@ router.post('/signup', (req, res, next) => {
       .then(hashedPassword => {
         return User.create({
           email,
-          password: hashedPassword
+          password: hashedPassword  
         });
       })
       .then(user => {
