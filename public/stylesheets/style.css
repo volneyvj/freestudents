@@ -166,10 +166,11 @@ justify-content: space-between;
 .carrossel-img { 
 width: 1300px;
 height: 700px;
-margin-left: 2%
+margin-left: 2%;
+display: flex; 
+position: relative;
 
   
-
 }
 
 .carrossel-button{ 
