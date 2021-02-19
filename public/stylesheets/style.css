@@ -177,7 +177,9 @@ position: relative;
   width:100px;
   height: 200px;
   opacity: 0.2;
+  background-color: #E9ECEF; 
   margin-top: 20%;
+  border-radius: 10px;
 }
 .carrossel-spam { 
   color: black;
