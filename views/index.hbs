@@ -3,19 +3,20 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light menu-login">
   <div class="container-fluid">
     <a class="navbar-brand logotipo" href="#">FreeStudents</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ul-mainPage">
-        
+
         <li class="nav-item li-mainPageHowToWork">
-          <a class="nav-link" href="#">Como funciona?</a>
+          <a class="nav-link" href="#comofunciona">Como funciona?</a>
         </li>
         <li class="nav-item li-mainPage">
           <a class="nav-link" href="/signup">Sign up</a>
         </li>
-{{!-- login --}}
+        {{!-- login --}}
       </ul>
        <form action="/login" class="form-menu" method="POST">
              <label class= 'label-login' for="exampleInputEmail1" class="form-label">Email</label>
@@ -37,85 +38,94 @@
 
 {{!-- Primeira parte --}} <br>
 
-<div id="carouselExampleControlsNoTouching" class="carousel slide div-carrossel" data-bs-touch="false" data-bs-interval="false">
+<div id="carouselExampleControlsNoTouching" class="carousel slide div-carrossel" data-bs-touch="false"
+  data-bs-interval="false">
   <div class="carousel-inner">
-        <div class="carousel-item active">
+    <div class="carousel-item active">
       <img src="../images/banner1.png" class="d-block carrossel-img " alt="...">
-         </div>
-        <div class="carousel-item">
-          <img src="../images/banner2.png" class="d-block carrossel-img" alt="...">
-        </div>
-        <div class="carousel-item">
+    </div>
+    <div class="carousel-item">
+      <img src="../images/banner2.png" class="d-block carrossel-img" alt="...">
+    </div>
+    <div class="carousel-item">
       <img src="../images/banner3.png" class="d-block carrossel-img" alt="...">
-     </div>
-     </div>
-  <button class="carousel-control-prev carrossel-button" type="button" data-bs-target="#carouselExampleControlsNoTouching" data-bs-slide="prev">
+    </div>
+  </div>
+  <button class="carousel-control-prev carrossel-button" type="button"
+    data-bs-target="#carouselExampleControlsNoTouching" data-bs-slide="prev">
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
     <span class="visually-hidden carrossel-spam">Previous</span>
   </button>
-  <button class="carousel-control-next carrossel-button" type="button" data-bs-target="#carouselExampleControlsNoTouching" data-bs-slide="next">
+  <button class="carousel-control-next carrossel-button" type="button"
+    data-bs-target="#carouselExampleControlsNoTouching" data-bs-slide="next">
     <span class="carousel-control-next-icon carrossel-spam" aria-hidden="true"></span>
     <span class="visually-hidden carrossel-spam">Next</span>
   </button>
 </div>
-<hr class ='hr-mainPage'>
+<hr class='hr-mainPage'>
 
-{{!-- Segunda parte --}} <br> <br> 
-<div class="container-sm text-center div-sec-part" > <h1> "Ensinar é mostrar que é possível. Aprender é tornar possível a si mesmo."</h1> </div>
+{{!-- Segunda parte --}} <br> <br>
+<div class="container-sm text-center div-sec-part">
+  <h1> "Ensinar é mostrar que é possível. Aprender é tornar possível a si mesmo."</h1>
+</div>
 
 
-{{!-- Terceira parte --}} <br> <br> 
+{{!-- Terceira parte --}} <br> <br>
 
+<h2 class='h2-mainPage '> Temos várias categorias de curso em nossa plataforma! Veja algumas</h2>
 <div class="row row-cols-1 row-cols-md-3 g-4">
   <div class="col">
     <div class="card h-100 div-thi-part">
-         <img src="..." class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                 <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-             </div>
-    
+      <img src="../images/idiomas.png" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h4 class="card-title">IDIOMAS</h4>
+        <p class="card-text p-mainPage">Aqui você pode encontrar professores de diversos idiomas! Que pode ajudar você
+          aprimorar ou começar a aprender uma língua nova</p>
+      </div>
+
     </div>
   </div>
   <div class="col">
     <div class="card h-100 div-thi-part">
-      <img src="..." class="card-img-top" alt="...">
+      <img src="../images/educacao.png" class="card-img-top" alt="...">
       <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+        <h4 class="card-title">EDUCAÇÃO ESCOLAR</h4>
+        <p class="card-text p-mainPage ">Você pode encontrar professores que irão te ajudar dando aquele reforço escolar
+          que você precisa em diferentes matérias e conteúdos!</p>
       </div>
-    
+
     </div>
   </div>
   <div class="col">
     <div class="card h-100 div-thi-part">
-      <img src="..." class="card-img-top" alt="...">
+      <img src="../images/tech.png" class="card-img-top" alt="...">
       <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+        <h4 class="card-title">TECNOLOGIAS</h4>
+        <p class="card-text p-mainPage"> Nessa categoria, você encontra diversos professores que te ensinam linguagens
+          de programação atuais, SQL entre outras tecnologias encontradas no mercado de trabalho.</p>
       </div>
-      
+
     </div>
   </div>
 </div>
 
-<hr class ='hr-mainPage'>
+<hr id="comofunciona" class='hr-mainPage'>
 
 {{!-- Quarta parte - Como funciona? --}}
 
-<div class="card mb-3 " style="max-width: 540px;">
-  <div class="row g-0 ">
-    <div class="col-md-4">
-      <img src="..." alt="...">
-        </div>
-     <div class="col-md-8">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-      </div>
-    </div>
+<div class=" div-comoFunciona">
+
+  <img src="../images/como-funciona.png" class="card-img  img-comoFunciona" alt="..." >
+  <div>
+    <h1>Como a FreeStudents funciona? </h1>
+    <p class="card-text p-comoFunciona">This is a wider card with supporting text below as a natural lead-in to
+      additional content. This content is a little bit longer. This is a wider card with supporting text below as a natural lead-in to
+      additional content. This content is a little bit longer.This is a wider card with supporting text below as a natural lead-in to
+      additional content. This content is a little bit longer. <br> <br>  This is a wider card with supporting text below as a natural lead-in to
+      additional content. This content is a little bit longer.This is a wider card with supporting text below as a natural lead-in to
+      additional content. This content is a little bit longer.<br> <br> This is a wider card with supporting text below as a natural lead-in to
+      additional content. This content is a little bit longer.</p>
+
+  <butto type="button" class="btn btn-outline-warning">Quero me inscrever  </button>
   </div>
 </div>
-
-

@@ -56,7 +56,7 @@ form button {
   text-align: center;
   width: 100%;
   font-size: 23px;
-  
+
 }
 
 .subtitulo-signUp {
@@ -74,66 +74,78 @@ form button {
 
 /* Tela de principal */
 
-.menu-login { 
+.menu-login {
   background-color: #E9ECEF !important;
 }
 
+.h2-mainPage {
+  text-align: center;
+}
+
+.p-mainPage {
+  font-size: 20px;
 
 
-.logotipo { 
+}
+
+.logotipo {
 
   font-size: 24px;
 }
 
-.ul-mainPage { 
-  display: flex; 
-   justify-content: space-around;
-   width: 25vw;
+.ul-mainPage {
+  display: flex;
+  justify-content: space-around;
+  width: 25vw;
 }
 
-.li-mainPage { 
-  
+.li-mainPage {
+
   font-size: 20px;
   margin-left: 5px;
 
- 
+
 }
-.li-mainPageHowToWork { 
+
+.li-mainPageHowToWork {
   font-size: 20px;
   margin-left: 20px;
 
 }
 
-a:link, a:visited {
-	text-decoration: none !important
-	}
+a:link,
+a:visited {
+  text-decoration: none !important
+}
+
 a:hover {
-	text-decoration: underline !important; 
-	color: #ffc107 !important
-	}
+  text-decoration: underline !important;
+  color: #ffc107 !important
+}
+
 a:active {
-	text-decoration: none !important
-	}
-
-
-
-.form-menu { 
- margin-left: 20%;
- margin-right: 5%;
-display: flex !important;
-justify-content: space-between !important; 
- align-items: baseline !important;
-
-}
-
-.label-login { 
-margin: 25px;
-justify-content: space-between;
-
+  text-decoration: none !important
 }
 
 
-/* Segunda parte */ 
+
+.form-menu {
+  margin-left: 20%;
+  margin-right: 5%;
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: baseline !important;
+
+}
+
+.label-login {
+  margin: 25px;
+  justify-content: space-between;
+
+}
+
+
+/* Segunda parte */
 
 .hr-mainPage {
   border: 10px solid #ffc107;
@@ -143,8 +155,8 @@ justify-content: space-between;
   margin-bottom: 5px;
 }
 
-.div-sec-part { 
-  padding-left: 10%; 
+.div-sec-part {
+  padding-left: 10%;
   padding-right: 10%;
   padding-top: 10%;
   padding-bottom: 10%;
@@ -152,39 +164,94 @@ justify-content: space-between;
 
 }
 
-.div-thi-part { 
- display: flex;
-    justify-content: center;
-    margin-left: 50px;
-    margin-right: 50px;
-    margin-top: 30px;
-    margin-bottom: 10px;
-    text-align: center;
-    border-color: transparent;
+.div-thi-part {
+  display: flex;
+  justify-content: center;
+  margin-left: 50px;
+  margin-right: 50px;
+  margin-top: 30px;
+  margin-bottom: 10px;
+  text-align: center;
+  border-color: transparent;
 }
 
-.carrossel-img { 
-width: 1300px;
-height: 700px;
-margin-left: 2%;
-display: flex; 
-position: relative;
+.carrossel-img {
+  width: 1300px;
+  height: 700px;
+  margin: auto;
+  display: flex;
+  position: relative;
 
-  
+
 }
 
-.carrossel-button{ 
-  width:100px;
+.carrossel-button {
+  width: 100px;
   height: 200px;
   opacity: 0.2;
-  background-color: #E9ECEF; 
+  background-color: #E9ECEF;
   margin-top: 20%;
   border-radius: 10px;
 }
-.carrossel-spam { 
+
+.carrossel-spam {
   color: black;
 
 }
+
+/*  Quarta parte - Como funciona? */
+
+.img-comoFunciona {
+  width: auto;
+  height: 550px;
+  margin: auto;
+
+
+}
+
+.div-comoFunciona {
+  margin-top: 60px;
+  margin-left: auto;
+  margin-bottom: 30px;
+  margin-right: auto;
+  padding: auto;
+  display: flex;
+  align-content: center;
+}
+
+.div-comoFunciona > div { 
+margin-left: 25px;
+margin-right: 40px;
+
+}
+
+.p-comoFunciona { 
+
+font-size: 25px;
+
+}
+
+/* Footer*/
+
+footer { 
+
+background-color: #ffc107;
+margin-top: 70px;
+padding-top: 30px;
+padding-bottom: 20px;
+
+justify-content: space-between;
+}
+
+.a-footer {
+color: black;
+}
+.a-footer:hover{ 
+  color: #E9ECEF;
+  background-color: black;
+}
+
+/* User profile    */
 
 .notifications {
   background-color: burlywood;
@@ -201,3 +268,4 @@ position: relative;
 .main-nav {
   background-color: #ffc107;
 }
+
