@@ -5,7 +5,7 @@ const saltRounds = 10;
 const User = require('../models/User.model');
 const mongoose = require('mongoose');
 const Category = require('../models/Category.model')
-const Content = require('../models/Content.model')
+const Content = require('../models/Course.model')
 
 
 router.get('/signup', (req, res) => { 
