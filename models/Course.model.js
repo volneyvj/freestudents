@@ -14,10 +14,10 @@ const courseSchema = new Schema(
             type: Schema.Types.ObjectId, ref: 'categories',
             required: [true, 'Categoria é necessário.'],
         },
-        // content: { 
-        //     type: Schema.Types.ObjectId, ref: 'Content',
-        //     required: [true, 'Conteúdo é necessário.'],
-        // },
+        content: { 
+            type: Schema.Types.ObjectId, ref: 'Content',
+            required: [true, 'Conteúdo é necessário.'],
+        },
         description: {
             type: String,
             required: [true, 'Escreva uma descriçào.'],

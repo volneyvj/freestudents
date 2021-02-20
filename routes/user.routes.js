@@ -16,27 +16,34 @@ const Schedule = require("../models/Schedule.model");
 router.get("/user/:id/", (req, res) => {
   const { id } = req.params;
     Schedule.find({$or:[{teacher: id},{student: id}]})
+  .populate('teacher')
+  .populate('student')
   .populate('course')
   .then((scheduleFound) => {
     const scheduleFounded = scheduleFound
   User.findById(id)
     .then((userFound) => {
       const userFounded = userFound
+      interest_category_id = userFounded.interests[0]
   Message.find({to: id})
   .then((msgFound) => {
     const messagesFounded = msgFound
-
+    Course.find({}).sort('category').limit(6)
+  .then((searchFound) => {
+      const searchFounded = searchFound
   
-      res.render("user/main.hbs", {data: {userFounded, messagesFounded, scheduleFounded}}) 
+      res.render("user/main.hbs", {data: {userFounded, messagesFounded, scheduleFounded, searchFounded}}) 
   })
     })
   })
+})
     .catch((err) => console.log(`Error while getting the user from the DB: ${err}`));
 });
 
 router.get("/user/:id/edit", (req, res) => {
   const { id } = req.params;
   User.findById(id)
+  .populate('my_courses')
     .then((userToEdit) => res.render("user/edit.hbs", userToEdit))
     .catch((error) => console.log(`Error while getting a single user for edit: ${error}`));
 });

@@ -185,3 +185,19 @@ position: relative;
   color: black;
 
 }
+
+.notifications {
+  background-color: burlywood;
+}
+
+.mycourses {
+  background-color: cadetblue;
+}
+
+.morecourses {
+  background-color: chocolate;
+}
+
+.main-nav {
+  background-color: #ffc107;
+}
