@@ -54,7 +54,7 @@ const userSchema = new Schema(
             },
         ],
            // SOMENTE para quem clicar no QUERO SER ESTUDANTE 
-           interests: [String],
+           interests: [{ type: Schema.Types.ObjectId, ref: 'categories' }],
   
 
 // a partir daqui nao é preenchido, atualiazado conforme uso do aplicativo:

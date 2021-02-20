@@ -1,1 +1,187 @@
-<h2>Pagina de Ediçao do Usuario</h2>
+<h2>Pagina de Ediçao do Usuario</h2> 
+
+<p>
+     <form action="/signup" enctype="multipart/form-data" method="POST">
+
+    <label for="input-completeName">Nome completo</label>
+    <input type="text" id="input-completeName" name="name" value="{{name}}"/>
+
+    <label for="input-email">E-mail</label>
+    <input type="text" id="input-email" name="email" value="{{email}}"/>
+
+    <label for="input-password">Mudar Senha</label>
+    <input type="password" name="password" id="input-password"/>
+
+    <label for="input-telefone">Telefone</label>
+    <input type="text" id="input-telefone" name="telefone" value="{{phone}}" />
+
+
+    
+
+    <label for="input-city">Cidade</label>
+    <input type="text" id="input-city" name="city" value={{city}} />
+     <h4 class="h4-signUp">Selecione seu estado</h4>
+    <select name="estate">
+      <option value="0">Selecione</option>
+      <option value="1">AC</option>
+      <option value="2">AL</option>
+      <option value="3">AP</option>
+      <option value="4">AM</option>
+      <option value="5">BA</option>
+      <option value="6">CE</option>
+      <option value="7">ES</option>
+      <option value="8">GO</option>
+      <option value="9">MA</option>
+      <option value="10">MT</option>
+      <option value="11">MS</option>
+      <option value="12">MG</option>
+      <option value="13">PA</option>
+      <option value="14">PB</option>
+      <option value="15">PR</option>
+      <option value="16">PE</option>
+      <option value="17">PI</option>
+      <option value="18">RJ</option>
+      <option value="19">RN</option>
+      <option value="20">RS</option>
+      <option value="21">RO</option>
+      <option value="22">RR</option>
+      <option value="23">SC</option>
+      <option value="24">SP</option>
+      <option value="25">SE</option>
+      <option value="26">TO</option>
+      <option value="26">DF</option>
+    </select>
+
+    <label for="input-city">Data de nascimento</label>
+    <input type="date" id="input-birthdate" name="birthdate" value="{{birthdate}}" />
+
+
+
+    <label for="input-skypeUsername">Skype Username</label>
+    <input type="text" id="input-skype" name="skype_username" value="{{skype_username}}" />
+
+    <label for="input-zoomUsername">Zoom Username</label>
+    <input type="text" id="input-zoom" name="zoom_username" value="{{zoom_username}}" />
+
+    <label for="input-teamsUsername">Teams Username</label>
+    <input type="text" id="input-teams" name="teams_username" value="{{teams_username}}" />
+
+    <label for="input-teamsUsername">Outras plataformas</label>
+    <input type="text" id="input-teams" name="other_com" value="{{other_com}}" />
+
+    <label for="input-teamsUsername">Username da plataforma</label>
+    <input type="text" id="input-teams" name="other_com_username" value="{{other_username}}" />
+ 
+  <div class="mb-3">
+  
+    <label for="exampleFormControlTextarea1" class="form-label">Fale um pouco sobre você:</label>
+    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3">{{about}}</textarea>
+</div>
+    <section>
+      <h4 class="h4-signUp">Altere sua foto aqui</h4> 
+        <input type="file" name="imageUrl" /> 
+     
+    </section>
+    </form>
+
+{{!--     
+  
+        <h4 class="h4-signUp"> O que você quer aprender? Veja as opções:</h4>
+
+        <select name='student-category' class="custom-select subtitulo-signUp">
+          <option value="0">Selecione a categoria:</option>
+          {{#each data.foundCategories}}
+          <option value="{{this.id}}">{{this.name}}</option>
+          {{/each}}
+        </select>
+
+        <select name="student_content" class="custom-select subtitulo-signUp">
+
+          <option value="0">Selecione o conteúdo:</option>
+          {{#each data.foundContents}}
+          <option value="{{this.id}}">{{this.name}}</option>
+          {{/each}}
+        </select>
+      </div>
+
+
+       {{!-- {{#if my_courses.length>0}}
+     --}}
+
+        Seus Cursos qaqui:
+        {{#each my_courses}}
+            {{this.name}}
+            {{/each}} 
+
+        {{!-- {{/if}} --}}
+
+      {{!-- formulário 2 --}}
+
+{{!-- 
+        <h4 class="h4-signUp"> Você quer dar aula do quê? Veja as opções:</h4>
+        <select name="teacher_category" class="custom-select subtitulo-signUp">
+          <option value="0">Selecione a categoria:</option>
+          {{#each data.foundCategories}}
+          <option value="{{this.id}}">{{this.name}}</option>
+          {{/each}}
+        </select>
+
+        <select name="teacher-content" class="custom-select subtitulo-signUp">
+          <option value="0">Selecione o conteúdo:</option>
+          {{#each data.foundContents}}
+          <option value="{{this.id}}">{{this.name}}</option>
+          {{/each}}
+        </select>
+    
+
+      <label for="input-about">Título do seu curso </label>
+      <input type="text" id="input-about" name="title_course" value="Insira o título aqui" />
+
+
+      <ul class="list-group list-group-horizontal">
+        <li class="list-group-item"> <input class="form-check-input me-1" type="checkbox" value="0"> SEG </li>
+        <li class="list-group-item"> <input class="form-check-input me-1" type="checkbox" value="1">Manhã</li>
+        <li class="list-group-item"><input class="form-check-input me-1" type="checkbox" value="2">Tarde</li>
+        <li class="list-group-item"><input class="form-check-input me-1" type="checkbox" value="3">Noite</li>
+      </ul>
+      <ul class="list-group list-group-horizontal-sm">
+        <li class="list-group-item"> <input class="form-check-input me-1" type="checkbox" value="4"> TER </li>
+        <li class="list-group-item"> <input class="form-check-input me-1" type="checkbox" value="5">Manhã</li>
+        <li class="list-group-item"><input class="form-check-input me-1" type="checkbox" value="6">Tarde</li>
+        <li class="list-group-item"><input class="form-check-input me-1" type="checkbox" value="7">Noite</li>
+      </ul>
+      <ul class="list-group list-group-horizontal-sm">
+        <li class="list-group-item"> <input class="form-check-input me-1" type="checkbox" value="8"> QUA </li>
+        <li class="list-group-item"> <input class="form-check-input me-1" type="checkbox" value="9">Manhã</li>
+        <li class="list-group-item"><input class="form-check-input me-1" type="checkbox" value="10">Tarde</li>
+        <li class="list-group-item"><input class="form-check-input me-1" type="checkbox" value="11">Noite</li>
+      </ul>
+      <ul class="list-group list-group-horizontal-sm">
+        <li class="list-group-item"> <input class="form-check-input me-1" type="checkbox" value="12"> QUI </li>
+        <li class="list-group-item"> <input class="form-check-input me-1" type="checkbox" value="13">Manhã</li>
+        <li class="list-group-item"><input class="form-check-input me-1" type="checkbox" value="14">Tarde</li>
+        <li class="list-group-item"><input class="form-check-input me-1" type="checkbox" value="15">Noite</li>
+      </ul>
+      <ul class="list-group list-group-horizontal-sm">
+        <li class="list-group-item"> <input class="form-check-input me-1" type="checkbox" value="16"> SEX </li>
+        <li class="list-group-item"> <input class="form-check-input me-1" type="checkbox" value="17">Manhã</li>
+        <li class="list-group-item"><input class="form-check-input me-1" type="checkbox" value="18">Tarde</li>
+        <li class="list-group-item"><input class="form-check-input me-1" type="checkbox" value="19">Noite</li>
+      </ul>
+      <ul class="list-group list-group-horizontal-sm">
+        <li class="list-group-item"> <input class="form-check-input me-1" type="checkbox" value="20"> SAB </li>
+        <li class="list-group-item"> <input class="form-check-input me-1" type="checkbox" value="21">Manhã</li>
+        <li class="list-group-item"><input class="form-check-input me-1" type="checkbox" value="22">Tarde</li>
+        <li class="list-group-item"><input class="form-check-input me-1" type="checkbox" value="23">Noite</li>
+      </ul>
+      <ul class="list-group list-group-horizontal-sm">
+        <li class="list-group-item"> <input class="form-check-input me-1" type="checkbox" value="24"> DOM </li>
+        <li class="list-group-item"> <input class="form-check-input me-1" type="checkbox" value="25">Manhã</li>
+        <li class="list-group-item"><input class="form-check-input me-1" type="checkbox" value="26">Tarde</li>
+        <li class="list-group-item"><input class="form-check-input me-1" type="checkbox" value="27">Noite</li>
+      </ul>
+    </div>
+</div>
+
+</form>
+</p>  --}}

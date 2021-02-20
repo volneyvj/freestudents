@@ -1,1 +1,15 @@
 <h2>Pagina de Pesquisa de cursos, fora da main</h2>
+
+
+<p>
+
+    {{#each coursesF}}
+       <ul>
+<li>{{this.name}}<a href="/courses-details/{{this._id}}">Saber Mais</a></li> <br>
+{{this.description}}<br>
+Professor: {{this.user.name}}
+<br>Categoria: {{this.category.name}}
+</P>
+
+{{/each}}
+</ul>   
