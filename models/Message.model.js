@@ -4,8 +4,8 @@ const { Schema, model } = mongoose;
 const messageSchema = new Schema(
     {
         message: String,
-        from: { type: Schema.Types.ObjectId, ref: 'User' },
-        to: { type: Schema.Types.ObjectId, ref: 'User' },
+        from: { type: Schema.Types.ObjectId, ref: 'users' },
+        to: { type: Schema.Types.ObjectId, ref: 'users' },
         status: String,
     },
     {
@@ -13,5 +13,5 @@ const messageSchema = new Schema(
     }
 );
 
-module.exports = model("Messages", messageSchema);
+module.exports = model("messages", messageSchema);
 

@@ -1,6 +1,10 @@
 const express = require("express");
 const router = express.Router();
 const User = require("../models/User.model");
+const Message = require("../models/Message.model");
+const Course = require("../models/Course.model");
+const Schedule = require("../models/Schedule.model");
+
 
 // // ********* require fileUploader in order to use it *********
 // const fileUploader = require("../configs/cloudinary.config");
@@ -10,26 +14,33 @@ const User = require("../models/User.model");
 // // ****************************************************************************************
 
 router.get("/user/:id/", (req, res) => {
-  const {
-    id
-  } = req.params;
+  const { id } = req.params;
+    Schedule.find({$or:[{teacher: id},{student: id}]})
+  .populate('course')
+  .then((scheduleFound) => {
+    const scheduleFounded = scheduleFound
   User.findById(id)
     .then((userFound) => {
-      res.render("user/main.hbs", {
-        user: userFound
-      });
+      const userFounded = userFound
+  Message.find({to: id})
+  .then((msgFound) => {
+    const messagesFounded = msgFound
+
+  
+      res.render("user/main.hbs", {data: {userFounded, messagesFounded, scheduleFounded}}) 
+  })
     })
+  })
     .catch((err) => console.log(`Error while getting the user from the DB: ${err}`));
 });
 
 router.get("/user/:id/edit", (req, res) => {
-  const {
-    id
-  } = req.params;
+  const { id } = req.params;
   User.findById(id)
     .then((userToEdit) => res.render("user/edit.hbs", userToEdit))
     .catch((error) => console.log(`Error while getting a single user for edit: ${error}`));
 });
+
 
 //formulário 0 // 
 
@@ -81,34 +92,34 @@ router.post('/signup', (req, res, next) => {
     teacher_content,
     title_course,
   })
-   if (!email || !password) {
-    res.render('user/login', {
-      errorMessage: '!Please provide your email and password.'
-    });
-    return;
-  }
-  console.log(req.session);
+//    if (!email || !password) {
+//     res.render('user/login', {
+//       errorMessage: '!Please provide your email and password.'
+//     });
+//     return;
+//   }
+//   console.log(req.session);
 
-  User.findOne({
-      completeName
-    })
-    .then(user => {
-      if (!user) {
-        res.render('auth/login', {
-          errorMessage: 'USER  not registered.'
-        });
-        return;
-      } else if (bcryptjs.compareSync(password, user.password)) {
-        //   console.log(`${username} and password ${user.password}`)
-        req.session.currentUser = user;
-        res.redirect('/user/view_profile.hbs');
-      } else {
-        res.render('auth/login', {
-          errorMessage: 'Incorrect password.'
-        });
-      }
-    })
-    .catch(error => next(error));
+//   User.findOne({
+//       completeName
+//     })
+//     .then(user => {
+//       if (!user) {
+//         res.render('auth/login', {
+//           errorMessage: 'USER  not registered.'
+//         });
+//         return;
+//       } else if (bcryptjs.compareSync(password, user.password)) {
+//         //   console.log(`${username} and password ${user.password}`)
+//         req.session.currentUser = user;
+//         res.redirect('/user/view_profile.hbs');
+//       } else {
+//         res.render('auth/login', {
+//           errorMessage: 'Incorrect password.'
+//         });
+//       }
+//     })
+//     .catch(error => next(error));
 });
 
 

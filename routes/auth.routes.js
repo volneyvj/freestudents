@@ -13,7 +13,7 @@ router.get('/signup', (req, res) => {
     .then(allCategories => {  
       const foundCategories = allCategories 
       
- Content.find() 
+ Category.find() 
     .then(allContents => {  
       const foundContents = allContents 
       res.render('signup', {data: {foundCategories, foundContents}}) 

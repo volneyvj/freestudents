@@ -7,4 +7,10 @@ router.get("/profile/:id/", (req, res, next) => {
     res.render("user/view_profile")
 });
 
+
+
+
+
 module.exports = router;
+
+

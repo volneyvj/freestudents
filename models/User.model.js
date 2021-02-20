@@ -50,7 +50,7 @@ const userSchema = new Schema(
         // somente para quem clicar no QUERO SER PROFESSOR
         my_courses: [
             {
-                courseid: { type: Schema.Types.ObjectId, ref: 'Course' },
+                courseid: { type: Schema.Types.ObjectId, ref: 'courses' },
             },
         ],
            // SOMENTE para quem clicar no QUERO SER ESTUDANTE 
@@ -61,26 +61,26 @@ const userSchema = new Schema(
 
         rating: Number,   // colocar numero padrao quando nao coloca
         given_rates: [{
-            userid: { type: Schema.Types.ObjectId, ref: 'User' },
+            userid: { type: Schema.Types.ObjectId, ref: 'users' },
             given_rate: Number,
         },
         {
             timestamps: true
         },
         ],
-        registrated_courses: [
-            {
-                courseid: { type: Schema.Types.ObjectId, ref: 'Course' },
-                schedules: [{ type: Schema.Types.ObjectId, ref: 'Schedule' }],
-                status: String,
-                lecturing: Boolean,
-                classes_completed: Number,
-            },
-        ],
+        // registrated_courses: [
+        //     {
+        //         courseid: { type: Schema.Types.ObjectId, ref: 'Course' },
+        //         schedules: [{ type: Schema.Types.ObjectId, ref: 'Schedule' }],
+        //         status: String,
+        //         lecturing: Boolean,
+        //         classes_completed: Number,
+        //     },
+        // ],
 
         messages: [
             {
-                messageid: { type: Schema.Types.ObjectId, ref: 'Message' },
+                messageid: { type: Schema.Types.ObjectId, ref: 'messages' },
             },
         ],
 
@@ -103,6 +103,6 @@ const userSchema = new Schema(
 );
 
 
-module.exports = model("Users", userSchema);
+module.exports = model("users", userSchema);
 
 
