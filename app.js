@@ -52,6 +52,7 @@ app.locals.title = 'Express - Generated with IronGenerator';
 var Course = require('./models/Course.model.js')
 
 app.use('/', require('./routes/index.routes.js'));
+app.use('/', require('./routes/index.routes'));
 app.use('/', require('./routes/auth.routes'));
 app.use('/', require('./routes/courses.routes'));
 app.use('/', require('./routes/messages.routes'));

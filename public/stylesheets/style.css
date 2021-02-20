@@ -71,3 +71,117 @@ form button {
   margin-left: 250px;
 
 }
+
+/* Tela de principal */
+
+.menu-login { 
+  background-color: #E9ECEF !important;
+}
+
+
+
+.logotipo { 
+
+  font-size: 24px;
+}
+
+.ul-mainPage { 
+  display: flex; 
+   justify-content: space-around;
+   width: 25vw;
+}
+
+.li-mainPage { 
+  
+  font-size: 20px;
+  margin-left: 5px;
+
+ 
+}
+.li-mainPageHowToWork { 
+  font-size: 20px;
+  margin-left: 20px;
+
+}
+
+a:link, a:visited {
+	text-decoration: none !important
+	}
+a:hover {
+	text-decoration: underline !important; 
+	color: #ffc107 !important
+	}
+a:active {
+	text-decoration: none !important
+	}
+
+
+
+.form-menu { 
+ margin-left: 20%;
+ margin-right: 5%;
+display: flex !important;
+justify-content: space-between !important; 
+ align-items: baseline !important;
+
+}
+
+.label-login { 
+margin: 25px;
+justify-content: space-between;
+
+}
+
+
+/* Segunda parte */ 
+
+.hr-mainPage {
+  border: 10px solid #ffc107;
+  border-radius: 5px;
+  width: 50%;
+  margin-top: 30px;
+  margin-bottom: 5px;
+}
+
+.div-sec-part { 
+  padding-left: 10%; 
+  padding-right: 10%;
+  padding-top: 10%;
+  padding-bottom: 10%;
+  background-color: #E9ECEF;
+
+}
+
+.div-thi-part { 
+ display: flex;
+    justify-content: center;
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-top: 30px;
+    margin-bottom: 10px;
+    text-align: center;
+    border-color: transparent;
+}
+
+.carrossel-img { 
+width: 1300px;
+height: 700px;
+margin-left: 2%;
+display: flex; 
+position: relative;
+
+  
+}
+
+.carrossel-button{ 
+  width:100px;
+  height: 200px;
+  opacity: 0.2;
+  background-color: #E9ECEF; 
+  margin-top: 20%;
+  border-radius: 10px;
+}
+.carrossel-spam { 
+  color: black;
+
+}

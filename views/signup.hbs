@@ -3,9 +3,8 @@
 
 
   <h2>Pagina de SignUp</h2>
-
   {{!-- formulário 0 --}}
-  <form action="/signup" method="POST">
+  <form action="/signup" enctype="multipart/form-data" method="POST">
 
     <label for="input-completeName">Nome completo</label>
     <input type="text" id="input-completeName" name="name" placeholder="Insira seu Nome completo" />
@@ -23,11 +22,11 @@
     <input type="text" id="input-telefone" name="telefone" placeholder="Telefone" />
 
 
-    <h4 class="h4-signUp">Selecione seu estado</h4>
+    
 
     <label for="input-city">Cidade</label>
     <input type="text" id="input-city" name="city" placeholder="Insira sua cidade" />
-
+     <h4 class="h4-signUp">Selecione seu estado</h4>
     <select name="estate" class="custom-select subtitulo-signUp">
       <option value="0">Selecione</option>
       <option value="1">AC</option>
@@ -89,16 +88,16 @@
 
     <label for="input-teamsUsername">Username da plataforma</label>
     <input type="text" id="input-teams" name="other_com_username" placeholder="Insira o username da plataforma" />
-
-    <label for="input-about">Uma descrição sobre você: </label>
-    <input type="text" id="input-about" name="about" placeholder="Insira o texto aqui" />
-
+ 
+  <div class="mb-3">
+  
+    <label for="exampleFormControlTextarea1" class="form-label">Fale um pouco sobre você:</label>
+    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+</div>
     <section>
-      <h4 class="h4-signUp">Insira sua foto aqui</h4>
-      <form action="/upload" method="post" enctype="multipart/form-data">
-        <input type="file" name="imageUrl" />
-        <input type="submit" value="Save" />
-      </form>
+      <h4 class="h4-signUp">Insira sua foto aqui</h4> 
+        <input type="file" name="imageUrl" /> 
+     
     </section>
 
     <div class="subtitulo-signUp">
@@ -107,7 +106,7 @@
     </div>
 
     <div class="checkbox">
-      <button onclick="queroAprenderForm()" type="button">Quero aprender</button>
+      <button onclick="queroAprenderForm()" class="btn btn-lg btn-primary disabled" tabindex="-1" role="button" aria-disabled="true" type="button">Quero aprender</button>
       <button onclick="queroEnsinarForm()" type="button">Quero Ensinar</button>
 
       {{!-- formulário 1 --}}

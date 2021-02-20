@@ -16,7 +16,7 @@ mongoose
   )
   .catch(err => console.error('Error connecting to mongo', err));
 
-// criacao categorias e conteudos
+// criacao categorias e conteudos // 
 
 // const categories = [
 //   {
@@ -338,7 +338,7 @@ mongoose
 //   {
 //       name: "Curso de WEBDEV para iniciantes",
 //       category: tecno,
-//       content: "602db676593d3e15ee1a65bd",
+//       content: "602ef7033baac26e9a19eb9e",
 //       description: "Um curso bem bacana e facil",
 //       user: volney,
 //       classes: 5,
@@ -350,7 +350,7 @@ mongoose
 //   {
 //     name: "Curso de CULINARIA DA maria",
 //     category: culinar,
-//     content: "602db677593d3e15ee1a65d4",
+//     content: "602ef7033baac26e9a19ebb2",
 //     description: "Um curso de comida italiana e facil",
 //     user: maria,
 //     classes: 4,
