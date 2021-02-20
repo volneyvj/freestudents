@@ -1,1 +1,55 @@
-<h2>Pagina principal do usuario</h2>
+<h2>Tela do user</h2>
+
+
+<div> 
+    <img src="https://http2.mlstatic.com/D_NQ_NP_649193-MLB29644269390_032019-O.webp">
+    <a href="/edit">Meu Perfil</a>
+    <a href="#meuscursos">Meus Cursos</a>
+    <a href="#maiscursos">+ Cursos </a>
+</div>
+
+<section id="info">
+{{data.userFounded.name}}
+<br>
+{{data.userFounded.email}}
+<br>
+{{data.userFounded.phone}}
+</section>
+
+<section id="notificacoes">
+{{#each data.messagesFounded}}
+{{this.message}}
+<br>
+{{/each}}
+</section>
+<br>
+
+<section id="meuscursos">
+    {{#each data.scheduleFounded}}
+    Nome cURSO:
+{{this.course.name}}
+
+<br>
+{{this.course.description}}
+{{!-- {{data.scheduleFounded.teacher.name}} --}}
+{{!-- CAREGORIA:
+{{this.course.category}} - 
+{{this.course.content}} --}}
+<br>
+{{!-- DISPONIBILIDADE:
+{{this.schedule_dates}}
+<br> Classe COMMPLETADAS: 
+{{this.classes_completed}}
+<br> --}}
+
+{{/each}}
+</section>
+
+
+
+<section id="maiscursos">
+
+
+
+
+</section>

@@ -5,7 +5,6 @@ const saltRounds = 10;
 const User = require('../models/User.model');
 const mongoose = require('mongoose');
 const Category = require('../models/Category.model')
-const Content = require('../models/Content.model')
 
 
 router.get('/signup', (req, res) => { 
@@ -13,7 +12,7 @@ router.get('/signup', (req, res) => {
     .then(allCategories => {  
       const foundCategories = allCategories 
       
- Content.find() 
+ Category.find() 
     .then(allContents => {  
       const foundContents = allContents 
       res.render('signup', {data: {foundCategories, foundContents}}) 

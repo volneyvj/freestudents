@@ -384,7 +384,7 @@ mongoose
 //         const cursocul = cursoFound2[0]
 //         User.find({ name: 'Maria de Deus' }, '_id')
 //           .then(mariaFound => {
-//             var maria = mariaFound[0]
+//             var joao = mariaFound[0]
 //             User.find({ name: 'VOLNEY de Deus' }, '_id')
 //               .then(volneyFound => {
 //                 const volney = volneyFound[0]
@@ -393,13 +393,14 @@ mongoose
 //                   {
 //                     course: cursocul,
 //                     teacher: volney,
-//                     student: maria,
+//                     student: joao,
 //                     schedule_dates: [01/03/2021, 01/04/2021, 02/04/2021],
 //                     status: "Programado",
+//                     classes_completed: 0,
 //                   },
 //                   {
 //                     course: cursoweb,
-//                     teacher: maria,
+//                     teacher: joao,
 //                     student: volney,
 //                     schedule_dates: [10/02/2021, 11/02/2021, 12/02/2021, 13/02/2021],
 //                     status: "Concluido",
@@ -418,4 +419,21 @@ mongoose
 //   .catch((error) => console.log(`Error while getting a user ${error}`));
 
 
+// nao precisa, apenas par consulta..
 
+// User.find({ name: 'Joao de Deus' }, '_id')
+//   .then(userFound => {
+//     const joao = userFound[0]
+
+// Course.find({ name: 'Curso de CULINARIA DA maria' }, '_id')
+//   .then(courseFound => {
+//     const idCurso = courseFound[0]
+   
+//     User.findByIdAndUpdate(joao, {$push: {registrated_courses.courseid: idCurso,  }}, { new: true })
+//       .then(updateuSER => console.log ("okkk"))
+
+//   })
+// })
+//     .catch(error => console.log(`Error while updating a single movie: ${error}`));
+
+    
