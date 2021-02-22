@@ -61,15 +61,15 @@ app.use('/', require('./routes/schedule.routes'));
 app.use('/', require('./routes/user.routes'));
 app.use('/', require('./routes/admin.routes'));
 
-// Catch all error handler
-app.use((error, req, res) => {
-  // Set error information, with stack only available in development
-  res.locals.message = error.message;
-  res.locals.error = req.app.get('env') === 'development' ? error : {};
+// // Catch all error handler
+// app.use((error, req, res) => {
+//   // Set error information, with stack only available in development
+//   res.locals.message = error.message;
+//   res.locals.error = req.app.get('env') === 'development' ? error : {};
 
-  // render the error page
-  res.status(error.status || 500);
-  res.render('error');
-});
+//   // render the error page
+//   res.status(error.status || 500);
+//   res.render('error');
+// });
 
 module.exports = app;

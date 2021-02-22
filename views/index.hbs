@@ -14,25 +14,27 @@
           <a class="nav-link" href="#comofunciona">Como funciona?</a>
         </li>
         <li class="nav-item li-mainPage">
-          <a class="nav-link" href="#">Sign up</a>
+          <a class="nav-link" href="/signup">Sign up</a>
         </li>
         {{!-- login --}}
       </ul>
-      <div class='form-menu'>
-        <label class='label-login' for="exampleInputEmail1" class="form-label">Email</label>
-        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+       <form action="/login" class="form-menu" method="POST">
+             <label class= 'label-login' for="exampleInputEmail1" class="form-label">Email</label>
+            <input type="email"  name="email" class="form-control" id="email" aria-describedby="emailHelp">
+         
+          <label  class= 'label-login' for="exampleInputPassword1" class="form-label">Senha</label>
+            <input  type="password" name="password" class="form-control" id="password"> 
 
-        <label class='label-login' for="exampleInputPassword1" class="form-label">Senha</label>
-        <input type="password" class="form-control" id="exampleInputPassword1">
+  <button type="submit" class="btn btn-warning">Login</button>
 
-
-      </div>
-      <button type="button" class="btn btn-warning">Login</button>
-
+</form>
     </div>
   </div>
 </nav>
 
+    {{#if errorMessage}}
+<p class="error">{{errorMessage}} </p>
+{{/if}}
 
 {{!-- Primeira parte --}} <br>
 

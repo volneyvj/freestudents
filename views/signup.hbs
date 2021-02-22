@@ -1,10 +1,15 @@
-<script src="/public/javascripts/"></script>
+
 <div class="formulario" id="form1-signUp">
 
 
   <h2>Pagina de SignUp</h2>
   {{!-- formulário 0 --}}
-  <form action="/signup" enctype="multipart/form-data" method="POST">
+
+  {{#if errorMessage}}
+<p class="error">{{errorMessage}} </p>
+{{/if}}
+
+  <form action="/signup" method="POST">
 
     <label for="input-completeName">Nome completo</label>
     <input type="text" id="input-completeName" name="name" placeholder="Insira seu Nome completo" />
@@ -15,19 +20,14 @@
     <label for="input-password">Senha</label>
     <input type="password" name="password" id="input-password" placeholder="********" />
 
-    <label for="input-password">Confirme a senha</label>
-    <input type="password" name="confirmedPassword" id="input-password" placeholder="********" />
+    <label for="input-cpassword">Confirme a senha</label>
+    <input type="password" name="confirmedPassword" id="input-cpassword" placeholder="********" />
 
     <label for="input-telefone">Telefone</label>
-    <input type="text" id="input-telefone" name="telefone" placeholder="Telefone" />
+    <input type="text" id="input-telefone" name="phone" placeholder="Telefone" />
 
-
-    
-
-    <label for="input-city">Cidade</label>
-    <input type="text" id="input-city" name="city" placeholder="Insira sua cidade" />
-     <h4 class="h4-signUp">Selecione seu estado</h4>
-    <select name="estate" class="custom-select subtitulo-signUp">
+    <h4 class="h4-signUp">Selecione seu estado</h4>
+    <select name="state" class="custom-select subtitulo-signUp">
       <option value="0">Selecione</option>
       <option value="1">AC</option>
       <option value="2">AL</option>
@@ -56,12 +56,13 @@
       <option value="25">SE</option>
       <option value="26">TO</option>
       <option value="26">DF</option>
-
     </select>
+
+     <label for="input-city">Cidade</label>
+    <input type="text" id="input-city" name="city" placeholder="Insira sua cidade" />
 
     <label for="input-city">Data de nascimento</label>
     <input type="date" id="input-birthdate" name="birthdate" placeholder="Insira sua data de nascimento" />
-
 
     <h4 class="h4-signUp" name="how_got_to_us">Como ficou sabendo da FreeStudents?</h4>
     <select class="custom-select subtitulo-signUp">
@@ -69,11 +70,10 @@
       <option value="1">Amigos</option>
       <option value="2">Redes Sociais</option>
       <option value="3">Google</option>
-
+    </select>
       <label for="input-outros">Outros meios</label>
       <input type="text" id="input-outros" name="how_got_to_us" placeholder="Insira o outro meio" />
-
-    </select>
+  
     <label for="input-skypeUsername">Skype Username</label>
     <input type="text" id="input-skype" name="skype_username" placeholder="Insira seu skype username" />
 
@@ -86,18 +86,17 @@
     <label for="input-teamsUsername">Outras plataformas</label>
     <input type="text" id="input-teams" name="other_com" placeholder="Insira o nome da plataforma" />
 
-    <label for="input-teamsUsername">Username da plataforma</label>
+    <label for="input-teamsUsername">Username desta plataforma</label>
     <input type="text" id="input-teams" name="other_com_username" placeholder="Insira o username da plataforma" />
  
   <div class="mb-3">
-  
-    <label for="exampleFormControlTextarea1" class="form-label">Fale um pouco sobre você:</label>
-    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+    <label for="about" class="form-label">Fale um pouco sobre você:</label>
+    <textarea class="form-control" name="about" id="about" rows="3"></textarea>
 </div>
+
     <section>
       <h4 class="h4-signUp">Insira sua foto aqui</h4> 
         <input type="file" name="imageUrl" /> 
-     
     </section>
 
     <div class="subtitulo-signUp">
@@ -106,8 +105,8 @@
     </div>
 
     <div class="checkbox">
-      <button onclick="queroAprenderForm()" class="btn btn-lg btn-primary disabled" tabindex="-1" role="button" aria-disabled="true" type="button">Quero aprender</button>
-      <button onclick="queroEnsinarForm()" type="button">Quero Ensinar</button>
+      <button name="student" onclick="queroAprenderForm()" class="btn btn-lg btn-primary disabled" tabindex="-1" role="button" aria-disabled="true" type="button">Quero aprender</button>
+      <button name="teacher" onclick="queroEnsinarForm()" type="button">Quero Ensinar</button>
 
       {{!-- formulário 1 --}}
 
@@ -115,7 +114,7 @@
 
         <h4 class="h4-signUp"> O que você quer aprender? Veja as opções:</h4>
 
-        <select name='student-category' class="custom-select subtitulo-signUp">
+        <select class="custom-select subtitulo-signUp" onChange="categorySelected()" name='interests' id="interests-input">
           <option value="0">Selecione a categoria:</option>
           {{#each data.foundCategories}}
           <option value="{{this.id}}">{{this.name}}</option>
@@ -123,10 +122,9 @@
         </select>
 
         <select name="student_content" class="custom-select subtitulo-signUp">
-
           <option value="0">Selecione o conteúdo:</option>
-          {{#each data.foundContents}}
-          <option value="{{this.id}}">{{this.name}}</option>
+          {{#each showContents.content}}
+          <option value="{{this.name}}">{{this.name}}</option>
           {{/each}}
         </select>
       </div>
@@ -135,76 +133,81 @@
 
       <div id='formQueroEnsinar' style="display: none">
         <h4 class="h4-signUp"> Você quer dar aula do quê? Veja as opções:</h4>
-        <select name="teacher_category" class="custom-select subtitulo-signUp">
+
+           <select class="custom-select subtitulo-signUp" onChange="categorySelected()" name='teacher_category' id="teacher-category-input">
           <option value="0">Selecione a categoria:</option>
           {{#each data.foundCategories}}
           <option value="{{this.id}}">{{this.name}}</option>
           {{/each}}
         </select>
 
-        <select name="teacher-content" class="custom-select subtitulo-signUp">
+        <select name="teacher_content" class="custom-select subtitulo-signUp">
           <option value="0">Selecione o conteúdo:</option>
-          {{#each data.foundContents}}
-          <option value="{{this.id}}">{{this.name}}</option>
+          {{#each data.foundCategories}}
+          <option value="{{this.content.0.content_name}}">{{this.content.0.content_name}}</option>
           {{/each}}
         </select>
+   
+      <label for="input-about">Título do seu curso </label>
+      <input type="text" id="input-about" name="course_name" placeholder="Insira o título aqui" />
+
+      <div class="mb-3">
+          <label for="input-course_description" class="form-label">Descreva sobre seu curso:</label>
+          <textarea class="form-control" name="course_description" id="input-course_description" rows="3"></textarea>
       </div>
 
-      <label for="input-about">Título do seu curso </label>
-      <input type="text" id="input-about" name="title_course" placeholder="Insira o título aqui" />
+ <label for="input-classes_number" class="form-label">Quantas Aulas por Módulo
+   <a data-toggle="tooltip" title="Escolha o mínimo de aulas para iniciar o básico de seu curso"><i class="fa fa-question" aria-hidden="true"></i></a></label>
+       <input type="number" id="input-classes_number" name="classes_number" value="1" min="1" max="5"/>
 
-
+<br>
       <ul class="list-group list-group-horizontal">
-        <li class="list-group-item"> <input class="form-check-input me-1" type="checkbox" value="0"> SEG </li>
-        <li class="list-group-item"> <input class="form-check-input me-1" type="checkbox" value="1">Manhã</li>
-        <li class="list-group-item"><input class="form-check-input me-1" type="checkbox" value="2">Tarde</li>
-        <li class="list-group-item"><input class="form-check-input me-1" type="checkbox" value="3">Noite</li>
+        <li class="list-group-item"> <input class="form-check-input me-1" type="checkbox" name="week_availability" value="seg"> SEG </li>
+        <li class="list-group-item"> <input class="form-check-input me-1" type="checkbox" name="hour_availability" value="1">Manhã</li>
+        <li class="list-group-item"><input class="form-check-input me-1" type="checkbox" name="hour_availability" value="2">Tarde</li>
+        <li class="list-group-item"><input class="form-check-input me-1" type="checkbox" name="hour_availability" value="3">Noite</li>
       </ul>
       <ul class="list-group list-group-horizontal-sm">
-        <li class="list-group-item"> <input class="form-check-input me-1" type="checkbox" value="4"> TER </li>
-        <li class="list-group-item"> <input class="form-check-input me-1" type="checkbox" value="5">Manhã</li>
-        <li class="list-group-item"><input class="form-check-input me-1" type="checkbox" value="6">Tarde</li>
-        <li class="list-group-item"><input class="form-check-input me-1" type="checkbox" value="7">Noite</li>
+        <li class="list-group-item"> <input class="form-check-input me-1" type="checkbox" name="week_availability" value="ter"> TER </li>
+        <li class="list-group-item"> <input class="form-check-input me-1" type="checkbox" name="hour_availability" value="4">Manhã</li>
+        <li class="list-group-item"><input class="form-check-input me-1" type="checkbox" name="hour_availability" value="5">Tarde</li>
+        <li class="list-group-item"><input class="form-check-input me-1" type="checkbox" name="hour_availability" value="6">Noite</li>
       </ul>
       <ul class="list-group list-group-horizontal-sm">
-        <li class="list-group-item"> <input class="form-check-input me-1" type="checkbox" value="8"> QUA </li>
-        <li class="list-group-item"> <input class="form-check-input me-1" type="checkbox" value="9">Manhã</li>
-        <li class="list-group-item"><input class="form-check-input me-1" type="checkbox" value="10">Tarde</li>
-        <li class="list-group-item"><input class="form-check-input me-1" type="checkbox" value="11">Noite</li>
+        <li class="list-group-item"> <input class="form-check-input me-1" type="checkbox" name="week_availability" value="qua"> QUA </li>
+        <li class="list-group-item"> <input class="form-check-input me-1" type="checkbox" name="hour_availability" value="7">Manhã</li>
+        <li class="list-group-item"><input class="form-check-input me-1" type="checkbox" name="hour_availability" value="8">Tarde</li>
+        <li class="list-group-item"><input class="form-check-input me-1" type="checkbox" name="hour_availability" value="9">Noite</li>
       </ul>
       <ul class="list-group list-group-horizontal-sm">
-        <li class="list-group-item"> <input class="form-check-input me-1" type="checkbox" value="12"> QUI </li>
-        <li class="list-group-item"> <input class="form-check-input me-1" type="checkbox" value="13">Manhã</li>
-        <li class="list-group-item"><input class="form-check-input me-1" type="checkbox" value="14">Tarde</li>
-        <li class="list-group-item"><input class="form-check-input me-1" type="checkbox" value="15">Noite</li>
+        <li class="list-group-item"> <input class="form-check-input me-1" type="checkbox" name="week_availability" value="qui"> QUI </li>
+        <li class="list-group-item"> <input class="form-check-input me-1" type="checkbox" name="hour_availability" value="10">Manhã</li>
+        <li class="list-group-item"><input class="form-check-input me-1" type="checkbox" name="hour_availability" value="11">Tarde</li>
+        <li class="list-group-item"><input class="form-check-input me-1" type="checkbox" name="hour_availability" value="12">Noite</li>
       </ul>
       <ul class="list-group list-group-horizontal-sm">
-        <li class="list-group-item"> <input class="form-check-input me-1" type="checkbox" value="16"> SEX </li>
-        <li class="list-group-item"> <input class="form-check-input me-1" type="checkbox" value="17">Manhã</li>
-        <li class="list-group-item"><input class="form-check-input me-1" type="checkbox" value="18">Tarde</li>
-        <li class="list-group-item"><input class="form-check-input me-1" type="checkbox" value="19">Noite</li>
+        <li class="list-group-item"> <input class="form-check-input me-1" type="checkbox" name="week_availability" value="sex"> SEX </li>
+        <li class="list-group-item"> <input class="form-check-input me-1" type="checkbox" name="hour_availability" value="13">Manhã</li>
+        <li class="list-group-item"><input class="form-check-input me-1" type="checkbox" name="hour_availability" value="14">Tarde</li>
+        <li class="list-group-item"><input class="form-check-input me-1" type="checkbox" name="hour_availability" value="15">Noite</li>
       </ul>
       <ul class="list-group list-group-horizontal-sm">
-        <li class="list-group-item"> <input class="form-check-input me-1" type="checkbox" value="20"> SAB </li>
-        <li class="list-group-item"> <input class="form-check-input me-1" type="checkbox" value="21">Manhã</li>
-        <li class="list-group-item"><input class="form-check-input me-1" type="checkbox" value="22">Tarde</li>
-        <li class="list-group-item"><input class="form-check-input me-1" type="checkbox" value="23">Noite</li>
+        <li class="list-group-item"> <input class="form-check-input me-1" type="checkbox" name="week_availability" value="sab"> SAB </li>
+        <li class="list-group-item"> <input class="form-check-input me-1" type="checkbox" name="hour_availability" value="16">Manhã</li>
+        <li class="list-group-item"><input class="form-check-input me-1" type="checkbox" name="hour_availability" value="17">Tarde</li>
+        <li class="list-group-item"><input class="form-check-input me-1" type="checkbox" name="hour_availability" value="18">Noite</li>
       </ul>
       <ul class="list-group list-group-horizontal-sm">
-        <li class="list-group-item"> <input class="form-check-input me-1" type="checkbox" value="24"> DOM </li>
-        <li class="list-group-item"> <input class="form-check-input me-1" type="checkbox" value="25">Manhã</li>
-        <li class="list-group-item"><input class="form-check-input me-1" type="checkbox" value="26">Tarde</li>
-        <li class="list-group-item"><input class="form-check-input me-1" type="checkbox" value="27">Noite</li>
+        <li class="list-group-item"> <input class="form-check-input me-1" type="checkbox" name="week_availability" value="dom"> DOM </li>
+        <li class="list-group-item"> <input class="form-check-input me-1" type="checkbox" name="hour_availability" value="19">Manhã</li>
+        <li class="list-group-item"><input class="form-check-input me-1" type="checkbox" name="hour_availability" value="20">Tarde</li>
+        <li class="list-group-item"><input class="form-check-input me-1" type="checkbox" name="hour_availability" value="21">Noite</li>
       </ul>
     </div>
 </div>
-
+   </div>
+       <button type="submit">Create account</button>
 </form>
 
-
-
-{{#if errorMessage}}
-<p class="error">{{errorMessage}} </p>
-{{/if}}
 
 </div>

@@ -14,3 +14,14 @@ CATEGORIA: {{this.category.name}} - {{this.category.content}}
     <br>
     Dias e Horarios Disponíveis: {{WeekAvailability}} - {{HourAvailability}}
 </p>
+<br> 
+
+ <form action="/sendmessage" method="POST">
+
+  <div class="mb-3">
+    <label for="mensagem-input" class="form-label">Envie uma mensagem para o Professor:</label>
+    <textarea class="form-control" name="mensagem" id="mensagem-input" rows="5"></textarea>
+</div>
+
+     <button type="submit">Create account</button>
+</form>
