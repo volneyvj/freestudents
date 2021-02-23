@@ -59,7 +59,7 @@ router.post('/signup', (req, res, next) => {
     completeName,
     telefone,
     city,
-    estate,
+    state,
     birthdate,
     how_got_to_us,
     skype_username,
