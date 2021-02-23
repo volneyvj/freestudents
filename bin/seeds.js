@@ -16,7 +16,7 @@ mongoose
   )
   .catch(err => console.error('Error connecting to mongo', err));
 
-// criacao categorias e conteudos
+// criacao categorias e conteudos // 
 
 // const categories = [
 //   {
@@ -338,7 +338,7 @@ mongoose
 //   {
 //       name: "Curso de WEBDEV para iniciantes",
 //       category: tecno,
-//       content: "602db676593d3e15ee1a65bd",
+//       content: "602ef7033baac26e9a19eb9e",
 //       description: "Um curso bem bacana e facil",
 //       user: volney,
 //       classes: 5,
@@ -350,7 +350,7 @@ mongoose
 //   {
 //     name: "Curso de CULINARIA DA maria",
 //     category: culinar,
-//     content: "602db677593d3e15ee1a65d4",
+//     content: "602ef7033baac26e9a19ebb2",
 //     description: "Um curso de comida italiana e facil",
 //     user: maria,
 //     classes: 4,
@@ -384,7 +384,7 @@ mongoose
 //         const cursocul = cursoFound2[0]
 //         User.find({ name: 'Maria de Deus' }, '_id')
 //           .then(mariaFound => {
-//             var maria = mariaFound[0]
+//             var joao = mariaFound[0]
 //             User.find({ name: 'VOLNEY de Deus' }, '_id')
 //               .then(volneyFound => {
 //                 const volney = volneyFound[0]
@@ -393,13 +393,14 @@ mongoose
 //                   {
 //                     course: cursocul,
 //                     teacher: volney,
-//                     student: maria,
+//                     student: joao,
 //                     schedule_dates: [01/03/2021, 01/04/2021, 02/04/2021],
 //                     status: "Programado",
+//                     classes_completed: 0,
 //                   },
 //                   {
 //                     course: cursoweb,
-//                     teacher: maria,
+//                     teacher: joao,
 //                     student: volney,
 //                     schedule_dates: [10/02/2021, 11/02/2021, 12/02/2021, 13/02/2021],
 //                     status: "Concluido",
@@ -418,4 +419,21 @@ mongoose
 //   .catch((error) => console.log(`Error while getting a user ${error}`));
 
 
+// nao precisa, apenas par consulta..
 
+// User.find({ name: 'Joao de Deus' }, '_id')
+//   .then(userFound => {
+//     const joao = userFound[0]
+
+// Course.find({ name: 'Curso de CULINARIA DA maria' }, '_id')
+//   .then(courseFound => {
+//     const idCurso = courseFound[0]
+   
+//     User.findByIdAndUpdate(joao, {$push: {registrated_courses.courseid: idCurso,  }}, { new: true })
+//       .then(updateuSER => console.log ("okkk"))
+
+//   })
+// })
+//     .catch(error => console.log(`Error while updating a single movie: ${error}`));
+
+    

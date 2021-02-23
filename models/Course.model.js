@@ -9,25 +9,26 @@ const courseSchema = new Schema(
         type: String,
         trim: true,
         required: [true, 'Name is required.'],
+        default: 'Curso sem nome',
         },
         category: { 
-            type: Schema.Types.ObjectId, ref: 'Category',
-            required: [true, 'Categoria é necessário.'],
+            type: Schema.Types.ObjectId, ref: 'categories',
+            // required: [true, 'Categoria é necessário.'],
         },
         content: { 
-            type: Schema.Types.ObjectId, ref: 'Content',
-            required: [true, 'Conteúdo é necessário.'],
+            type: String,
+            // required: [true, 'Conteúdo é necessário.'],
         },
         description: {
             type: String,
-            required: [true, 'Escreva uma descriçào.'],
+            // required: [true, 'Escreva uma descriçào.'],
         },
 
         // 
-        user: { type: Schema.Types.ObjectId, ref: 'User' },
+        user: { type: Schema.Types.ObjectId, ref: 'users' },
         classes: Number,
-        WeekAvailability: [String],
-        HourAvailability: [String],
+        week_availability: [String],
+        hour_availability: [String],
         times_lectured: Number,
         status: String,
     },
@@ -36,5 +37,5 @@ const courseSchema = new Schema(
     }
 );
 
-module.exports = model("Courses", courseSchema);
+module.exports = model("courses", courseSchema);
 

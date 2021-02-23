@@ -3,11 +3,12 @@ const { Schema, model } = mongoose;
 
 const scheduleSchema = new Schema(
     {
-        course: { type: Schema.Types.ObjectId, ref: 'Course' },
-        teacher: { type: Schema.Types.ObjectId, ref: 'User' },
-        student: { type: Schema.Types.ObjectId, ref: 'User' },
+        course: { type: Schema.Types.ObjectId, ref: 'courses' },
+        teacher: { type: Schema.Types.ObjectId, ref: 'users' },
+        student: { type: Schema.Types.ObjectId, ref: 'users' },
         schedule_dates: [Date],
         status: String,
+        classes_completed: Number,
     },
     {
         timestamps: true

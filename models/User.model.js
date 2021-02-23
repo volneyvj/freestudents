@@ -19,10 +19,6 @@ const userSchema = new Schema(
             type: String,
             required: [true, 'Nome é necessario.'],
         },
-        phone: {
-            match: [/^(?:\+)[0-9]{2}\s?(?:\()[0-9]{2}(?:\))\s?[0-9]{4,5}(?:-)[0-9]{4}$/, "Insira telefone completo com DDD"],
-            type: String,
-        },
         city: String,
         state: String,
         birthdate: Date,
@@ -39,48 +35,47 @@ const userSchema = new Schema(
         },
       
         imageUrl: String, 
-        student_category: Boolean,
-        student_content: Boolean, 
-        teacher_category: Boolean,
-        teacher_content: Boolean, 
-        title_course: String,
-       
+        student: Boolean,
+        teacher: Boolean,
+        // teacher_content: Boolean, 
+    
+         // SOMENTE para quem clicar no QUERO SER ESTUDANTE 
+         interests: [String],
+         student_content: String,
 
 
-        // somente para quem clicar no QUERO SER PROFESSOR
+        // SOMENTE para quem clicar no QUERO SER PROFESSOR
         my_courses: [
             {
-                courseid: { type: Schema.Types.ObjectId, ref: 'Course' },
+                courseid: { type: Schema.Types.ObjectId, ref: 'courses' },
             },
         ],
-           // SOMENTE para quem clicar no QUERO SER ESTUDANTE 
-           interests: [String],
-  
+
 
 // a partir daqui nao é preenchido, atualiazado conforme uso do aplicativo:
 
         rating: Number,   // colocar numero padrao quando nao coloca
         given_rates: [{
-            userid: { type: Schema.Types.ObjectId, ref: 'User' },
+            userid: { type: Schema.Types.ObjectId, ref: 'users' },
             given_rate: Number,
         },
         {
             timestamps: true
         },
         ],
-        registrated_courses: [
-            {
-                courseid: { type: Schema.Types.ObjectId, ref: 'Course' },
-                schedules: [{ type: Schema.Types.ObjectId, ref: 'Schedule' }],
-                status: String,
-                lecturing: Boolean,
-                classes_completed: Number,
-            },
-        ],
+        // registrated_courses: [
+        //     {
+        //         courseid: { type: Schema.Types.ObjectId, ref: 'Course' },
+        //         schedules: [{ type: Schema.Types.ObjectId, ref: 'Schedule' }],
+        //         status: String,
+        //         lecturing: Boolean,
+        //         classes_completed: Number,
+        //     },
+        // ],
 
         messages: [
             {
-                messageid: { type: Schema.Types.ObjectId, ref: 'Message' },
+                messageid: { type: Schema.Types.ObjectId, ref: 'messages' },
             },
         ],
 
@@ -103,6 +98,6 @@ const userSchema = new Schema(
 );
 
 
-module.exports = model("Users", userSchema);
+module.exports = model("users", userSchema);
 
 
