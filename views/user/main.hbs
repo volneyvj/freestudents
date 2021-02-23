@@ -30,7 +30,7 @@ Bem Vindo de Volta, {{data.userFounded.name}}
 <p>
 
 <section class="notifications" id="notificacoes">
-    <B>NOTIFICAÇÒES:</B>
+    <B>NOTIFICAÇÒES:</B>  
     <ul>
 {{#each data.messagesFounded}}
 <li>
@@ -38,6 +38,7 @@ Bem Vindo de Volta, {{data.userFounded.name}}
 </li>
 {{/each}}
 </ul>
+<a href="/messages/{{data.userFounded._id}}/">Ver Todas as Mensagens </a>
 </section>
 
 <p>
@@ -56,6 +57,7 @@ Horários:
 <br> Classe COMMPLETADAS: 
 {{this.classes_completed}}
 <br>
+<a href="/courses-details/{{this._id}}">Mais Detalhes</a></li>
 {{/each}}
 </section>
 

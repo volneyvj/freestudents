@@ -7,10 +7,35 @@ Descrição: {{description}}
 Professor: {{user.name}}
 </p>
 <BR>
-CATEGORIA: {{this.category.name}} - {{this.category.content}}
+CATEGORIA: {{this.category.name}} - {{this.category.content.content_name}}
 
 <p>
     Número de aulas: {{classes}}
     <br>
     Dias e Horarios Disponíveis: {{WeekAvailability}} - {{HourAvailability}}
 </p>
+<br> 
+
+ <form action="/signcourse/{{_id}}/{{user._id}}" method="POST">
+  <label for="input-city">Data de nascimento</label>
+    <input type="date" id="input-date1" name="date1" placeholder="" />
+      <label for="input-city">Data de nascimento</label>
+    <input type="date" id="input-date2" name="date2" placeholder="" />
+      <label for="input-city">Data de nascimento</label>
+    <input type="date" id="input-date3" name="date3" placeholder="" />
+     <button type="submit">INSCRVER-SE NO CURSO</button>
+</form>
+
+
+
+<p></p>
+
+ <form action="/sendmessage/{{user._id}}" method="POST">
+
+  <div class="mb-3">
+    <label for="mensagem-input" class="form-label">Envie uma mensagem para o Professor:</label>
+    <textarea class="form-control" name="mensagem" id="mensagem-input" rows="5"></textarea>
+</div>
+
+     <button type="submit">Enviar Mensagem</button>
+</form>

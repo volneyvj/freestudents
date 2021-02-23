@@ -43,7 +43,12 @@
 <div class="formulario" id="form1-signUp">
 
   {{!-- formulário 0 --}}
-  <form action="/signup" enctype="multipart/form-data" method="POST">
+
+  {{#if errorMessage}}
+<p class="error">{{errorMessage}} </p>
+{{/if}}
+
+  <form action="/signup" method="POST">
 
     <label for="input-completeName" class="required label">Nome completo</label>
     <input class="form-control" id="input-completeName" type="text" name="name" placeholder="Insira seu Nome completo"
@@ -96,7 +101,6 @@
       <option value="25">SE</option>
       <option value="26">TO</option>
       <option value="26">DF</option>
-
     </select>
 
     <label for="input-completeName" class="label">Cidade</label>
@@ -170,7 +174,7 @@
 
         <h4 class="h4-signUp required label"> O que você quer aprender? Veja as opções:</h4>
 
-        <select name='student-category' class="custom-select subtitulo-signUp">
+        <select class="custom-select subtitulo-signUp" onChange="categorySelected()" name='interests' id="interests-input">
           <option value="0">Selecione a categoria:</option>
           {{#each data.foundCategories}}
           <option value="{{this.id}}">{{this.name}}</option>
@@ -197,10 +201,10 @@
           {{/each}}
         </select>
 
-        <select name="teacher-content" class="custom-select subtitulo-signUp">
+        <select name="teacher_content" class="custom-select subtitulo-signUp">
           <option value="0">Selecione o conteúdo:</option>
-          {{#each data.foundContents}}
-          <option value="{{this.id}}">{{this.name}}</option>
+          {{#each data.foundCategories}}
+          <option value="{{this.content.0.content_name}}">{{this.content.0.content_name}}</option>
           {{/each}}
         </select>
 
@@ -293,7 +297,7 @@
     </div>
 
     <button onclick="queroEnsinarForm()" class="btn btn-lg disabled button-signUp-cadastrar" tabindex="-1" role="button"
-        aria-disabled="true" type="button">Cadastrar</button>
+        aria-disabled="true" type="submit">Cadastrar</button>
 
 
 </div>

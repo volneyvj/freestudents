@@ -43,12 +43,13 @@ router.get("/user/:id/", (req, res) => {
 router.get("/user/:id/edit", (req, res) => {
   const { id } = req.params;
   User.findById(id)
-  .populate('my_courses')
+  .populate('courses')
     .then((userToEdit) => res.render("user/edit.hbs", userToEdit))
     .catch((error) => console.log(`Error while getting a single user for edit: ${error}`));
 });
 
 
+<<<<<<< HEAD
 //formulário 0 // 
 
 router.post('/signup', (req, res, next) => {
@@ -171,4 +172,6 @@ router.post('/signup', (req, res, next) => {
 //     .catch((error) => console.log(`Error while updating a single movie: ${error}`));
 // });
 
+=======
+>>>>>>> 22982216ff2c49154b0235abf6c6c98f2cb202b5
 module.exports = router;
