@@ -144,7 +144,7 @@ router.post('/login', (req, res, next) => {
         return;
       } else if (bcryptjs.compareSync(password, user.password)) {
         req.session.currentUser = user;
-        console.log(`primeira vez: ${req.session.currentUser}`);
+        // console.log(`primeira vez: ${req.session.currentUser}`);
         res.redirect(`/user/${user._id}`);
       } else {
         res.render('index', { errorMessage: 'Incorrect password.' });

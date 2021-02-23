@@ -9,6 +9,7 @@ const courseSchema = new Schema(
         type: String,
         trim: true,
         required: [true, 'Name is required.'],
+        default: 'Curso sem nome',
         },
         category: { 
             type: Schema.Types.ObjectId, ref: 'categories',

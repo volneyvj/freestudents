@@ -13,7 +13,7 @@ module.exports = (app) => {
       cookie: {
         // sameSite: 'none',
         httpOnly: true,
-        maxAge: 120000 // 120 * 1000 ms === 2 min
+        maxAge: 1200000 // 120 * 1000 ms === 20 min
       },
       store: new MongoStore({
         mongooseConnection: mongoose.connection,
