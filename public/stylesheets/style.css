@@ -17,9 +17,58 @@ a {
 
 /*  Tela de sign Up   */
 
+.label {
+  color: black;
+}
+
+input:hover {
+  border-color: white !important;
+  outline: white !important;
+}
+
+input:focus {
+  border-color: white !important;
+  outline: white !important;
+
+}
+
+input {
+  border-radius: 138px;
+
+}
+
+.formulario {
+  background-color: #ffc107;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  margin-top: 30px;
+  margin-right: 100px;
+  margin-left: 100px;
+  border-radius: 20px;
+
+}
+
+.required:after {
+  content: " *";
+  color: red;
+}
+
+.h1-signUp {
+  text-align: center;
+  margin: 1%;
+}
+
+.p-signUp {
+  text-align: center;
+  margin: 1%;
+  font-size: 20px;
+}
+
 form {
-  margin: 30px auto;
-  width: 380px;
+  margin: 50px auto;
+  width: 600px;
+  align-items: center;
+
 }
 
 form label {
@@ -72,6 +121,80 @@ form button {
 
 }
 
+.margem-agenda {
+
+  background-color: #E9ECEF;
+  border-radius: 10px;
+  padding-bottom: 10px;
+
+}
+
+.agenda {
+  display: block;
+
+  justify-content: space-between;
+
+  text-align: left;
+
+
+}
+
+.li-agenda {
+  font-size: 20px;
+  display: block;
+  justify-content: space-between;
+  padding-right: 70px;
+  padding-left: 10px;
+  margin: 2%;
+  text-align: left;
+  border-radius: 5px;
+}
+.li-agenda:hover { 
+background-color: black;
+color: #ffc107;
+opacity: 0.6;
+
+}
+
+.input-agenda {
+  margin-left: 20px;
+}
+
+.button-signUp {
+  color: black;
+  border-radius: 10px;
+  background-color: #e9ecef;
+  border-color: gray;
+  padding-right: 5px;
+}
+
+
+.button-signUp:hover {
+
+  background-color: black;
+  color: #ffc107;
+  border-color: white;
+}
+
+.button-signUp-cadastrar { 
+  align-content: center;
+  color: black;
+  border-radius: 10px;
+  background-color: #e9ecef;
+  border-color: gray;
+  padding-right: 5px;
+}
+.button-signUp-cadastrar:hover {
+
+  background-color: black;
+  color: #ffc107;
+  border-color: white;
+}
+
+
+
+
+
 /* Tela de principal */
 
 .menu-login {
@@ -103,6 +226,7 @@ form button {
 
   font-size: 20px;
   margin-left: 5px;
+
 
 
 }
@@ -219,37 +343,46 @@ a:active {
   align-content: center;
 }
 
-.div-comoFunciona > div { 
-margin-left: 25px;
-margin-right: 40px;
+.div-comoFunciona>div {
+  margin-left: 25px;
+  margin-right: 40px;
 
 }
 
-.p-comoFunciona { 
+.p-comoFunciona {
 
-font-size: 25px;
+  font-size: 25px;
 
 }
 
 /* Footer*/
 
-footer { 
+footer {
 
-background-color: #ffc107;
-margin-top: 70px;
-padding-top: 30px;
-padding-bottom: 20px;
+  background-color: #ffc107;
+  margin-top: 70px;
+  padding-top: 10px;
 
-justify-content: space-between;
+
+  justify-content: space-between;
 }
 
 .a-footer {
-color: black;
+  color: black;
 }
-.a-footer:hover{ 
+
+.a-footer:hover {
   color: #E9ECEF;
   background-color: black;
 }
+
+.ul-footer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 40px;
+}
+
+
 
 /* User profile    */
 
@@ -268,4 +401,3 @@ color: black;
 .main-nav {
   background-color: #ffc107;
 }
-
