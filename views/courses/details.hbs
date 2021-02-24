@@ -1,41 +1,48 @@
-<h2>Pagina de Detalhes de um Curso especifico</h2>
-<p>
-Nome do Curso:  {{name}}
-<br>
-Descrição: {{description}}
-<br>
-Professor: {{user.name}}
-</p>
-<BR>
-CATEGORIA: {{this.category.name}} - {{this.category.content.content_name}}
+<nav class="navbar">
+  <img class="logo" src="/images/logo.png" width="10%" />
+  <ul class="menu-course">
+    <li><a href="/user/{{data.user_id}}">Retornar</a></li>
+    <li><a href="/logut">LogOut</a></li>
+  </ul>
+</nav>
 
-<p>
-    Número de aulas: {{classes}}
-    <br>
-    Dias e Horarios Disponíveis: {{WeekAvailability}} - {{HourAvailability}}
-</p>
-<br> 
-
- <form action="/signcourse/{{_id}}/{{user._id}}" method="POST">
-  <label for="input-city">Data de nascimento</label>
+<div class="course-page">
+    <div id="texts-bottom">
+      <h2><span>Nome do Curso: {{data.courseDetalhes.name}}</span> </h2>
+      <p>Descrição: {{data.courseDetalhes.description}}</p>
+      <p>CATEGORIA: {{data.courseDetalhes.category.name}} - {{data.courseDetalhes.category.content.content_name}} </p>
+      <h3>Professor: {{data.courseDetalhes.user.name}}</h3>
+      <br>
+      <h4> Número de aulas: {{data.courseDetalhes.classes}}</h4>
+      <p> Dias e Horarios Disponíveis: {{data.courseDetalhes.WeekAvailability}} - {{data.courseDetalhes.HourAvailability}}</p>
+    </div>
+    <div id="date-course">
+        <form action="/signcourse/{{data.courseDetalhes._id}}/{{data.courseDetalhes.user._id}}" method="POST">
+    <label for="input-city">Escolha data de sua opção:</label>
     <input type="date" id="input-date1" name="date1" placeholder="" />
-      <label for="input-city">Data de nascimento</label>
-    <input type="date" id="input-date2" name="date2" placeholder="" />
-      <label for="input-city">Data de nascimento</label>
-    <input type="date" id="input-date3" name="date3" placeholder="" />
-     <button type="submit">INSCRVER-SE NO CURSO</button>
-</form>
-
-
-
-<p></p>
-
- <form action="/sendmessage/{{user._id}}" method="POST">
-
-  <div class="mb-3">
-    <label for="mensagem-input" class="form-label">Envie uma mensagem para o Professor:</label>
-    <textarea class="form-control" name="mensagem" id="mensagem-input" rows="5"></textarea>
+    {{!-- <label for="input-city">Escolha data de sua opção:/label>
+      <input type="date" id="input-date2" name="date2" placeholder="" />
+      <label for="input-city">Escolha data de sua opção:</label>
+      <input type="date" id="input-date3" name="date3" placeholder="" /> --}}
+      <button type="button" type="submit" class="btn btn-secondary">INSCREVER-SE NO CURSO</button>
+  </form>
+    </div>
+   
 </div>
 
-     <button type="submit">Enviar Mensagem</button>
-</form>
+
+
+
+
+  <p>
+  <div class="course-details">
+    <h2>Quer Enviar uma Mensagem ao Professor?</h2>
+        <form class="form-msg" action="/sendmessage/{{user._id}}" method="POST">
+
+            <label for="mensagem-input" class="form-label"></label>
+            <textarea class="form-control" name="mensagem" id="mensagem-input" rows="5"></textarea>
+    
+
+          <button type="submit">Enviar Mensagem</button>
+        </form>
+    </div>
