@@ -4,7 +4,6 @@ const User = require("../models/User.model");
 const Message = require("../models/Message.model");
 
 
-
 router.get("/messages/:id/", (req, res) => {
     const { id } = req.params;
     Message.find({to: id})

@@ -24,7 +24,7 @@
 
 
 <section id="info">
-Bem Vindo de Volta, {{data.userFounded.name}}
+Olá, {{data.userFounded.name}}
 </section>
 
 <p>
@@ -39,6 +39,20 @@ Bem Vindo de Volta, {{data.userFounded.name}}
 {{/each}}
 </ul>
 <a href="/messages/{{data.userFounded._id}}/">Ver Todas as Mensagens </a>
+
+
+<br>
+{{#each data.schedule_notes}}
+<li>
+{{this.course.name}} - Solicitado por: {{this.student.name}} <br>
+Datas Escolhidas : {{this.schedule_dates}} - 
+<br>  <form action="/aceitar/{{this._id}}/{{this.teacher._id}}" method="POST">
+     <button type="submit">ACEITAR</button>
+</form>  -  <form action="/recusar/{{this._id}}/{{this.teacher._id}}" method="POST">
+     <button type="submit">RECUSAR</button>
+</form>
+</li>
+{{/each}}
 </section>
 
 <p>
