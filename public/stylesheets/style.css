@@ -64,14 +64,14 @@ input {
   font-size: 20px;
 }
 
-form {
+#signup-form {
   margin: 50px auto;
   width: 600px;
   align-items: center;
 
 }
 
-form label {
+#signup-form label {
   color: #666;
   font-size: 22px;
   display: inline-block;
@@ -80,14 +80,23 @@ form label {
   width: 100%;
 }
 
-form input,
-form button {
+#signup-form input { 
   box-sizing: border-box;
   font-size: 14px;
   outline: 0;
   padding: 4px;
   width: 100%;
   margin-bottom: 20px;
+}
+
+#signup-form button {
+  box-sizing: border-box;
+  font-size: 14px;
+  outline: 0;
+  padding: 4px;
+  width: 100%;
+  margin-bottom: 20px;
+  margin-left: 15px;
 }
 
 .h3-signUp {
@@ -255,12 +264,18 @@ a:active {
 
 .form-menu {
   margin-left: 20%;
-  margin-right: 5%;
+  margin-right: 15%;
   display: flex !important;
   justify-content: space-between !important;
   align-items: baseline !important;
 
+
 }
+.button-login { 
+  margin-left: 10px;
+
+}
+
 
 .label-login {
   margin: 25px;

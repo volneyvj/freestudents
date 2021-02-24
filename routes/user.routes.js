@@ -49,7 +49,6 @@ router.get("/user/:id/edit", (req, res) => {
 });
 
 
-<<<<<<< HEAD
 //formulário 0 // 
 
 router.post('/signup', (req, res, next) => {
@@ -172,6 +171,4 @@ router.post('/signup', (req, res, next) => {
 //     .catch((error) => console.log(`Error while updating a single movie: ${error}`));
 // });
 
-=======
->>>>>>> 22982216ff2c49154b0235abf6c6c98f2cb202b5
 module.exports = router;
