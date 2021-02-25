@@ -91,12 +91,12 @@ input {
 
 #signup-form button {
   box-sizing: border-box;
-  font-size: 14px;
+  font-size: 20px;
   outline: 0;
-  padding: 4px;
+  padding: 10px;
   width: 100%;
   margin-bottom: 20px;
-  margin-left: 15px;
+  margin-left: 5px;
 }
 
 .h3-signUp {
@@ -415,4 +415,18 @@ footer {
 
 .main-nav {
   background-color: #ffc107;
+}
+
+#photo-user { 
+border-radius: 50px;
+margin-left: 
+  
+}
+
+.menu-user{ 
+  display: flex;
+justify-content: space-between;
+
+
+
 }

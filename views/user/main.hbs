@@ -1,6 +1,9 @@
 
-<nav class="navbar navbar-expand-lg main-nav">
-  <a class="navbar-brand" href="#"> <img width="25%" src="https://http2.mlstatic.com/D_NQ_NP_649193-MLB29644269390_032019-O.webp"></a>
+
+<nav class="navbar navbar-expand-lg  bg-light navbar-light  main-nav menu-user ">
+
+  <a class="navbar-brand" href="#"> <img id='photo-user'width="30%" src="https://http2.mlstatic.com/D_NQ_NP_649193-MLB29644269390_032019-O.webp"></a>
+
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -24,7 +27,7 @@
 
 
 <section id="info">
-Bem Vindo de Volta, {{data.userFounded.name}}
+Olá, {{data.userFounded.name}}
 </section>
 
 <p>
@@ -39,6 +42,20 @@ Bem Vindo de Volta, {{data.userFounded.name}}
 {{/each}}
 </ul>
 <a href="/messages/{{data.userFounded._id}}/">Ver Todas as Mensagens </a>
+
+
+<br>
+{{#each data.schedule_notes}}
+<li>
+{{this.course.name}} - Solicitado por: {{this.student.name}} <br>
+Datas Escolhidas : {{this.schedule_dates}} - 
+<br>  <form action="/aceitar/{{this._id}}/{{this.teacher._id}}" method="POST">
+     <button type="submit">ACEITAR</button>
+</form>  -  <form action="/recusar/{{this._id}}/{{this.teacher._id}}" method="POST">
+     <button type="submit">RECUSAR</button>
+</form>
+</li>
+{{/each}}
 </section>
 
 <p>

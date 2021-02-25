@@ -39,4 +39,21 @@ router.post("/signcourse/:course/:teacher/", (req, res) => {
     .catch((err) => console.log(`Error while sending the request to the DB: ${err}`));
 });
 
+
+router.post("/aceitar/:id/:usuario", (req, res) => {
+    const { id, usuario} = req.params;
+    Schedule.findByIdAndUpdate(id, {status: 'Aceito'}, { new: true })
+      .then(updatedSchedule => res.redirect(`/user/${usuario}`))
+    .catch(error => console.log(`Error while updating a single schedule: ${error}`));
+});
+
+router.post("/recusar/:id/:usuario", (req, res) => {
+    const { id, usuario} = req.params;
+    Schedule.findByIdAndUpdate(id, {status: 'Recusado'}, { new: true })
+      .then(updatedSchedule => res.redirect(`/user/${usuario}`))
+    .catch(error => console.log(`Error while updating a single schedule: ${error}`));
+});
+
+
+
 module.exports = router;
