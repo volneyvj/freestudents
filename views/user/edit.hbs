@@ -68,17 +68,14 @@
     <input type="text" id="input-teams" name="other_com_username" value="{{data.userToEdit.other_com_username}}" />
 
     <label for="img" class="form-label required label">Selecione uma imagem de perfil</label>
-     <input type="file" name="imgUrl" id="imgUrl-input" class="form-control-file" />
+
+        <input type="file" name="imageUrl" id="imageUrl-input" class="form-control-file" />
         <input type="text" name="existingImage" hidden id="" value="{{data.userToEdit.imageUrl}}">
 
     <div class="mb-3">
       <label for="exampleFormControlTextarea1" class="form-label">Fale um pouco sobre você:</label>
       <textarea class="form-control" id="exampleFormControlTextarea1" rows="3">{{data.userToEdit.about}}</textarea>
     </div>
-    <section>
-      <h4 class="h4-signUp">Altere sua foto aqui</h4>
-      <input type="file" name="imageUrl" />
-    </section>
       <button type="submit" class="btn btn-warning">ALTERAR</button>
   </form>
 </div>
