@@ -1,7 +1,7 @@
 <h2>Pagina de Ediçao do Usuario</h2>
 <div class="profile_edit">
   <p>
-  <form action="/edituser/{{data.userToEdit._id}}" method="POST">
+  <form action="/edituser/{{data.userToEdit._id}}" method="POST" enctype="multipart/form-data">
 
     <label for="input-completeName">Nome completo</label>
     <input type="text" id="input-completeName" name="name" value="{{data.userToEdit.name}}" />
@@ -123,6 +123,11 @@
       <textarea class="form-control" id="input-course-description" name="course_description" rows="2"></textarea>
     </div>
 
+             <div class="mb-3">
+      <label for="input-classes" class="form-label required label">Número mínimmo de Aulas do Curso:</label>
+           <input class="form-control" type="number" id="input-classes" name="classes" placeholder=1>
+    </div>
+    
         <label for="input-about" class="required label">Escolha os dias e períodos que você costuma ter disponível: </label>
 
         <label for="input-about" class="label">Agenda</label>
