@@ -25,7 +25,7 @@ router.get("/user/:id/", (req, res) => {
   User.findById(id)
     .then((userFound) => {
       const userFounded = userFound
-      console.log(userFounded);
+      // console.log(userFounded);
       interest_category_id = userFounded.interests[0]
   Message.find({to: id}).limit(10)
   .then((msgFound) => {
@@ -35,11 +35,14 @@ router.get("/user/:id/", (req, res) => {
   .populate('course')
   .then((schedule_notification) => {
     const schedule_notes = schedule_notification
+    // console.log(schedule_notes[0].schedule_dates);
+    let datesNotification = schedule_notes[0].schedule_dates[0].toLocaleString('en-GB');
+  
     Course.find({}).sort('category').limit(6)
   .then((searchFound) => {
       const searchFounded = searchFound
   
-      res.render("user/main.hbs", {data: {userFounded, messagesFounded, scheduleFounded, searchFounded, schedule_notes}}) 
+      res.render("user/main.hbs", {data: {userFounded, messagesFounded, scheduleFounded, searchFounded, schedule_notes, datesNotification}}) 
   })
     })
   })
@@ -68,19 +71,17 @@ router.post("/add_course/:id", (req, res) => {
   const teacher_category = req.body.teacher_category;
   const teacher_content = req.body.teacher_content;
   const course_description = req.body.course_description;
-  const classes_number = req.body.classes_number;
+  const classes = req.body.classes;
   const week_availability = req.body.week_availability;
   const hour_availability = req.body.hour_availability;
   
-  console.log (week_availability)
-  console.log(hour_availability)
   Course.create({
     name: course_name,
     category: teacher_category,
     content: teacher_content,
     description: course_description,
     user: id,
-    classes: classes_number,
+    classes: classes,
     week_availability: week_availability,
     hour_availability: hour_availability,
     status: "Ativo",
@@ -106,7 +107,7 @@ router.post("/add_course/:id", (req, res) => {
       } else {
         imageUrl = req.body.existingImage;
       }
-
+      console.log(imageUrl);
   
     // const regex = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}/;
     // if (!regex.test(password)) {

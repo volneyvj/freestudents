@@ -27,7 +27,7 @@ router.post('/signup', fileUploader.single('imageUrl'), (req, res) => {
   const teacher_category = req.body.teacher_category;
   const teacher_content = req.body.teacher_content;
   const course_description = req.body.course_description;
-  const classes_number = req.body.classes_number;
+  const classes = req.body.classes;
   const week_availability = req.body.week_availability;
   const hour_availability = req.body.hour_availability;
   
@@ -90,7 +90,7 @@ console.log(req.file.path);
     content: teacher_content,
     description: course_description,
     user: newUserId,
-    classes: classes_number,
+    classes: classes,
     week_availability: week_availability,
     hour_availability: hour_availability,
     status: "Ativo",
