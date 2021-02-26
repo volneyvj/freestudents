@@ -1,7 +1,7 @@
 <script src="/public/javascripts/"></script>
 
 
-  {{!-- Menu com login --}}
+{{!-- Menu com login --}}
 
   <nav class="navbar navbar-expand-lg navbar-light bg-light menu-login">
     <div class="container-fluid">
@@ -17,7 +17,7 @@
             <a class="nav-link" href="/#comofunciona">Como funciona?</a>
           </li>
 
-          {{!-- login --}}
+        {{!-- login --}}
 
         </ul>
       <form class="form-login" action="/login" class="form-menu" method="POST">
@@ -28,20 +28,35 @@
   <button type="submit" class="btn btn-warning">Login</button>
   </form>    
   </nav>
+      </ul>
+      <div class='form-menu'>
+        <label class='label-login form-label' for="exampleInputEmail1">Email</label>
+        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+
+        <label class='label-login form-label' for="exampleInputPassword1">Senha</label>
+        <input type="password" class="form-control" id="exampleInputPassword1">
+
+        <button type="button" class="btn btn-warning button-login">Login</button>
+
+      </div>
+
+    </div>
+  </div>
+</nav>
 
 
-  <h1 class="h1-signUp"> SignUp </h1>
+<h1 class="h1-signUp"> SignUp </h1>
 
-  <p class="p-signUp"> Para realizar o cadastro, precisamos de algumas informações sobre você! Preencha as informações
-    abaixo:</p>
+<p class="p-signUp"> Para realizar o cadastro, precisamos de algumas informações sobre você! Preencha as informações
+  abaixo:</p>
 
 <div class="formulario" id="form1-signUp">
 
   {{!-- formulário 0 --}}
 
   {{#if errorMessage}}
-<p class="error">{{errorMessage}} </p>
-{{/if}}
+  <p class="error">{{errorMessage}} </p>
+  {{/if}}
 
   <form action="/signup" method="POST" enctype="multipart/form-data">
 
@@ -104,7 +119,8 @@
 
 
     <label for="input-city" class="required label">Data de nascimento</label>
-    <input type="date" id="input-birthdate" style=" border-radius: 5px; border-color: gray;" name="birthdate" placeholder="Insira sua data de nascimento" />
+    <input type="date" id="input-birthdate" style=" border-radius: 5px; border-color: gray;" name="birthdate"
+      placeholder="Insira sua data de nascimento" />
 
 
     <h4 class="h4-signUp label" name="how_got_to_us">Como ficou sabendo da FreeStudents?</h4>
@@ -178,7 +194,7 @@
 
         <select name="student_content" class="custom-select subtitulo-signUp">
 
-          <option value="0" >Selecione o conteúdo:</option>
+          <option value="0">Selecione o conteúdo:</option>
           {{#each data.foundContents}}
           <option value="{{this.id}}">{{this.name}}</option>
           {{/each}}
@@ -289,14 +305,14 @@
           </ul>
         </div>
 
-    </div>
+        </div>
 
       </div>
 
     </div>
 
     <button class="btn btn-lg disabled button-signUp-cadastrar" tabindex="-1" role="button"
-        aria-disabled="true" type="submit">Cadastrar</button>
+      aria-disabled="true" type="submit">Cadastrar</button>
 
 
 </div>
