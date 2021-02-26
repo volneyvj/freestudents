@@ -16,7 +16,12 @@ router.get("/courses-details/:id/", (req, res, next) => {
     Course.findById(id)
     .populate('category')
     .populate('user')
-    .then(courseDetails => res.render("courses/details.hbs", courseDetails))
+    .then(courseDetails => {
+    // DatesOfCourses()
+    const courseDetalhes = courseDetails
+    const user_id = req.session.currentUser._id;
+    res.render("courses/details.hbs", {data: {courseDetalhes, user_id}})
+    })
     .catch((err) => console.log(`Error while getting the course from the DB: ${err}`));
 });
 
@@ -24,7 +29,11 @@ router.get("/courses-search/", (req, res) => {
      Course.find()
     .populate('category')
     .populate('user')
-    .then(allCourses => res.render("courses/search.hbs", {coursesF: allCourses}))
+    .then(allCourses => {
+      const user_id = req.session.currentUser._id;
+      const coursesF = allCourses
+      res.render("courses/search.hbs", {data: {coursesF, user_id}})
+    })
     .catch((err) => console.log(`Error while getting the course from the DB: ${err}`));
 });
 

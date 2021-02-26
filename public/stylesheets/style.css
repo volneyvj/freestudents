@@ -1,12 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;500&display=swap');
+
 body {
   padding: 50px;
   font: 14px 'Lucida Grande', Helvetica, Arial, sans-serif;
   margin: 0;
   padding: 0;
+  font-family: "Montserrat";
 }
 
 a {
-  color: #00b7ff;
+  color: black;
+}
+
+a:link {
+  text-decoration: none im !important;
 }
 
 .movies-wrapper {
@@ -18,7 +25,7 @@ a {
 /*  Tela de sign Up   */
 
 .label {
-  color: black;
+  color: black !important;
 }
 
 input:hover {
@@ -29,8 +36,8 @@ input:hover {
 input:focus {
   border-color: white !important;
   outline: white !important;
-
 }
+
 
 input {
   border-radius: 138px;
@@ -80,7 +87,7 @@ input {
   width: 100%;
 }
 
-#signup-form input { 
+#signup-form input {
   box-sizing: border-box;
   font-size: 14px;
   outline: 0;
@@ -134,8 +141,7 @@ input {
 
   background-color: #E9ECEF;
   border-radius: 10px;
-  padding-bottom: 10px;
-
+  padding-bottom: 40px;
 }
 
 .agenda {
@@ -149,24 +155,27 @@ input {
 }
 
 .li-agenda {
-  font-size: 20px;
+  font-size: 15px;
   display: block;
   justify-content: space-between;
-  padding-right: 70px;
+  padding-right: 80px;
   padding-left: 10px;
   margin: 2%;
   text-align: left;
   border-radius: 5px;
 }
-.li-agenda:hover { 
-background-color: black;
-color: #ffc107;
-opacity: 0.6;
+
+.li-agenda:hover {
+  font-size: 16px;
+  background-color: black;
+  color: #ffc107 !important;
+  opacity: 0.6;
 
 }
 
 .input-agenda {
-  margin-left: 20px;
+  font-size: 10px !important;
+  margin-left: 10px;
 }
 
 .button-signUp {
@@ -185,7 +194,7 @@ opacity: 0.6;
   border-color: white;
 }
 
-.button-signUp-cadastrar { 
+.button-signUp-cadastrar {
   align-content: center;
   color: black;
   border-radius: 10px;
@@ -193,6 +202,7 @@ opacity: 0.6;
   border-color: gray;
   padding-right: 5px;
 }
+
 .button-signUp-cadastrar:hover {
 
   background-color: black;
@@ -208,6 +218,7 @@ opacity: 0.6;
 
 .menu-login {
   background-color: #E9ECEF !important;
+  border-bottom: solid #ffc107 3px;
 }
 
 .h2-mainPage {
@@ -263,15 +274,15 @@ a:active {
 
 
 .form-menu {
-  margin-left: 20%;
+  margin-left: 10%;
   margin-right: 15%;
   display: flex !important;
   justify-content: space-between !important;
   align-items: baseline !important;
 
-
 }
-.button-login { 
+
+.button-login {
   margin-left: 10px;
 
 }
@@ -376,9 +387,10 @@ footer {
 
   background-color: #ffc107;
   margin-top: 70px;
+  padding-bottom: 20px;
   padding-top: 10px;
 
-
+  border-top: 3px solid black;
   justify-content: space-between;
 }
 
@@ -399,15 +411,92 @@ footer {
 
 
 
-/* User profile    */
+/* User profile  "main.hbs"   */
 
-.notifications {
-  background-color: burlywood;
+.h4-main {
+  font-weight: bold;
+  margin: 20px;
+
 }
 
-.mycourses {
-  background-color: cadetblue;
+.section-info {
+  background-color: white;
+  border-radius: 5px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-top: 5px;
+  border: solid black 1px;
+
 }
+
+.section-info-cursos-registrados {
+  background-color: white;
+  border-radius: 5px;
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-top: 5px;
+
+}
+
+#curso-registrado {
+  margin-bottom: 20px;
+  border-radius: 10px;
+}
+
+.section-info>ul>li {
+
+  list-style: none;
+
+}
+
+.li-main {
+  list-style: none;
+
+
+}
+
+.button-main {
+  display: flex;
+  color: black;
+  border-radius: 10px;
+  background-color: #e9ecef;
+  border-color: black;
+  align-content: center;
+  text-align: center;
+  font-size: 15px;
+
+}
+
+#button-students-group {
+  display: flex;
+  justify-content: space-around;
+  margin-right: 70%;
+}
+
+.button-main:hover {
+
+  background-color: black;
+  color: #ffc107;
+  border-color: white;
+}
+
+
+.link-main:link {
+  font-size: 15px;
+  color: black;
+  text-decoration: none !important;
+  text-align: center;
+}
+
+.dates-hours {
+  margin-right: 70%;
+
+}
+
 
 .morecourses {
   background-color: chocolate;
@@ -417,16 +506,212 @@ footer {
   background-color: #ffc107;
 }
 
-#photo-user { 
-border-radius: 50px;
-margin-left: 
-  
+.photo-link {
+  display: flex;
+  justify-content: center;
+  margin-left: 10%;
+
 }
 
-.menu-user{ 
+#photo-user {
+  border-radius: 50px;
+  border: solid black 1px;
+
+}
+
+.menu-user {
   display: flex;
-justify-content: space-between;
+  justify-content: space-between;
+  border-bottom: solid #ffc107 3px;
+}
+
+.link-list {
+
+  margin-right: 20px;
+
+}
+
+.links-main {
+
+  margin-left: 15px;
+  margin-right: 20px;
+  font-size: 20px;
+
+}
+
+.section-main {
+  background-color: #ffc107;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 100px;
+  padding-right: 100px;
+  margin-top: 30px;
+  margin-left: 2%;
+  margin-right: 2%;
+  margin-bottom: 15px;
+  border-radius: 10px;
+  border: solid black 2px;
+}
 
 
 
+.section-main > section {
+  margin-bottom: 15px;
+  border: solid black 1px;
+}
+
+#buscar-cursos-list {
+  display: block;
+  justify-content: space-around;
+  align-content: center;
+  margin-right: 20%;
+  margin-left: 10px;
+}
+
+#buscar-cursos {
+  display: flex;
+  border: solid black 1px;
+  margin-bottom: 20px;
+  margin-right: 80px;
+  padding: 10px;
+  border-radius: 10px;
+  text-align: center;
+  align-content: center;
+
+}
+
+#button-saber-mais {
+
+  justify-content: right;
+  text-align: center;
+  margin-right: 100px;
+  margin-left: 80px;
+}
+
+#botao-ver-todos-cursos {
+
+  margin-left: 5%;
+
+}
+
+
+/* Details Course   */
+
+.course-details {
+  padding: 1px;
+
+}
+
+.course-details>h2 {
+  text-align: center;
+  font-weight: 800;
+  font-size: 35px;
+  margin: 5px;
+  text-decoration: underline;
+  text-decoration-color: #00B172;
+  text-decoration-thickness: 5px;
+
+}
+
+.form-msg {
+  padding: 0;
+  margin: 0 0 0 30%;
+  align-items: center;
+
+}
+
+.course-details>.links {
+  display: flex;
+  justify-content: space-around;
+}
+
+.course-details>.links div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.course-details>.links p {
+  width: 250px;
+  font-size: 22px;
+  text-align: center;
+
+}
+
+.course-details .links h3 {
+  margin: 2% 0;
+  font-size: 30px;
+  color: #00B172;
+}
+
+.course-page {
+  background-color: #ffc107;
+  color: #FFF;
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 3%;
+  height: auto;
+  text-align: left;
+}
+
+.course-page h2 {
+  font-size: 2em;
+  width: 100%;
+  text-align: left;
+  font-weight: bold;
+}
+
+.course-page h2>span {
+  border-bottom: 4px solid white;
+}
+
+.course-page h3 {
+  font-size: 2em;
+  width: 90%;
+  font-weight: bold;
+}
+
+.course-page p {
+  width: 90%;
+  font-size: 20px;
+}
+
+.course-page>.bottom {
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+}
+
+#texts-bottom {
+  width: 55%;
+}
+
+.menu-course {
+  display: flex;
+  font-size: 22px;
+  font-weight: lighter;
+  align-items: center;
+  list-style: none;
+  justify-content: space-around;
+  padding: 0;
+  margin: 0;
+}
+
+.menu-course a {
+  text-decoration: none;
+  color: #1A1A1A;
+  padding: 0;
+  margin-right: 20px;
+}
+
+.col-md-4 {
+  padding: 2px;
 }
