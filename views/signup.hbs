@@ -25,23 +25,16 @@
             <input type="email"  name="email" class="form-control" id="email" aria-describedby="emailHelp">
           <label  class= 'label-login' for="exampleInputPassword1" class="form-label">Senha</label>
             <input  type="password" name="password" class="form-control" id="password"> 
+
+  {{#if errorMessage}}
+  <p class="error">{{errorMessage}} </p>
+  {{/if}}
   <button type="submit" class="btn btn-warning">Login</button>
   </form>    
   </nav>
       </ul>
-      <div class='form-menu'>
-        <label class='label-login form-label' for="exampleInputEmail1">Email</label>
-        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
 
-        <label class='label-login form-label' for="exampleInputPassword1">Senha</label>
-        <input type="password" class="form-control" id="exampleInputPassword1">
-
-        <button type="button" class="btn btn-warning button-login">Login</button>
-
-      </div>
-
-    </div>
-  </div>
+  
 </nav>
 
 
@@ -54,9 +47,6 @@
 
   {{!-- formulário 0 --}}
 
-  {{#if errorMessage}}
-  <p class="error">{{errorMessage}} </p>
-  {{/if}}
 
   <form action="/signup" method="POST" enctype="multipart/form-data">
 

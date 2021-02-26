@@ -5,7 +5,7 @@ const Message = require("../models/Message.model");
 const Category = require("../models/Category.model");
 const Course = require("../models/Course.model");
 const Schedule = require("../models/Schedule.model");
-
+const fileUploader = require('../configs/cloudinary.config');
 
 // // ********* require fileUploader in order to use it *********
 // const fileUploader = require("../configs/cloudinary.config");
@@ -25,6 +25,7 @@ router.get("/user/:id/", (req, res) => {
   User.findById(id)
     .then((userFound) => {
       const userFounded = userFound
+      console.log(userFounded);
       interest_category_id = userFounded.interests[0]
   Message.find({to: id}).limit(10)
   .then((msgFound) => {
@@ -93,12 +94,20 @@ router.post("/add_course/:id", (req, res) => {
   });
 
 
-  router.post('/edituser/:id', (req, res) => {
-
+  
+  router.post('/edituser/:id', fileUploader.single('imageUrl'), (req, res) => {
     const { id } = req.params;
     const { email, password, name, city, state, birthdate, how_got_to_us, skype_username, zoom_username, teams_username, other_com, other_com_username,
-      about, phone, imageUrl } = req.body;
-  console.log(req.body)
+      about, phone } = req.body;
+     
+      let imageUrl;
+      if (req.file) {
+        imageUrl = req.file.path;
+      } else {
+        imageUrl = req.body.existingImage;
+      }
+
+  
     // const regex = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}/;
     // if (!regex.test(password)) {
     //   res
@@ -127,7 +136,7 @@ router.post("/add_course/:id", (req, res) => {
           about,
           phone,
           imageUrl
-        })
+        }, { new: true })
       .then(updatedUser => res.redirect(`/user/${id}`))
       .catch(error => console.log(`Error while updating a single schedule: ${error}`));
       
