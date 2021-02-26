@@ -1,8 +1,8 @@
-const express = require("express");
-const router = express.Router();
-const mongoose = require('mongoose');
-const Course = require("../models/Course.model");
-const Category = require('../models/Category.model')
+// const express = require("express");
+// const router = express.Router();
+// const mongoose = require('mongoose');
+// const Course = require("../models/Course.model");
+// const Category = require('../models/Category.model')
 
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -40,6 +40,19 @@ function queroEnsinarForm(){
   }
 }
 
+// formulario adicionar cursos
+
+function addCourse(){ 
+  let form = document.getElementById("formAddCourse");
+
+  if (formAddCourse) {
+    form.style.display = 'block';
+  } else {
+    form.style.display = 'none';
+  }
+}
+
+
 function OutrosMeios(){ 
   mostraOpçãoOutros = !mostraOpçãoOutros; 
   let outros = document.getElementById("outrosMeios");
@@ -52,20 +65,20 @@ function OutrosMeios(){
 
 
 
-function DatesOfCourses() {
-const { id } = req.params;
-console.log(`e ai como vai: ${id}`);
-Course.findById(id)
-.then(courseDetails => {
-  let dates_html = ''
-  const classes = courseDetails.classes
-  for (let i=1; i<=classes; i+=1) {
-  dates_html += `<label for="input-city">Escolha data de sua opção:</label><input type="date" id="input-date${i}" name="date${i}"/>`
-  }  
-  document.getElementById('date-course').innerHTML = dates_html
-})
-.catch((err) => console.log(`Error while getting the classes from the DB: ${err}`));
-}
+// function DatesOfCourses() {
+// const { id } = req.params;
+// console.log(`e ai como vai: ${id}`);
+// Course.findById(id)
+// .then(courseDetails => {
+//   let dates_html = ''
+//   const classes = courseDetails.classes
+//   for (let i=1; i<=classes; i+=1) {
+//   dates_html += `<label for="input-city">Escolha data de sua opção:</label><input type="date" id="input-date${i}" name="date${i}"/>`
+//   }  
+//   document.getElementById('date-course').innerHTML = dates_html
+// })
+// .catch((err) => console.log(`Error while getting the classes from the DB: ${err}`));
+// }
 
 function categorySelected(){
   let selectedCategory = document.getElementById("interests-input").value;

@@ -46,9 +46,7 @@ const userSchema = new Schema(
 
         // SOMENTE para quem clicar no QUERO SER PROFESSOR
         my_courses: [
-            {
-                courseid: { type: Schema.Types.ObjectId, ref: 'courses' },
-            },
+              { type: Schema.Types.ObjectId, ref: 'courses' }
         ],
 
 

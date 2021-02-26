@@ -5,7 +5,7 @@
 
   <nav class="navbar navbar-expand-lg navbar-light bg-light menu-login">
     <div class="container-fluid">
-      <a class="navbar-brand logotipo" href="#">FreeStudents</a>
+      <a class="navbar-brand logotipo" href="/">FreeStudents</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -14,24 +14,19 @@
         <ul class="navbar-nav ul-mainPage">
 
           <li class="nav-item li-mainPageHowToWork">
-            <a class="nav-link" href="#comofunciona">Como funciona?</a>
+            <a class="nav-link" href="/#comofunciona">Como funciona?</a>
           </li>
 
           {{!-- login --}}
 
         </ul>
-        <div class='form-menu'>
-          <label class='label-login' for="exampleInputEmail1" class="form-label">Email</label>
-          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-
-          <label class='label-login' for="exampleInputPassword1" class="form-label">Senha</label>
-          <input type="password" class="form-control" id="exampleInputPassword1">
-
-        </div>
-        <button type="button" class="btn btn-warning">Login</button>
-
-      </div>
-    </div>
+      <form class="form-login" action="/login" class="form-menu" method="POST">
+             <label class= 'label-login' for="exampleInputEmail1" class="form-label">Email</label>
+            <input type="email"  name="email" class="form-control" id="email" aria-describedby="emailHelp">
+          <label  class= 'label-login' for="exampleInputPassword1" class="form-label">Senha</label>
+            <input  type="password" name="password" class="form-control" id="password"> 
+  <button type="submit" class="btn btn-warning">Login</button>
+  </form>    
   </nav>
 
 
@@ -48,7 +43,7 @@
 <p class="error">{{errorMessage}} </p>
 {{/if}}
 
-  <form action="/signup" method="POST">
+  <form action="/signup" method="POST" enctype="multipart/form-data">
 
     <label for="input-completeName" class="required label">Nome completo</label>
     <input class="form-control" id="input-completeName" type="text" name="name" placeholder="Insira seu Nome completo"
@@ -68,39 +63,39 @@
 
 
     <label for="input-email" class="required label">Telefone</label>
-    <input type="tel" class="form-control" id="input-telefone" name="telefone" id="exampleFormControlInput1"
+    <input type="tel" class="form-control" id="input-telefone" name="phone" id="exampleFormControlInput1"
       placeholder="(xx)xxxx-xxxx">
 
     <h4 class="h4-signUp label">Selecione seu estado</h4>
     <select name="state" class="custom-select subtitulo-signUp">
       <option value="0">Selecione</option>
-      <option value="1">AC</option>
-      <option value="2">AL</option>
-      <option value="3">AP</option>
-      <option value="4">AM</option>
-      <option value="5">BA</option>
-      <option value="6">CE</option>
-      <option value="7">ES</option>
-      <option value="8">GO</option>
-      <option value="9">MA</option>
-      <option value="10">MT</option>
-      <option value="11">MS</option>
-      <option value="12">MG</option>
-      <option value="13">PA</option>
-      <option value="14">PB</option>
-      <option value="15">PR</option>
-      <option value="16">PE</option>
-      <option value="17">PI</option>
-      <option value="18">RJ</option>
-      <option value="19">RN</option>
-      <option value="20">RS</option>
-      <option value="21">RO</option>
-      <option value="22">RR</option>
-      <option value="23">SC</option>
-      <option value="24">SP</option>
-      <option value="25">SE</option>
-      <option value="26">TO</option>
-      <option value="26">DF</option>
+      <option value="AC">AC</option>
+      <option value="AL">AL</option>
+      <option value="AP">AP</option>
+      <option value="AM">AM</option>
+      <option value="BA">BA</option>
+      <option value="CE">CE</option>
+      <option value="ES">ES</option>
+      <option value="GO">GO</option>
+      <option value="MA">MA</option>
+      <option value="MT">MT</option>
+      <option value="MS">MS</option>
+      <option value="MG">MG</option>
+      <option value="PA">PA</option>
+      <option value="PB">PB</option>
+      <option value="PR">PR</option>
+      <option value="PE">PE</option>
+      <option value="PI">PI</option>
+      <option value="RJ">RJ</option>
+      <option value="RN">RN</option>
+      <option value="RS">RS</option>
+      <option value="RO">RO</option>
+      <option value="RR">RR</option>
+      <option value="SC">SC</option>
+      <option value="SP">SP</option>
+      <option value="SE">SE</option>
+      <option value="TO">TO</option>
+      <option value="DF">DF</option>
     </select>
 
     <label for="input-completeName" class="label">Cidade</label>
@@ -141,7 +136,7 @@
       placeholder="Insira seu teams username" aria-label="default input example">
 
     <label for="input-outrasPlataformas" class="label">Outras plataformas</label>
-    <input class="form-control" type="text" id="input-outrasPlataformas" name="outrasPlataformas"
+    <input class="form-control" type="text" id="input-outrasPlataformas" name="other_com"
       placeholder="Insira o nome da plataforma" aria-label="default input example">
 
     <label for="input-teamsUsername" class="label">Username da plataforma</label>
@@ -149,12 +144,12 @@
       placeholder="Insira o username da plataforma" aria-label="default input example">
 
     <div class="mb-3">
-      <label for="exampleFormControlTextarea1" class="form-label required label">Fale um pouco sobre você:</label>
-      <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+      <label for="input-about" class="form-label required label">Fale um pouco sobre você:</label>
+      <textarea class="form-control" id="input-about" name="about" rows="3"></textarea>
     </div>
 
  <label for="img" class="form-label required label">Selecione uma imagem de perfil</label>
-    <input type="file" class="form-control" id="inputGroupFile02">
+    <input type="file" class="form-control" name="imageUrl" id="input-imageUrl">
 
     <div class="subtitulo-signUp">
       <h3 class="h3-signUp required"> O que você quer fazer na FreeStudents? </h3>
@@ -175,7 +170,7 @@
         <h4 class="h4-signUp required label"> O que você quer aprender? Veja as opções:</h4>
 
         <select class="custom-select subtitulo-signUp" onChange="categorySelected()" name='interests' id="interests-input">
-          <option value="0">Selecione a categoria:</option>
+          <option value="602db676593d3e15ee1a65b3">Selecione a categoria:</option>
           {{#each data.foundCategories}}
           <option value="{{this.id}}">{{this.name}}</option>
           {{/each}}
@@ -195,7 +190,7 @@
       <div id='formQueroEnsinar' style="display: none">
         <h4 class="h4-signUp required label"> Você quer dar aula do quê? Veja as opções:</h4>
         <select name="teacher_category" class="custom-select subtitulo-signUp">
-          <option value="0" class="required">Selecione a categoria:</option>
+          <option value="602db676593d3e15ee1a65b3" class="required">Selecione a categoria:</option>
           {{#each data.foundCategories}}
           <option value="{{this.id}}">{{this.name}}</option>
           {{/each}}
@@ -209,83 +204,87 @@
         </select>
 
         <label for="input-about" class="required label">Título do seu curso </label>
-        <input class="form-control" type="text" id="input-about" name="title_course" placeholder="Insira o título aqui"
+        <input class="form-control" type="text" id="input-about" name="course_name" placeholder="Insira o título aqui"
           aria-label="default input example">
 
+             <div class="mb-3">
+      <label for="input-course-description" class="form-label required label">Descreva um pouco sobre o curso:</label>
+      <textarea class="form-control" id="input-course-description" name="course_description" rows="2"></textarea>
+    </div>
 
-        <label for="input-about" class="required label">Escolha os dias e períodos que você deseja: </label>
+        <label for="input-about" class="required label">Escolha os dias e períodos que você costuma ter disponível: </label>
 
-        <label for="input-about" class="label">Agenda</label>
+          <label for="input-about" class="label">Agenda</label>
 <div class="margem-agenda">
         <div class='agenda'>
           <ul class="list-group list-group-horizontal">
-            <li class="list-group-item li-agenda label"> <input class="form-check-input me-1 input-agenda" type="checkbox"
+            <li class="list-group-item li-agenda label"> <input class="form-check-input me-1 input-agenda" name="week_availability" type="checkbox"
                 value="0"> SEG </li>
-            <li class="list-group-item li-agenda label"> <input class="form-check-input me-1 input-agenda" type="checkbox"
+            <li class="list-group-item li-agenda label"> <input class="form-check-input me-1 input-agenda" name="hour_availability" type="checkbox"
                 value="1">Manhã</li>
-            <li class="list-group-item li-agenda label"><input class="form-check-input me-1 input-agenda" type="checkbox"
+            <li class="list-group-item li-agenda label"><input class="form-check-input me-1 input-agenda" name="hour_availability" type="checkbox"
                 value="2">Tarde</li>
-            <li class="list-group-item li-agenda label"><input class="form-check-input me-1 input-agenda" type="checkbox"
+            <li class="list-group-item li-agenda label"><input class="form-check-input me-1 input-agenda" name="hour_availability" type="checkbox"
                 value="3">Noite</li>
           </ul>
           <ul class="list-group list-group-horizontal-sm">
-            <li class="list-group-item li-agenda label"> <input class="form-check-input me-1 input-agenda" type="checkbox"
+            <li class="list-group-item li-agenda label"> <input class="form-check-input me-1 input-agenda" name="week_availability" type="checkbox"
                 value="4"> TER </li>
-            <li class="list-group-item li-agenda label"> <input class="form-check-input me-1 input-agenda" type="checkbox"
+            <li class="list-group-item li-agenda label"> <input class="form-check-input me-1 input-agenda" name="hour_availability" type="checkbox"
                 value="5">Manhã</li>
-            <li class="list-group-item li-agenda label"><input class="form-check-input me-1 input-agenda" type="checkbox"
+            <li class="list-group-item li-agenda label"><input class="form-check-input me-1 input-agenda" name="hour_availability" type="checkbox"
                 value="6">Tarde</li>
-            <li class="list-group-item li-agenda label"><input class="form-check-input me-1 input-agenda" type="checkbox"
+            <li class="list-group-item li-agenda label"><input class="form-check-input me-1 input-agenda" name="hour_availability" type="checkbox"
                 value="7">Noite</li>
           </ul>
           <ul class="list-group list-group-horizontal-sm">
-            <li class="list-group-item li-agenda label"> <input class="form-check-input me-1 input-agenda" type="checkbox"
+            <li class="list-group-item li-agenda label"> <input class="form-check-input me-1 input-agenda" name="week_availability" type="checkbox"
                 value="8"> QUA </li>
-            <li class="list-group-item li-agenda label"> <input class="form-check-input me-1 input-agenda" type="checkbox"
+            <li class="list-group-item li-agenda label"> <input class="form-check-input me-1 input-agenda" name="hour_availability" type="checkbox"
                 value="9">Manhã</li>
-            <li class="list-group-item li-agenda label"><input class="form-check-input me-1 input-agenda" type="checkbox"
+            <li class="list-group-item li-agenda label"><input class="form-check-input me-1 input-agenda" name="hour_availability" type="checkbox"
                 value="10">Tarde</li>
-            <li class="list-group-item li-agenda label"><input class="form-check-input me-1 input-agenda" type="checkbox"
+            <li class="list-group-item li-agenda label"><input class="form-check-input me-1 input-agenda" name="hour_availability" type="checkbox"
                 value="11">Noite</li>
           </ul>
           <ul class="list-group list-group-horizontal-sm">
-            <li class="list-group-item li-agenda label"> <input class="form-check-input me-1 input-agenda" type="checkbox"
+            <li class="list-group-item li-agenda label"> <input class="form-check-input me-1 input-agenda" name="week_availability" type="checkbox"
                 value="12"> QUI </li>
-            <li class="list-group-item li-agenda label"> <input class="form-check-input me-1 input-agenda" type="checkbox"
+            <li class="list-group-item li-agenda label"> <input class="form-check-input me-1 input-agenda" name="hour_availability" type="checkbox"
                 value="13">Manhã</li>
-            <li class="list-group-item li-agenda label"><input class="form-check-input me-1 input-agenda" type="checkbox"
+            <li class="list-group-item li-agenda label"><input class="form-check-input me-1 input-agenda" name="hour_availability" type="checkbox"
                 value="14">Tarde</li>
-            <li class="list-group-item li-agenda label"><input class="form-check-input me-1 input-agenda" type="checkbox"
+            <li class="list-group-item li-agenda label"><input class="form-check-input me-1 input-agenda" name="hour_availability" type="checkbox"
                 value="15">Noite</li>
           </ul>
           <ul class="list-group list-group-horizontal-sm">
-            <li class="list-group-item li-agenda label"> <input class="form-check-input me-1 input-agenda" type="checkbox"
+            <li class="list-group-item li-agenda label"> <input class="form-check-input me-1 input-agenda" name="week_availability" type="checkbox"
                 value="16"> SEX </li>
-            <li class="list-group-item li-agenda label"> <input class="form-check-input me-1 input-agenda" type="checkbox"
+            <li class="list-group-item li-agenda label"> <input class="form-check-input me-1 input-agenda" name="hour_availability" type="checkbox"
                 value="17">Manhã</li>
-            <li class="list-group-item li-agenda label"><input class="form-check-input me-1 input-agenda" type="checkbox"
+            <li class="list-group-item li-agenda label"><input class="form-check-input me-1 input-agenda" name="hour_availability" type="checkbox"
                 value="18">Tarde</li>
-            <li class="list-group-item li-agenda label"><input class="form-check-input me-1 input-agenda" type="checkbox"
+            <li class="list-group-item li-agenda label"><input class="form-check-input me-1 input-agenda" name="hour_availability" type="checkbox"
                 value="19">Noite</li>
           </ul>
           <ul class="list-group list-group-horizontal-sm">
-            <li class="list-group-item li-agenda label"> <input class="form-check-input me-1 input-agenda" type="checkbox"
+            <li class="list-group-item li-agenda label"> <input class="form-check-input me-1 input-agenda" name="week_availability" type="checkbox"
                 value="20"> SAB </li>
-            <li class="list-group-item li-agenda label"> <input class="form-check-input me-1 input-agenda" type="checkbox"
+            <li class="list-group-item li-agenda label"> <input class="form-check-input me-1 input-agenda" name="hour_availability" type="checkbox"
                 value="21">Manhã</li>
-            <li class="list-group-item li-agenda label"><input class="form-check-input me-1 input-agenda" type="checkbox"
+            <li class="list-group-item li-agenda label"><input class="form-check-input me-1 input-agenda" name="hour_availability" type="checkbox"
                 value="22">Tarde</li>
-            <li class="list-group-item li-agenda label"><input class="form-check-input me-1 input-agenda" type="checkbox"
+            <li class="list-group-item li-agenda label"><input class="form-check-input me-1 input-agenda" name="hour_availability" type="checkbox"
                 value="23">Noite</li>
           </ul>
           <ul class="list-group list-group-horizontal-sm">
-            <li class="list-group-item li-agenda label"> <input class="form-check-input me-1 input-agenda" type="checkbox"
+            <li class="list-group-item li-agenda label"> <input class="form-check-input me-1 input-agenda" name="week_availability" type="checkbox"
                 value="24"> DOM </li>
-            <li class="list-group-item li-agenda label"> <input class="form-check-input me-1 input-agenda" type="checkbox"
+            <li class="list-group-item li-agenda label"> <input class="form-check-input me-1 input-agenda" name="hour_availability" type="checkbox"
                 value="25">Manhã</li>
-            <li class="list-group-item li-agenda label"><input class="form-check-input me-1 input-agenda" type="checkbox"
+            <li class="list-group-item li-agenda label"><input class="form-check-input me-1 input-agenda" name="hour_availability" type="checkbox"
                 value="26">Tarde</li>
-            <li class="list-group-item li-agenda label"><input class="form-check-input me-1 input-agenda" type="checkbox"
+            <li class="list-group-item li-agenda label"><input class="form-check-input me-1 input-agenda" name="hour_availability" type="checkbox"
                 value="27">Noite</li>
           </ul>
         </div>
