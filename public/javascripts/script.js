@@ -1,8 +1,8 @@
-const express = require("express");
-const router = express.Router();
-const mongoose = require('mongoose');
-const Course = require("../models/Course.model");
-const Category = require('../models/Category.model')
+// const express = require("express");
+// const router = express.Router();
+// const mongoose = require('mongoose');
+// const Course = require("../models/Course.model");
+// const Category = require('../models/Category.model')
 
 document.addEventListener('DOMContentLoaded', () => {
 
