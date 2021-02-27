@@ -36,6 +36,11 @@ router.post('/signup', fileUploader.single('imageUrl'), (req, res) => {
     return;
   }
 
+  if (! req.file || ! req.file.path) {
+    res.render('signup', { errorMessage: 'Coloca uma imagem, vai.' });
+    return;
+  }
+
   const regex = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}/;
   if (!regex.test(password)) {
     res
@@ -43,7 +48,6 @@ router.post('/signup', fileUploader.single('imageUrl'), (req, res) => {
       .render('signup', { errorMessage: 'Password needs to have at least 6 chars and must contain at least one number, one lowercase and one uppercase letter.' });
     return;
   }
-console.log(req.file.path);
 
   bcryptjs
     .genSalt(saltRounds)
@@ -84,6 +88,7 @@ console.log(req.file.path);
   //     req.session.currentUser = newUserId;
   //   console.log(`aqui primeir user ${newUserId}`);
 
+  if (course_name != "") {
   Course.create({
     name: course_name,
     category: teacher_category,
@@ -96,7 +101,6 @@ console.log(req.file.path);
     status: "Ativo",
   })
   .then (courseIncluded => {
-console.log(`vamos ver oqh isso: ${courseIncluded}`);
   Course.findOne({ name: course_name, user: newUserId }).select('_id')
     .then(newCourse => {
       const newCourseId = newCourse
@@ -110,6 +114,9 @@ console.log(`vamos ver oqh isso: ${courseIncluded}`);
     })
 })
 })
+    }
+    else { res.redirect(`/user/${newUserId}`);}
+    
 })
     .catch(error => {
       if (error instanceof mongoose.Error.ValidationError) {
