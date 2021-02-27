@@ -8,7 +8,7 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav ul-mainPage">
+      <ul class="navbar-nav ul-mainPage-index">
 
         <li class="nav-item li-mainPageHowToWork">
           <a class="nav-link" href="#comofunciona">Como funciona?</a>
@@ -18,25 +18,30 @@
         </li>
         {{!-- login --}}
       </ul>
-       <form class="form-login form-menu" action="/login" method="POST">
-             <label class= 'label-login form-label' for="exampleInputEmail1" class="form-label">Email</label>
-            <input type="email"  name="email" class="form-control" id="email" aria-describedby="emailHelp">
-         
-          <label  class= 'label-login form-label' for="exampleInputPassword1">Senha</label>
-            <input  type="password" name="password" class="form-control" id="password"> 
-
-  <button type="submit" class="btn btn-warning">Login</button>
-    {{#if errorMessage}}
-<p class="error">{{errorMessage}} </p>
-{{/if}}
-
-</form>
     </div>
+
+
+    <form class="form-menu-index" action="/login" method="POST">
+      <label class='label-login form-label' for="exampleInputEmail1" class="form-label">Email</label>
+      <input type="email" name="email" class="form-control" id="email" aria-describedby="emailHelp">
+
+      <label class='label-login form-label' for="exampleInputPassword1">Senha</label>
+      <input type="password" name="password" class="form-control" id="password">
+
+      <button type="submit" class="btn btn-warning button-login-index">Login</button>
+
+    </form>
+
   </div>
 </nav>
 
+<div class='part-login-message'>
+  {{#if errorMessage}}
+  <p class="error">{{errorMessage}} </p>
+  {{/if}}
+</div>
 
-{{!-- Primeira parte --}} <br>
+{{!-- Primeira parte --}}
 
 <div id="carouselExampleControlsNoTouching" class="carousel slide div-carrossel" data-bs-touch="false"
   data-bs-interval="false">
@@ -115,17 +120,24 @@
 
 <div class=" div-comoFunciona">
 
-  <img src="../images/como-funciona.png" class="card-img  img-comoFunciona" alt="..." >
+  <img src="../images/como-funciona.png" class="card-img  img-comoFunciona" alt="...">
   <div>
     <h1>Como a FreeStudents funciona? </h1>
     <p class="card-text p-comoFunciona">This is a wider card with supporting text below as a natural lead-in to
-      additional content. This content is a little bit longer. This is a wider card with supporting text below as a natural lead-in to
-      additional content. This content is a little bit longer.This is a wider card with supporting text below as a natural lead-in to
-      additional content. This content is a little bit longer. <br> <br>  This is a wider card with supporting text below as a natural lead-in to
-      additional content. This content is a little bit longer.This is a wider card with supporting text below as a natural lead-in to
-      additional content. This content is a little bit longer.<br> <br> This is a wider card with supporting text below as a natural lead-in to
+      additional content. This content is a little bit longer. This is a wider card with supporting text below as a
+      natural lead-in to
+      additional content. This content is a little bit longer.This is a wider card with supporting text below as a
+      natural lead-in to
+      additional content. This content is a little bit longer. <br> <br> This is a wider card with supporting text below
+      as a natural lead-in to
+      additional content. This content is a little bit longer.This is a wider card with supporting text below as a
+      natural lead-in to
+      additional content. This content is a little bit longer.<br> <br> This is a wider card with supporting text below
+      as a natural lead-in to
       additional content. This content is a little bit longer.</p>
 
-  <a href="/signup"><butto type="button" class="btn btn-outline-warning">Quero me inscrever</button></a>
+    <a href="/signup">
+      <butto type="button" class="btn btn-outline-warning">Quero me inscrever</button>
+    </a>
   </div>
 </div>
