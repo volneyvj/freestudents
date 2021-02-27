@@ -1,48 +1,54 @@
 <nav class="navbar">
   <img class="logo" src="/images/logo.png" width="10%" />
   <ul class="menu-course">
-    <li><a href="/user/{{data.user_id}}">Retornar</a></li>
-    <li><a href="/logout">LogOut</a></li>
+    <li class="li-details-page"><button class="btn btn-lg disabled button-signUp"><a class='a-link-details' href="/user/{{data.user_id}}">Retornar</a></button></li>
+    <li class="li-details-page"><button class="btn btn-lg disabled button-signUp"><a class='a-link-details' href="/logout">LogOut</a></button></li>
   </ul>
 </nav>
 
-<div class="course-page">
+
+<div class="formulario-new-course-details">
+
+  <section class="section-details-course">
+
     <div id="texts-bottom">
-      <h2><span>Nome do Curso: {{data.courseDetalhes.name}}</span> </h2>
-      <p>Descrição: {{data.courseDetalhes.description}}</p>
+      <h4><span>Nome do Curso: {{data.courseDetalhes.name}}</span> </h4>
+      <p> Descrição: {{data.courseDetalhes.description}}</p>
       <p>CATEGORIA: {{data.courseDetalhes.category.name}} - {{data.courseDetalhes.category.content.content_name}} </p>
-      <h3>Professor: {{data.courseDetalhes.user.name}}</h3>
-      <br>
-      <h4> Número de aulas: {{data.courseDetalhes.classes}}</h4>
-      <p> Dias e Horarios Disponíveis: {{data.courseDetalhes.WeekAvailability}} - {{data.courseDetalhes.HourAvailability}}</p>
+      <p>Professor: {{data.courseDetalhes.user.name}}</p>
+      <p> Número de aulas: {{data.courseDetalhes.classes}}</p>
+      <p> Dias e Horarios Disponíveis: {{data.courseDetalhes.WeekAvailability}} -
+        {{data.courseDetalhes.HourAvailability}} </p>
     </div>
 
+  </section>
+  <section class="section-details-course">
 
-    <div id="date-course">
-        <form action="/signcourse/{{data.courseDetalhes._id}}/{{data.courseDetalhes.user._id}}" method="POST">
-    {{#each data.classesArray}}
-     <label for="input-date{{this}}">Escolha data para {{this}}° aula do curso:</label>
-    <input type="date" id="input-date{{this}}" name="date{{this}}"/>
+
+    <form action="/signcourse/{{data.courseDetalhes._id}}/{{data.courseDetalhes.user._id}}" method="POST">
+      {{#each data.classesArray}}
+      <label class='label label-details-course' for="input-date{{this}}">Escolha data para {{this}}° aula do
+        curso:</label>
+      <input class='form-control' type="date" id="input-date{{this}}" name="date{{this}}" />
+
       {{/each}}
-      <button type="submit" class="btn btn-secondary">INSCREVER-SE NO CURSO</button>
-  </form>
+
+    </form>
+
+  </section>
+  <section class="section-details-course">
+
+    <div class="course-details">
+      <h4>Quer Enviar uma Mensagem ao Professor?</h4>
+      <form class="form-msg" action="/sendmessage/{{user._id}}" method="POST">
+
+        <label for="mensagem-input" class="form-label"></label>
+        <textarea class="form-control" name="mensagem" id="mensagem-input" rows="5"></textarea>
+      
+      </form>
     </div>
-   
+  
+   <button type="submit" class="btn btn-lg disabled button-signUp">INSCREVER-SE NO CURSO</button>
+
+  </section>
 </div>
-
-
-
-
-
-  <p>
-  <div class="course-details">
-    <h2>Quer Enviar uma Mensagem ao Professor?</h2>
-        <form class="form-msg" action="/sendmessage/{{user._id}}" method="POST">
-
-            <label for="mensagem-input" class="form-label"></label>
-            <textarea class="form-control" name="mensagem" id="mensagem-input" rows="5"></textarea>
-    
-
-          <button type="submit">Enviar Mensagem</button>
-        </form>
-    </div>
