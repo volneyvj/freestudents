@@ -14,7 +14,6 @@ const fileUploader = require('../configs/cloudinary.config');
 // // ****************************************************************************************
 // // GET route to display all the movies
 // // ****************************************************************************************
-var helpers = require('handlebars-helpers')();
 
 router.get("/user/:id/", (req, res) => {
   const { id } = req.params;
