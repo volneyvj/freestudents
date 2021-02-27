@@ -15,7 +15,6 @@ const fileUploader = require('../configs/cloudinary.config');
 // // GET route to display all the movies
 // // ****************************************************************************************
 
-
 router.get("/user/:id/", (req, res) => {
   const { id } = req.params;
     Schedule.find({$or:[{teacher: id},{student: id}]})
