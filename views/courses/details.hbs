@@ -2,7 +2,7 @@
   <img class="logo" src="/images/logo.png" width="10%" />
   <ul class="menu-course">
     <li><a href="/user/{{data.user_id}}">Retornar</a></li>
-    <li><a href="/logut">LogOut</a></li>
+    <li><a href="/logout">LogOut</a></li>
   </ul>
 </nav>
 
@@ -16,15 +16,15 @@
       <h4> Número de aulas: {{data.courseDetalhes.classes}}</h4>
       <p> Dias e Horarios Disponíveis: {{data.courseDetalhes.WeekAvailability}} - {{data.courseDetalhes.HourAvailability}}</p>
     </div>
+
+
     <div id="date-course">
         <form action="/signcourse/{{data.courseDetalhes._id}}/{{data.courseDetalhes.user._id}}" method="POST">
-    <label for="input-city">Escolha data de sua opção:</label>
-    <input type="date" id="input-date1" name="date1" placeholder="" />
-    {{!-- <label for="input-city">Escolha data de sua opção:/label>
-      <input type="date" id="input-date2" name="date2" placeholder="" />
-      <label for="input-city">Escolha data de sua opção:</label>
-      <input type="date" id="input-date3" name="date3" placeholder="" /> --}}
-      <button type="button" type="submit" class="btn btn-secondary">INSCREVER-SE NO CURSO</button>
+    {{#each data.classesArray}}
+     <label for="input-date{{this}}">Escolha data para {{this}}° aula do curso:</label>
+    <input type="date" id="input-date{{this}}" name="date{{this}}"/>
+      {{/each}}
+      <button type="submit" class="btn btn-secondary">INSCREVER-SE NO CURSO</button>
   </form>
     </div>
    

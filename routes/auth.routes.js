@@ -7,7 +7,8 @@ const mongoose = require('mongoose');
 const Category = require('../models/Category.model')
 const Course = require('../models/Course.model')
 
-
+const fileUploader = require('../configs/cloudinary.config');
+ 
 router.get('/signup', (req, res) => {
 
   Category.find()
@@ -18,9 +19,7 @@ router.get('/signup', (req, res) => {
     .catch(error => next(error));
 });
 
-router.post('/signup', (req, res, next) => {
-
-  // console.log (req.body)
+router.post('/signup', fileUploader.single('imageUrl'), (req, res) => {
   const { email, password, name, city, state, birthdate, how_got_to_us, skype_username, zoom_username, teams_username, other_com, other_com_username,
     about, phone, imageUrl, student, teacher, interests, student_content } = req.body;
 
@@ -28,7 +27,7 @@ router.post('/signup', (req, res, next) => {
   const teacher_category = req.body.teacher_category;
   const teacher_content = req.body.teacher_content;
   const course_description = req.body.course_description;
-  const classes_number = req.body.classes_number;
+  const classes = req.body.classes;
   const week_availability = req.body.week_availability;
   const hour_availability = req.body.hour_availability;
   
@@ -44,6 +43,7 @@ router.post('/signup', (req, res, next) => {
       .render('signup', { errorMessage: 'Password needs to have at least 6 chars and must contain at least one number, one lowercase and one uppercase letter.' });
     return;
   }
+console.log(req.file.path);
 
   bcryptjs
     .genSalt(saltRounds)
@@ -71,6 +71,7 @@ router.post('/signup', (req, res, next) => {
         student_content,
         rating: 4,
         admin_level: 3,
+        imageUrl: req.file.path
       })
     .then(createdUser => {
         // req.session.currentUser = createdUser; 
@@ -89,7 +90,7 @@ router.post('/signup', (req, res, next) => {
     content: teacher_content,
     description: course_description,
     user: newUserId,
-    classes: classes_number,
+    classes: classes,
     week_availability: week_availability,
     hour_availability: hour_availability,
     status: "Ativo",
