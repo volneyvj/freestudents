@@ -715,3 +715,58 @@ footer {
 .col-md-4 {
   padding: 2px;
 }
+
+
+/* Formulário de edição de perfil */
+
+.menu-edit{ 
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2%;
+  margin-bottom: 30px;
+  margin-left: 10%;
+  margin-right: 10%;
+
+}
+
+
+.formulario-edit {
+  background-color: #ffc107;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  margin-top: 30px;
+  margin-right: 100px;
+  margin-left: 100px;
+  border-radius: 20px;
+
+}
+
+#signup-form-edit {
+  margin: 50px auto;
+  width: 600px;
+  align-items: center;
+
+}
+
+#signup-form-edit label {
+  color: black;
+  font-size: 22px;
+  display: inline-block;
+  margin-bottom: 10px;
+  text-align: center;
+  width: 100%;
+}
+
+#signup-form-edit input {
+  box-sizing: border-box;
+  font-size: 14px;
+  outline: 0;
+  padding: 4px;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.h2-edit-page { 
+text-align: center; 
+margin-right: 25%;
+}
