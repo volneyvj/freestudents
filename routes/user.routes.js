@@ -7,12 +7,14 @@ const Course = require("../models/Course.model");
 const Schedule = require("../models/Schedule.model");
 const fileUploader = require('../configs/cloudinary.config');
 
+
 // // ********* require fileUploader in order to use it *********
 // const fileUploader = require("../configs/cloudinary.config");
 
 // // ****************************************************************************************
 // // GET route to display all the movies
 // // ****************************************************************************************
+var helpers = require('handlebars-helpers')();
 
 router.get("/user/:id/", (req, res) => {
   const { id } = req.params;
@@ -36,13 +38,13 @@ router.get("/user/:id/", (req, res) => {
   .then((schedule_notification) => {
     const schedule_notes = schedule_notification
     // console.log(schedule_notes[0].schedule_dates);
-    let datesNotification = schedule_notes[0].schedule_dates[0].toLocaleString('en-GB');
+    // let datesNotification = schedule_notes[0].schedule_dates[0].toLocaleString('en-GB');
   
     Course.find({}).sort('category').limit(6)
   .then((searchFound) => {
       const searchFounded = searchFound
   
-      res.render("user/main.hbs", {data: {userFounded, messagesFounded, scheduleFounded, searchFounded, schedule_notes, datesNotification}}) 
+      res.render("user/main.hbs", {data: {userFounded, messagesFounded, scheduleFounded, searchFounded, schedule_notes}}) 
   })
     })
   })
