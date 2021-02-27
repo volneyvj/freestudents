@@ -38,6 +38,15 @@ input:focus {
   outline: white !important;
 }
 
+.signup-nav ul {
+  display: flex;
+  justify-content: space-between;
+}
+
+.button-login-signup {
+  margin-right: 5%;
+
+}
 
 input {
   border-radius: 138px;
@@ -78,7 +87,7 @@ input {
 
 }
 
-#signup-form label {
+#signup-form>label {
   color: #666;
   font-size: 22px;
   display: inline-block;
@@ -87,7 +96,7 @@ input {
   width: 100%;
 }
 
-#signup-form input {
+#signup-form>input {
   box-sizing: border-box;
   font-size: 14px;
   outline: 0;
@@ -175,7 +184,7 @@ input {
 
 .input-agenda {
   font-size: 10px !important;
-  margin-left: 10px;
+  margin-left: 70px;
 }
 
 .button-signUp {
@@ -239,7 +248,27 @@ input {
 .ul-mainPage {
   display: flex;
   justify-content: space-around;
+  width: 20vw;
+}
+
+.ul-mainPage-index {
+  display: flex;
+  justify-content: space-around;
   width: 25vw;
+}
+
+.part-login-message {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+  margin-left: 40%;
+
+}
+
+.button-login-index {
+  margin-left: 2%;
+
+
 }
 
 .li-mainPage {
@@ -257,8 +286,8 @@ input {
 
 }
 
-a:link,
-a:visited {
+.a-link-details:link,
+.a-link-details:visited {
   text-decoration: none !important
 }
 
@@ -273,18 +302,25 @@ a:active {
 
 
 
-.form-menu {
-  margin-left: 10%;
-  margin-right: 15%;
+.form-menu-signup {
+  margin-left: 15%;
+  margin-right: 5%;
   display: flex !important;
   justify-content: space-between !important;
   align-items: baseline !important;
 
 }
 
+.form-menu-index {
+  margin-left: 5%;
+  margin-right: 5%;
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: baseline !important;
+}
+
 .button-login {
   margin-left: 10px;
-
 }
 
 
@@ -293,6 +329,12 @@ a:active {
   justify-content: space-between;
 
 }
+
+/* Div carrossel */
+.div-carrossel {
+  margin-top: 1vw;
+}
+
 
 
 /* Segunda parte */
@@ -428,7 +470,6 @@ footer {
   padding-bottom: 10px;
   margin-top: 5px;
   border: solid black 1px;
-
 }
 
 .section-info-cursos-registrados {
@@ -555,7 +596,7 @@ footer {
 
 
 
-.section-main > section {
+.section-main>section {
   margin-bottom: 15px;
   border: solid black 1px;
 }
@@ -597,136 +638,52 @@ footer {
 
 /* Details Course   */
 
-.course-details {
-  padding: 1px;
+.formulario-new-course-details {
 
+background-color: #ffc107;
+padding-top: 5px;
+padding-bottom: 5px;
+margin-top: 30px;
+margin-right: 3%;
+margin-left: 3%;
+border-radius: 20px;
+} 
+
+.section-details-course {
+  background-color: white;
+  border-radius: 5px;
+  padding-left: 10%;
+  padding-right: 20%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-top: 1%;
+  margin-bottom: 1%;
+  margin-left: 10% ;
+  margin-right: 10%;
+  border: solid black 1px;
 }
 
-.course-details>h2 {
-  text-align: center;
-  font-weight: 800;
-  font-size: 35px;
-  margin: 5px;
-  text-decoration: underline;
-  text-decoration-color: #00B172;
-  text-decoration-thickness: 5px;
+.label-details-course { 
 
+color: black;
+margin-bottom: 1v;
 }
 
-.form-msg {
-  padding: 0;
-  margin: 0 0 0 30%;
-  align-items: center;
+.li-details-page { 
+
+list-style: none;
 
 }
-
-.course-details>.links {
-  display: flex;
-  justify-content: space-around;
-}
-
-.course-details>.links div {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-}
-
-.course-details>.links p {
-  width: 250px;
-  font-size: 22px;
-  text-align: center;
-
-}
-
-.course-details .links h3 {
-  margin: 2% 0;
-  font-size: 30px;
-  color: #00B172;
-}
-
-.course-page {
-  background-color: #ffc107;
-  color: #FFF;
-  display: flex;
-  position: relative;
-  justify-content: center;
-  align-content: center;
-  align-items: center;
-  margin: 0;
-  padding: 3%;
-  height: auto;
-  text-align: left;
-}
-
-.course-page h2 {
-  font-size: 2em;
-  width: 100%;
-  text-align: left;
-  font-weight: bold;
-}
-
-.course-page h2>span {
-  border-bottom: 4px solid white;
-}
-
-.course-page h3 {
-  font-size: 2em;
-  width: 90%;
-  font-weight: bold;
-}
-
-.course-page p {
-  width: 90%;
-  font-size: 20px;
-}
-
-.course-page>.bottom {
-  display: flex;
-  flex-direction: row;
-  align-content: center;
-  align-items: center;
-  justify-content: space-around;
-  width: 100%;
-}
-
-#texts-bottom {
-  width: 55%;
-}
-
-.menu-course {
-  display: flex;
-  font-size: 22px;
-  font-weight: lighter;
-  align-items: center;
-  list-style: none;
-  justify-content: space-around;
-  padding: 0;
-  margin: 0;
-}
-
-.menu-course a {
-  text-decoration: none;
-  color: #1A1A1A;
-  padding: 0;
-  margin-right: 20px;
-}
-
-.col-md-4 {
-  padding: 2px;
-}
-
 
 /* Formulário de edição de perfil */
 
-.menu-edit{ 
+.menu-edit {
   display: flex;
   justify-content: space-between;
   margin-top: 2%;
   margin-bottom: 30px;
   margin-left: 10%;
   margin-right: 10%;
-
 }
 
 
@@ -737,7 +694,7 @@ footer {
   margin-top: 30px;
   margin-right: 100px;
   margin-left: 100px;
-  border-radius: 20px;
+  border-radius: 10px;
 
 }
 
@@ -766,7 +723,7 @@ footer {
   margin-bottom: 20px;
 }
 
-.h2-edit-page { 
-text-align: center; 
-margin-right: 25%;
+.h2-edit-page {
+  text-align: center;
+  margin-right: 25%;
 }
