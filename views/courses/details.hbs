@@ -1,10 +1,8 @@
-<nav class="navbar">
-  <img class="logo" src="/images/logo.png" width="10%" />
-  <ul class="menu-course">
-    <li class="li-details-page"><button class="btn btn-lg disabled button-signUp"><a class='a-link-details' href="/user/{{data.user_id}}">Retornar</a></button></li>
-    <li class="li-details-page"><button class="btn btn-lg disabled button-signUp"><a class='a-link-details' href="/logout">LogOut</a></button></li>
-  </ul>
-</nav>
+<div id='menu-courses-details'>  
+ <a class='a-link-details button-retornar' href="/user/{{data.user_id}}"> <button class="btn btn-lg disabled button-signUp button-escrever-se">Retornar </button></a>
+<h3 style='margin-botton:1vw; margin-top:2vw; margin-left:15vw;'> FreeStudents - Descrição do curso </h3> 
+</div>
+
 
 
 <div class="formulario-new-course-details">
@@ -40,7 +38,7 @@
   <section class="section-details-course">
 
     <div class="course-details">
-      <h4>Quer Enviar uma Mensagem ao Professor?</h4>
+      <h4>Quer enviar uma mensagem ao professor?</h4>
       <form class="form-msg" action="/sendmessage/{{user._id}}" method="POST">
 
         <label for="mensagem-input" class="form-label"></label>
@@ -49,7 +47,7 @@
       </form>
     </div>
   
-   <button type="submit" class="btn btn-lg disabled button-signUp">INSCREVER-SE NO CURSO</button>
+   <button type="submit" class="btn btn-lg disabled button-signUp button-escrever-se">INSCREVER-SE NO CURSO</button>
 
   </section>
 </div>
