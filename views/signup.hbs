@@ -19,9 +19,9 @@
         <input type="email" name="email" class="form-control" id="email" aria-describedby="emailHelp">
         <label class='label-login' for="exampleInputPassword1" class="form-label">Senha</label>
         <input type="password" name="password" class="form-control" id="password">
-      </form>
       <button type="submit" class="btn btn-warning button-login-signup">Login</button>
-    </div>
+      </form>
+     </div>
 </nav>
 <div class='part-login-message'>
    {{#if errorMessage}}
@@ -177,8 +177,8 @@
         <select name="student_content" class="custom-select subtitulo-signUp">
 
           <option value="0">Selecione o conteúdo:</option>
-          {{#each data.foundContents}}
-          <option value="{{this.id}}">{{this.name}}</option>
+          {{#each data.foundCategories}}
+          <option value="{{this.content.0.content_name}}">{{this.content.0.content_name}}</option>
           {{/each}}
         </select>
       </div>

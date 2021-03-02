@@ -7,19 +7,19 @@
 {{!-- Alteração de perfil--}}
 
 <div class="formulario-edit">
-  <form id="signup-form-edit" action="/signup" enctype="multipart/form-data" method="POST">
+  <form id="signup-form-edit" action="/edituser/{{data.userToEdit._id}}" enctype="multipart/form-data" method="POST">
     <label for="input-completeName" class="required label">Nome completo</label>
     <input class="form-control" type="text" id="input-completeName" name="name" value="{{data.userToEdit.name}}" />
     <label for="input-email">E-mail</label>
-    <input class="form-control" type="text" id="input-email" name="email" value="{{data.userToEdit.email}}" />
+    <input class="form-control" type="text" id="input-email" name="email" value="{{data.userToEdit.email}}" readonly="readonly"/>
     <label for="input-password">Mudar Senha</label>
-    <input class="form-control" type="password" name="password" id="input-password" />
+    <input class="form-control" type="password" name="password" id="input-password"/>
     <label for="input-telefone">Telefone</label>
-    <input class="form-control" type="text" id="input-telefone" name="telefone" value="{{data.userToEdit.phone}}" />
+    <input class="form-control" type="text" id="input-telefone" name="phone" value="{{data.userToEdit.phone}}" />
     <label for="input-city">Cidade</label>
     <input class="form-control" type="text" id="input-city" name="city" value={{data.userToEdit.city}} />
     <h4 class="h4-signUp">Selecione seu estado</h4>
-    <select class="form-control" name="estate">
+    <select class="form-control" name="state">
       <option value="0">Selecione</option>
       <option value="1">AC</option>
       <option value="2">AL</option>
@@ -65,13 +65,15 @@
     <input class="form-control" type="text" id="input-teams" name="other_com" value="{{data.userToEdit.other_com}}" />
     <label for="input-teamsUsername">Username da plataforma</label>
     <input class="form-control" type="text" id="input-teams" name="other_com_username"
-      value="{{data.userToEdit.other_username}}" />
+      value="{{data.userToEdit.other_com_username}}" />
     <div class="mb-3">
       <label for="exampleFormControlTextarea1" class="form-label">Fale um pouco sobre você:</label>
-      <textarea class="form-control" id="exampleFormControlTextarea1" rows="3">{{about}}</textarea>
+      <textarea class="form-control" id="exampleFormControlTextarea1" name="about" rows="3">{{data.userToEdit.about}}</textarea>
     </div>
     <h4 class="h4-signUp">Altere sua foto aqui</h4>
-    <input class="form-control" type="file" name="imageUrl" />
+    <label for="image-input"></label>
+    <input class="form-control" type="file" name="imageUrl" id="image-input" />
+        <input type="text" name="existingImage" hidden id="" value="{{data.userToEdit.imageUrl}}">
     <button type="submit" class="btn btn-lg disabled button-signUp button-alterar">ALTERAR</button>
   </form>
 </div>

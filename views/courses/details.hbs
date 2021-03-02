@@ -39,15 +39,12 @@
 
     <div class="course-details">
       <h4>Quer enviar uma mensagem ao professor?</h4>
-      <form class="form-msg" action="/sendmessage/{{user._id}}" method="POST">
+      <form class="form-msg" action="/sendmessage/{{data.courseDetalhes.user._id}}" method="POST">
 
         <label for="mensagem-input" class="form-label"></label>
         <textarea class="form-control" name="mensagem" id="mensagem-input" rows="5"></textarea>
-      
-      </form>
     </div>
-  
-   <button type="submit" class="btn btn-lg disabled button-signUp button-escrever-se">INSCREVER-SE NO CURSO</button>
-
+   <button type="submit" class="btn btn-lg disabled button-signUp button-escrever-se">ENVIAR MENSAGEM</button>
+    </form>
   </section>
 </div>

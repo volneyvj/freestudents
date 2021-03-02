@@ -10,8 +10,8 @@ module.exports = (app) => {
       saveUninitialized: true,
       cookie: {
         // sameSite: 'none',
-        httpOnly: true,
-        maxAge: 1200000, // 120 * 1000 ms === 20 min
+        // httpOnly: true,
+        maxAge: 3600000, // 120 * 1000 ms === 20 min
       },
       store: new MongoStore({
         mongooseConnection: mongoose.connection,

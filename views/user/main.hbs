@@ -4,7 +4,7 @@
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarNav">
-    <a class="photo-link" href="#"> <img id='photo-user' width="25%" src="{{data.userFounded.imageUrl}}"></a>
+    <div class="photo-link"> <img id='photo-user' width="20%" src="{{data.userFounded.imageUrl}}"></div>
     <ul class="navbar-nav link-list">
       <li class="nav-item active links-main">
         <a class="nav-link " href="/user/{{data.userFounded._id}}/edit">Meu Perfil</a>
@@ -31,6 +31,7 @@
     <ul>
       {{#each data.messagesFounded}}
       <li>
+        De: {{this.from.name}} - 
         {{this.message}}
       </li>
       {{/each}}
@@ -47,7 +48,9 @@
 
       <p class='dates-hours'> Dias e horários selecionados: <br> 
       {{#each ../data.formatedDates}}
+      {{#if this.fDate}}
       <input type="datetime"  style="text-align:center;" value="{{this.fDate}}">
+      {{/if}}
       {{/each}} </p>
 
       <div id="button-students-group">
@@ -64,9 +67,9 @@
 
 </div>
 
-<div class='section-main'>
+<div class='section-main' id="meuscursos">
   <h4 class='h4-main'>MEUS CURSOS REGISTRADOS</h4>
-  <section class="section-info-cursos-registrados" id="notificacoes">
+  <section class="section-info-cursos-registrados">
     {{#each data.scheduleFounded}}
     <div id='curso-registrado'>
       <h5 style="font-weight: bold;"> Curso: {{this.course.name}} </h5>
@@ -76,15 +79,16 @@
       <p class='dates-hours'> Horários: <br>
        
       {{#each ../data.formatedStudentDates}}
+      {{#if this.fDate}}
       <input type="datetime"  style="text-align:center;" value="{{this.fDate}}">
+      {{/if}}
       {{/each}} </p>
 
         {{this.schedule_dates}} </p>
       <br>Status: {{this.status}}  
       <p> Aulas completadas: {{this.classes_completed}} </p>
-      <li class="li-main" style="margin-bottom: 20px;"> <button class="btn btn-lg  disabled button-main" <a
-          href="/courses-details/{{this._id}}">Mais
-          Detalhes</a> </button></li>
+      <li class="li-main" style="margin-bottom: 20px;"> 
+        <a href="/courses-details/{{this.course._id}}"><button class="btn btn-lg  disabled button-main">Mais Detalhes </button></a></li>
       {{/each}}
     </div>
   </section>
@@ -92,15 +96,17 @@
 
 <div class='section-main'>
   <h4 class='h4-main'>BUSCAR MAIS CURSOS</h4>
-  <section class="section-info" id="notificacoes">
+  <section class="section-info" id="maiscursos">
     <ul id='buscar-cursos-list'>
       {{#each data.searchFounded}}
       <li id='buscar-cursos'>
         <div>
-          <P> {{this.name}} </P>
+           <img width="15%" src="/images/lecture.jpg">
+          <P> {{this.name}} </P> - Categoria: {{this.category.name}}
+          <br> Professor: {{this.user.name}} 
         </div>
-        <button id='button-saber-mais' class="btn btn-lg  disabled button-main" type="submit"> <a class="link-main"
-            href="/courses-details/{{this._id}}">Saber Mais</a> </button>
+        <a class="link-main"
+            href="/courses-details/{{this._id}}"><button id='button-saber-mais' class="btn btn-lg  disabled button-main" type="submit"> Saber Mais</button></a>
       </li>
       {{/each}}
     </ul>
