@@ -16,7 +16,6 @@ router.get("/user/:id/", (req, res) => {
   .populate('course')
   .then((scheduleFound) => {
     const scheduleFounded = scheduleFound
-
     let formatedStudentDates = [];
     for (let schedulesS of scheduleFounded) {
       for (let datesRegistraded of schedulesS.schedule_dates) {
@@ -35,6 +34,7 @@ router.get("/user/:id/", (req, res) => {
       // console.log(userFounded);
       interest_category_id = userFounded.interests[0]
   Message.find({to: id}).limit(10)
+  .populate('from')
   .then((msgFound) => {
     const messagesFounded = msgFound
   Schedule.find({teacher: id, status: 'Solicitado'})
@@ -54,7 +54,9 @@ for (let schedulesN of schedule_notification) {
     }
   }
 }
-   Course.find({}).sort('category').limit(6)
+   Course.find({ user: { $ne: id } }).sort('category').limit(6)
+   .populate('user')
+   .populate('category')
   .then((searchFound) => {
       const searchFounded = searchFound
       res.render("user/main.hbs", {data: {userFounded, messagesFounded, scheduleFounded, searchFounded, schedule_notes, formatedDates, formatedStudentDates}}) 
@@ -157,7 +159,6 @@ router.post("/edituser/:id", fileUploader.single("imageUrl"), (req, res) => {
   } else {
     imageUrl = req.body.existingImage;
   }
-  console.log(imageUrl);
 
   // const regex = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}/;
   // if (!regex.test(password)) {

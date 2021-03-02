@@ -53,33 +53,6 @@ router.get("/courses-search/", (req, res) => {
     .catch((err) => console.log(`Error while getting the course from the DB: ${err}`));
 });
 
-router.post("/signcourse/:course/:teacher/", (req, res) => {
-  const {
-    courseReqId,
-    teacher
-  } = req.params;
-  const student = req.session.currentUser._id;
-  const {
-    date1,
-    date2,
-    date3,
-    date4,
-    date5
-  } = req.body;
-  const status = "Solicitado"
-  const classes_completed = 0;
-  Schedule.create({
-      course: courseReqId,
-      teacher,
-      status,
-      student,
-      classes_completed,
-      schedule_dates: [date1, date2, date3, date4, date5]
-    })
-    .then(sentSchedule => res.redirect(`/user/${student}`))
-    .catch((err) => console.log(`Error while sending the request to the DB: ${err}`));
-});
-
 
 router.post("/aceitar/:id/:usuario", (req, res) => {
   const {

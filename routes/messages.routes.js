@@ -13,7 +13,10 @@ router.get("/messages/:id/", (req, res) => {
     })
     .populate('to')
     .populate('from')
-    .then(userMessages => res.render("user/messages.hbs", userMessages))
+    .then(userMessages => {
+      const userMsg = userMessages
+      res.render("user/messages.hbs", {data: { userMsg }})
+    })
     .catch((err) => console.log(`Error while getting the messages from the DB: ${err}`));
 });
 
