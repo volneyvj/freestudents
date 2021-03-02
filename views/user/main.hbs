@@ -1,13 +1,9 @@
 <nav class="navbar navbar-expand-lg  bg-light navbar-light  main-nav menu-user ">
-
-
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
     aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-
   <div class="collapse navbar-collapse" id="navbarNav">
-
     <a class="photo-link" href="#"> <img id='photo-user' width="25%" src="{{data.userFounded.imageUrl}}"></a>
     <ul class="navbar-nav link-list">
       <li class="nav-item active links-main">
@@ -26,15 +22,10 @@
   </div>
 </nav>
 
-
-
-
 <div class='section-main' id="top-section">
   <div>
     <h4 class='h4-main'> Olá, {{data.userFounded.name}} </h4>
-
   </div>
-
   <h4 class='h4-main'>NOTIFICAÇÕES</h4>
   <section class="section-info" id="notificacoes">
     <ul>
@@ -45,40 +36,24 @@
       {{/each}}
     </ul>
   </section>
-
   <button class="btn btn-lg  disabled button-main"> <a class="link-main" href="/messages/{{data.userFounded._id}}/">Ver
       todas as mensagens </a> </button>
-
-
   <h4 class='h4-main'>SOLICITAÇÕES DE AULAS</h4>
-
   {{#each data.schedule_notes}}
 
-  
   <li class="li-main">
     <section class="section-info" id="notificacoes">
-
       <h5 style="font-weight: bold;"> {{this.course.name}} - Solicitado por: {{this.student.name}} </h5>
-
       <p class='dates-hours'> Dias e horários selecionados: <br> {{this.schedule_dates}} </p>
-
       <div id="button-students-group">
-
         <form action="/aceitar/{{this._id}}/{{this.teacher._id}}" method="POST">
-
           <button class="btn btn-lg  disabled button-main" type="submit"> Aceitar </button>
-
         </form>
-
         <form action="/recusar/{{this._id}}/{{this.teacher._id}}" method="POST">
-
           <button class="btn btn-lg  disabled button-main" type="submit">Recusar</button>
-
         </form>
-
       </div>
   </li>
-
   {{/each}}
   </section>
 
@@ -86,64 +61,42 @@
 
 <div class='section-main'>
   <h4 class='h4-main'>MEUS CURSOS REGISTRADOS</h4>
-
   <section class="section-info-cursos-registrados" id="notificacoes">
     {{#each data.scheduleFounded}}
-
     <div id='curso-registrado'>
       <h5 style="font-weight: bold;"> Curso: {{this.course.name}} </h5>
-
       <p> Descrição: {{this.course.description}}</p>
-
       <p> Professor: {{this.teacher.name}} </p>
       <p> Aluno: {{this.student.name}} </p>
-
       <p class='dates-hours'> Horários: <br>
         {{this.schedule_dates}} </p>
-
       <br>Status: {{this.status}}  
-
       <p> Aulas completadas: {{this.classes_completed}} </p>
-
       <li class="li-main" style="margin-bottom: 20px;"> <button class="btn btn-lg  disabled button-main" <a
           href="/courses-details/{{this._id}}">Mais
           Detalhes</a> </button></li>
       {{/each}}
-
     </div>
-
   </section>
-
 </div>
 
-
 <div class='section-main'>
-
-
   <h4 class='h4-main'>BUSCAR MAIS CURSOS</h4>
-
   <section class="section-info" id="notificacoes">
-
     <ul id='buscar-cursos-list'>
       {{#each data.searchFounded}}
-
       <li id='buscar-cursos'>
         <div>
           <P> {{this.name}} </P>
         </div>
-
         <button id='button-saber-mais' class="btn btn-lg  disabled button-main" type="submit"> <a class="link-main"
             href="/courses-details/{{this._id}}">Saber Mais</a> </button>
-
       </li>
       {{/each}}
-
     </ul>
-
     <div id='botao-ver-todos-cursos'>
       <button class="btn btn-lg  disabled button-main" type="submit"><a class="link-main" href="/courses-search/">Ver
           todos cursos</a></button>
     </div>
   </section>
-
 </div>
