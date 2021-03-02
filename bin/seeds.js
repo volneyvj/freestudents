@@ -1,22 +1,23 @@
-const mongoose = require('mongoose');
-const Category = require('../models/Category.model');
-const User = require('../models/User.model');
-const Message = require('../models/Message.model');
-const Course = require('../models/Course.model');
-const Schedule = require('../models/Schedule.model');
+// const mongoose = require('mongoose');
+// const Category = require('../models/Category.model');
+// const User = require('../models/User.model');
+// const Message = require('../models/Message.model');
+// const Course = require('../models/Course.model');
+// const Schedule = require('../models/Schedule.model');
 
-mongoose
-  .connect('mongodb://localhost/freestudents-db-dev', {
-    useCreateIndex: true,
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-  })
-  .then(x =>
-    console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
-  )
-  .catch(err => console.error('Error connecting to mongo', err));
+// mongoose
+//   .connect('mongodb+srv://USER:SENHA@cluster0.kwmwv.mongodb.net/dbname?retryWrites=true&w=majority',
+//     {
+//     useCreateIndex: true,
+//     useNewUrlParser: true,
+//     useUnifiedTopology: true
+//   })
+//   .then(x =>
+//     console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
+//   )
+//   .catch(err => console.error('Error connecting to mongo', err));
 
-// criacao categorias e conteudos // 
+// // criacao categorias e conteudos // 
 
 // const categories = [
 //   {
