@@ -60,7 +60,10 @@
 
       <h5 style="font-weight: bold;"> {{this.course.name}} - Solicitado por: {{this.student.name}} </h5>
 
-      <p class='dates-hours'> Dias e horários selecionados: <br> {{this.schedule_dates}} </p>
+      <p class='dates-hours'> Dias e horários selecionados: <br> 
+      {{#each ../data.formatedDates}}
+      <input type="datetime"  style="text-align:center;" value="{{this.fDate}}">
+      {{/each}} </p>
 
       <div id="button-students-group">
 
@@ -99,6 +102,11 @@
       <p> Aluno: {{this.student.name}} </p>
 
       <p class='dates-hours'> Horários: <br>
+       
+      {{#each ../data.formatedStudentDates}}
+      <input type="datetime"  style="text-align:center;" value="{{this.fDate}}">
+      {{/each}} </p>
+
         {{this.schedule_dates}} </p>
 
       <br>Status: {{this.status}}  

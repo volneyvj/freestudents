@@ -7,7 +7,6 @@ const Course = require("../models/Course.model");
 const Schedule = require("../models/Schedule.model");
 const fileUploader = require('../configs/cloudinary.config');
 
-
 // // ********* require fileUploader in order to use it *********
 // const fileUploader = require("../configs/cloudinary.config");
 
@@ -23,6 +22,20 @@ router.get("/user/:id/", (req, res) => {
   .populate('course')
   .then((scheduleFound) => {
     const scheduleFounded = scheduleFound
+
+    let formatedStudentDates = [];
+    for (let schedulesS of scheduleFounded) {
+      for (let datesRegistraded of schedulesS.schedule_dates) {
+        if (datesRegistraded === null) {
+          formatedStudentDates.push({"fDate": datesRegistraded})
+        }
+        else {
+          formatedStudentDates.push({"fDate": datesRegistraded.toISOString().substring(0, 10)});
+        }
+      }
+    }
+
+
   User.findById(id)
     .then((userFound) => {
       const userFounded = userFound
@@ -35,15 +48,24 @@ router.get("/user/:id/", (req, res) => {
   .populate('student')
   .populate('course')
   .then((schedule_notification) => {
-    const schedule_notes = schedule_notification
-    // console.log(schedule_notes[0].schedule_dates);
-    // let datesNotification = schedule_notes[0].schedule_dates[0].toLocaleString('en-GB');
-  
+    const schedule_notes = schedule_notification;
+// console.log(schedule_notification);
+let formatedDates = [];
+for (let schedulesN of schedule_notification) {
+  for (let datesDesired of schedulesN.schedule_dates) {
+    if (datesDesired === null) {
+      formatedDates.push({"fDate": datesDesired})
+    }
+    else {
+      formatedDates.push({"fDate": datesDesired.toISOString().substring(0, 10)});
+    }
+  }
+}
+console.log(schedule_notes);
     Course.find({}).sort('category').limit(6)
   .then((searchFound) => {
       const searchFounded = searchFound
-  
-      res.render("user/main.hbs", {data: {userFounded, messagesFounded, scheduleFounded, searchFounded, schedule_notes}}) 
+      res.render("user/main.hbs", {data: {userFounded, messagesFounded, scheduleFounded, searchFounded, schedule_notes, formatedDates, formatedStudentDates}}) 
   })
     })
   })

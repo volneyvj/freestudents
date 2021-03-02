@@ -80,6 +80,9 @@ function OutrosMeios(){
 // .catch((err) => console.log(`Error while getting the classes from the DB: ${err}`));
 // }
 
+
+
+
 function categorySelected(){
   let selectedCategory = document.getElementById("interests-input").value;
   // alert(selectedCategory);
