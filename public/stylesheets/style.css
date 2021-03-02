@@ -640,14 +640,14 @@ footer {
 
 .formulario-new-course-details {
 
-background-color: #ffc107;
-padding-top: 5px;
-padding-bottom: 5px;
-margin-top: 30px;
-margin-right: 3%;
-margin-left: 3%;
-border-radius: 20px;
-} 
+  background-color: #ffc107;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  margin-top: 30px;
+  margin-right: 3%;
+  margin-left: 3%;
+  border-radius: 20px;
+}
 
 .section-details-course {
   background-color: white;
@@ -658,20 +658,20 @@ border-radius: 20px;
   padding-bottom: 10px;
   margin-top: 1%;
   margin-bottom: 1%;
-  margin-left: 10% ;
+  margin-left: 10%;
   margin-right: 10%;
   border: solid black 1px;
 }
 
-.label-details-course { 
+.label-details-course {
 
-color: black;
-margin-bottom: 1v;
+  color: black;
+  margin-bottom: 1v;
 }
 
-.li-details-page { 
+.li-details-page {
 
-list-style: none;
+  list-style: none;
 
 }
 
@@ -695,8 +695,8 @@ list-style: none;
   margin-right: 100px;
   margin-left: 100px;
   border-radius: 10px;
-
 }
+
 
 #signup-form-edit {
   margin: 50px auto;
@@ -725,5 +725,128 @@ list-style: none;
 
 .h2-edit-page {
   text-align: center;
-  margin-right: 25%;
+  margin-right: 23vw;
+}
+
+.h3-edit-page {
+  text-align: center;
+  margin-top: 1vw;
+
+}
+
+.button-alterar{
+  margin-left: 40%;
+  font-size: 15px;
+  text-align: center;
+  padding-right: 14px;
+}
+
+.button-deletar {
+  color: red;
+  border-radius: 10px;
+  background-color: white;
+  border-color: black;
+  
+  font-size: 15px;
+  margin-bottom: 2%;
+  text-align: center;
+  
+}
+
+
+.button-deletar-link:link,
+.button-deletar-link:visited {
+  
+text-decoration: none !important;
+text-align: center;
+}
+
+.button-deletar:active {
+  text-decoration: none !important;
+}
+
+
+
+.section-info-edit {
+  background-color: white;
+  border-radius: 5px;
+  padding-left: 5%;
+  padding-right: 10%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-top: 2vw;
+  margin-bottom: 2vw;
+  margin-left: 5%;
+  margin-right: 5%;
+  border: solid black 1px;
+}
+
+.button-deletar:link,
+.button-deletar:visited {
+  text-decoration: none !important
+}
+
+.button-deletar:hover {
+  text-decoration: underline !important;
+  color: #ffc107 !important
+}
+
+.button-deletar:active {
+  text-decoration: none !important
+}
+
+
+.formulario-edit-add-course { 
+  background-color: #ffc107;
+  padding-top: 2vw;
+  padding-bottom: 3vw;
+  padding-left: 21vw;
+  padding-right: 21vw;
+  margin-top: 30px;
+  border-radius: 10px;
+  margin-left: 6vw ;
+  margin-right: 6vw;
+}
+
+
+#formulario-edit-add-course label {
+  color: black;
+  font-size: 22px;
+  display: inline-block;
+  margin-bottom: 10px;
+  text-align: center;
+  width: 100%;
+}
+
+#formulario-edit-add-course input {
+  box-sizing: border-box;
+  font-size: 14px;
+  outline: 0;
+  padding: 4px;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.li-agenda-edit {
+  font-size: 15px;
+  display: block;
+  justify-content: space-between;
+  padding-right: 80px;
+  padding-left: 10px;
+  margin: 2%;
+  text-align: left;
+  border-radius: 5px;
+}
+
+.li-agenda-edit:hover {
+  font-size: 16px;
+  background-color: black;
+  color: #ffc107 !important;
+  opacity: 0.6;
+
+}
+
+.input-agenda-edit {
+  font-size: 10px !important;
+  margin-left: 30px;
 }

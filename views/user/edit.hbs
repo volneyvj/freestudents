@@ -1,223 +1,38 @@
+<div class='menu-edit'>
 
-<div class='menu-edit'>  
+  <a style="text-align: center;" href="/user/{{data.userToEdit._id}}"><button
+      class="btn btn-lg disabled button-signUp">Voltar</button></a>
 
-<button class="btn btn-lg disabled button-signUp" ><a style="text-align: center;" href="/"></a> Voltar</button>
-
-<h2 class='h2-edit-page'>Pagina de Ediçao do Usuario</h2>
-
-</div>
-
-<div class="formulario-edit" >
-
-<form id="signup-form-edit" action="/signup" enctype="multipart/form-data" method="POST">
-
-  <label for="input-completeName" class="required label">Nome completo</label>
-  <input class="form-control" type="text" id="input-completeName" name="name" value="{{name}}" />
-
-  <label for="input-email">E-mail</label>
-  <input class="form-control"  type="text" id="input-email" name="email" value="{{email}}" />
-
-  <label for="input-password">Mudar Senha</label>
-  <input class="form-control"  type="password" name="password" id="input-password" />
-
-  <label for="input-telefone">Telefone</label>
-  <input class="form-control" type="text" id="input-telefone" name="telefone" value="{{phone}}" />
-
-
-  <label for="input-city">Cidade</label>
-  
-  <input class="form-control"  type="text" id="input-city" name="city" value={{city}} />
-  
-  <h4 class="h4-signUp">Selecione seu estado</h4>
-  
-  <select class="form-control" name="estate">
-    <option value="0">Selecione</option>
-    <option value="1">AC</option>
-    <option value="2">AL</option>
-    <option value="3">AP</option>
-    <option value="4">AM</option>
-    <option value="5">BA</option>
-    <option value="6">CE</option>
-    <option value="7">ES</option>
-    <option value="8">GO</option>
-    <option value="9">MA</option>
-    <option value="10">MT</option>
-    <option value="11">MS</option>
-    <option value="12">MG</option>
-    <option value="13">PA</option>
-    <option value="14">PB</option>
-    <option value="15">PR</option>
-    <option value="16">PE</option>
-    <option value="17">PI</option>
-    <option value="18">RJ</option>
-    <option value="19">RN</option>
-    <option value="20">RS</option>
-    <option value="21">RO</option>
-    <option value="22">RR</option>
-    <option value="23">SC</option>
-    <option value="24">SP</option>
-    <option value="25">SE</option>
-    <option value="26">TO</option>
-    <option value="26">DF</option>
-  </select>
-
-  <label for="input-city">Data de nascimento</label>
-  <input class="form-control" type="date" id="input-birthdate" name="birthdate" value="{{birthdate}}" />
-
-  <label for="input-skypeUsername">Skype Username</label>
-  <input class="form-control" type="text" id="input-skype" name="skype_username" value="{{skype_username}}" />
-
-  <label for="input-zoomUsername">Zoom Username</label>
-  <input class="form-control" type="text" id="input-zoom" name="zoom_username" value="{{zoom_username}}" />
-
-  <label for="input-teamsUsername">Teams Username</label>
-  <input class="form-control" type="text" id="input-teams" name="teams_username" value="{{teams_username}}" />
-
-  <label for="input-teamsUsername">Outras plataformas</label>
-  <input class="form-control" type="text" id="input-teams" name="other_com" value="{{other_com}}" />
-
-  <label for="input-teamsUsername">Username da plataforma</label>
-  <input  class="form-control" type="text" id="input-teams" name="other_com_username" value="{{other_username}}" />
-
-  <div class="mb-3">
-
-    <label for="exampleFormControlTextarea1" class="form-label">Fale um pouco sobre você:</label>
-    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3">{{about}}</textarea>
-  </div>
-  <section>
-    <h4 class="h4-signUp">Altere sua foto aqui</h4>
-    <input class="form-control"  type="file" name="imageUrl" />
-
-  </section>
-</form>
-</div>
-
-{{!--
-
-<h4 class="h4-signUp"> O que você quer aprender? Veja as opções:</h4>
-
-<select name='student-category' class="custom-select subtitulo-signUp">
-  <option value="0">Selecione a categoria:</option>
-  {{#each data.foundCategories}}
-  <option value="{{this.id}}">{{this.name}}</option>
-  {{/each}}
-</select>
-
-<select name="student_content" class="custom-select subtitulo-signUp">
-
-  <option value="0">Selecione o conteúdo:</option>
-  {{#each data.foundContents}}
-  <option value="{{this.id}}">{{this.name}}</option>
-  {{/each}}
-</select>
-</div>
-
-
-{{!-- {{#if my_courses.length>0}}
---}}
-<div class="formulario-edit" >
-
-
-Seus Cursos qaqui:
-{{#each this.my_courses}}
-{{this.name}} - {{this.description}}
-{{/each}}
+  <h2 class='h2-edit-page'>Pagina de Ediçao do Usuario</h2>
 
 </div>
-{{!-- {{/if}} --}}
 
-{{!-- formulário 2 --}}
+{{!-- Alteração de perfil--}}
 
-{{!--
-<h4 class="h4-signUp"> Você quer dar aula do quê? Veja as opções:</h4>
-<select name="teacher_category" class="custom-select subtitulo-signUp">
-  <option value="0">Selecione a categoria:</option>
-  {{#each data.foundCategories}}
-  <option value="{{this.id}}">{{this.name}}</option>
-  {{/each}}
-</select>
+<div class="formulario-edit">
 
-<select name="teacher-content" class="custom-select subtitulo-signUp">
-  <option value="0">Selecione o conteúdo:</option>
-  {{#each data.foundContents}}
-  <option value="{{this.id}}">{{this.name}}</option>
-  {{/each}}
-</select>
+  <form id="signup-form-edit" action="/signup" enctype="multipart/form-data" method="POST">
 
-
-<label for="input-about">Título do seu curso </label>
-<input type="text" id="input-about" name="title_course" value="Insira o título aqui" />
-
-
-<ul class="list-group list-group-horizontal">
-  <li class="list-group-item"> <input class="form-check-input me-1" type="checkbox" value="0"> SEG </li>
-  <li class="list-group-item"> <input class="form-check-input me-1" type="checkbox" value="1">Manhã</li>
-  <li class="list-group-item"><input class="form-check-input me-1" type="checkbox" value="2">Tarde</li>
-  <li class="list-group-item"><input class="form-check-input me-1" type="checkbox" value="3">Noite</li>
-</ul>
-<ul class="list-group list-group-horizontal-sm">
-  <li class="list-group-item"> <input class="form-check-input me-1" type="checkbox" value="4"> TER </li>
-  <li class="list-group-item"> <input class="form-check-input me-1" type="checkbox" value="5">Manhã</li>
-  <li class="list-group-item"><input class="form-check-input me-1" type="checkbox" value="6">Tarde</li>
-  <li class="list-group-item"><input class="form-check-input me-1" type="checkbox" value="7">Noite</li>
-</ul>
-<ul class="list-group list-group-horizontal-sm">
-  <li class="list-group-item"> <input class="form-check-input me-1" type="checkbox" value="8"> QUA </li>
-  <li class="list-group-item"> <input class="form-check-input me-1" type="checkbox" value="9">Manhã</li>
-  <li class="list-group-item"><input class="form-check-input me-1" type="checkbox" value="10">Tarde</li>
-  <li class="list-group-item"><input class="form-check-input me-1" type="checkbox" value="11">Noite</li>
-</ul>
-<ul class="list-group list-group-horizontal-sm">
-  <li class="list-group-item"> <input class="form-check-input me-1" type="checkbox" value="12"> QUI </li>
-  <li class="list-group-item"> <input class="form-check-input me-1" type="checkbox" value="13">Manhã</li>
-  <li class="list-group-item"><input class="form-check-input me-1" type="checkbox" value="14">Tarde</li>
-  <li class="list-group-item"><input class="form-check-input me-1" type="checkbox" value="15">Noite</li>
-</ul>
-<ul class="list-group list-group-horizontal-sm">
-  <li class="list-group-item"> <input class="form-check-input me-1" type="checkbox" value="16"> SEX </li>
-  <li class="list-group-item"> <input class="form-check-input me-1" type="checkbox" value="17">Manhã</li>
-  <li class="list-group-item"><input class="form-check-input me-1" type="checkbox" value="18">Tarde</li>
-  <li class="list-group-item"><input class="form-check-input me-1" type="checkbox" value="19">Noite</li>
-</ul>
-<ul class="list-group list-group-horizontal-sm">
-  <li class="list-group-item"> <input class="form-check-input me-1" type="checkbox" value="20"> SAB </li>
-  <li class="list-group-item"> <input class="form-check-input me-1" type="checkbox" value="21">Manhã</li>
-  <li class="list-group-item"><input class="form-check-input me-1" type="checkbox" value="22">Tarde</li>
-  <li class="list-group-item"><input class="form-check-input me-1" type="checkbox" value="23">Noite</li>
-</ul>
-<ul class="list-group list-group-horizontal-sm">
-  <li class="list-group-item"> <input class="form-check-input me-1" type="checkbox" value="24"> DOM </li>
-  <li class="list-group-item"> <input class="form-check-input me-1" type="checkbox" value="25">Manhã</li>
-  <li class="list-group-item"><input class="form-check-input me-1" type="checkbox" value="26">Tarde</li>
-  <li class="list-group-item"><input class="form-check-input me-1" type="checkbox" value="27">Noite</li>
-</ul>
-</div>
-</div>
-
-</form>
-</p> --}}
-=======
-<h2>Pagina de Ediçao do Usuario</h2>
-<div class="profile_edit">
-  <p>
-  <form action="/edituser/{{data.userToEdit._id}}" method="POST" enctype="multipart/form-data">
-
-    <label for="input-completeName">Nome completo</label>
-    <input type="text" id="input-completeName" name="name" value="{{data.userToEdit.name}}" />
+    <label for="input-completeName" class="required label">Nome completo</label>
+    <input class="form-control" type="text" id="input-completeName" name="name" value="{{data.userToEdit.name}}" />
 
     <label for="input-email">E-mail</label>
-    <input type="text" id="input-email" name="email" value="{{data.userToEdit.email}}" />
+    <input class="form-control" type="text" id="input-email" name="email" value="{{data.userToEdit.email}}" />
 
     <label for="input-password">Mudar Senha</label>
-    <input type="password" name="password" id="input-password" />
+    <input class="form-control" type="password" name="password" id="input-password" />
 
-    <label for="input-phone">Telefone</label>
-    <input type="text" id="input-phone" name="phone" value="{{data.userToEdit.phone}}" />
+    <label for="input-telefone">Telefone</label>
+    <input class="form-control" type="text" id="input-telefone" name="telefone" value="{{data.userToEdit.phone}}" />
+
 
     <label for="input-city">Cidade</label>
-    <input type="text" id="input-city" name="city" value={{data.userToEdit.city}} />
+
+    <input class="form-control" type="text" id="input-city" name="city" value={{data.userToEdit.city}} />
+
     <h4 class="h4-signUp">Selecione seu estado</h4>
-    <select name="estate">
+
+    <select class="form-control" name="estate">
       <option value="0">Selecione</option>
       <option value="1">AC</option>
       <option value="2">AL</option>
@@ -248,165 +63,189 @@ Seus Cursos qaqui:
       <option value="26">DF</option>
     </select>
 
-    <label for="input-city">Data de nascimento</label>
-    <input type="date" id="input-birthdate" name="birthdate" value="{{data.userToEdit.birthdate}}" />
+    <label style='margin-top: 10px;' for="input-city">Data de nascimento</label>
+    <input class="form-control" type="date" id="input-birthdate" name="birthdate"
+      value="{{data.userToEdit.birthdate}}" />
 
     <label for="input-skypeUsername">Skype Username</label>
-    <input type="text" id="input-skype" name="skype_username" value="{{data.userToEdit.skype_username}}" />
+    <input class="form-control" type="text" id="input-skype" name="skype_username"
+      value="{{data.userToEdit.skype_username}}" />
 
     <label for="input-zoomUsername">Zoom Username</label>
-    <input type="text" id="input-zoom" name="zoom_username" value="{{data.userToEdit.zoom_username}}" />
+    <input class="form-control" type="text" id="input-zoom" name="zoom_username"
+      value="{{data.userToEdit.zoom_username}}" />
 
     <label for="input-teamsUsername">Teams Username</label>
-    <input type="text" id="input-teams" name="teams_username" value="{{data.userToEdit.teams_username}}" />
+    <input class="form-control" type="text" id="input-teams" name="teams_username"
+      value="{{data.userToEdit.teams_username}}" />
 
     <label for="input-teamsUsername">Outras plataformas</label>
-    <input type="text" id="input-teams" name="other_com" value="{{data.userToEdit.other_com}}" />
+    <input class="form-control" type="text" id="input-teams" name="other_com" value="{{data.userToEdit.other_com}}" />
 
     <label for="input-teamsUsername">Username da plataforma</label>
-    <input type="text" id="input-teams" name="other_com_username" value="{{data.userToEdit.other_com_username}}" />
-
-    <label for="img" class="form-label required label">Selecione uma imagem de perfil</label>
-
-        <input type="file" name="imageUrl" id="imageUrl-input" class="form-control-file" />
-        <input type="text" name="existingImage" hidden id="" value="{{data.userToEdit.imageUrl}}">
+    <input class="form-control" type="text" id="input-teams" name="other_com_username"
+      value="{{data.userToEdit.other_username}}" />
 
     <div class="mb-3">
+
       <label for="exampleFormControlTextarea1" class="form-label">Fale um pouco sobre você:</label>
-      <textarea class="form-control" id="exampleFormControlTextarea1" rows="3">{{data.userToEdit.about}}</textarea>
+      <textarea class="form-control" id="exampleFormControlTextarea1" rows="3">{{about}}</textarea>
     </div>
-      <button type="submit" class="btn btn-warning">ALTERAR</button>
+
+
+    <h4 class="h4-signUp">Altere sua foto aqui</h4>
+    <input class="form-control" type="file" name="imageUrl" />
+
+    <button type="submit" class="btn btn-lg disabled button-signUp button-alterar">ALTERAR</button>
+
+
   </form>
 </div>
 
-<div class="profile-courses">
-  Seus Cursos Ministrados:
-  {{#each data.userToEdit.my_courses}}
-  {{this.name}} <br>
-  {{this.description}}
-  <br>
-  <a href="/courses/{{this._id}}/{{this.user}}/delete"><button type="button" class="btn btn-danger">DELETAR</button></a>
-  <br>
-  {{/each}}
+
+
+<div class="formulario-edit">
+  <h3 class='h3-edit-page'> Seus Cursos </h3>
+  <section class="section-info-edit">
+
+    {{#each this.my_courses}}
+    <p> {{this.name}} - {{this.description}} </p>
+    {{/each}}
+  </section>
 </div>
 
+<div class="formulario-edit">
+  <h3 class='h3-edit-page'> Seus Cursos Ministrados </h3>
+  <section class="section-info-edit">
 
- <div class="checkbox">
-      <button onclick="addCourse()" class="btn btn-lg  disabled button-signUp" tabindex="-1" role="button"
-        aria-disabled="true" type="button">Adicionar + Cursos</button>
 
-      <div id='formAddCourse' style="display: none">
+    {{#each data.userToEdit.my_courses}}
+    <h5> {{this.name}} </h5>
+    <p> {{this.description}} </p>
 
+    <a class='button-deletar-link' href="/courses/{{this._id}}/{{this.user}}/delete"><button type="button"
+        class="btn btn-lg disabled button-deletar">DELETAR</button></a>
+    {{/each}}
+
+</div>
+</section>
+
+
+
+<div class="checkbox">
+  <h3 class='h3-edit-page'> Adicionar mais cursos </h3>
+  <button onclick="addCourse()" class="btn btn-lg  disabled button-signUp" tabindex="-1" role="button"
+    aria-disabled="true" type="button">Adicionar </button>
+  <div class="formulario-edit-add-course" id="formulario-edit-add-course">
+    <div id='formAddCourse' style="display: none">
       <form action="/add_course/{{data.userToEdit._id}}/" method="POST">
-
- <select name="teacher_category" class="custom-select subtitulo-signUp">
+        <select name="teacher_category" class="custom-select subtitulo-signUp">
           <option value="0" class="required">Selecione a categoria:</option>
           {{#each data.foundCategories}}
           <option value="{{this.id}}">{{this.name}}</option>
           {{/each}}
         </select>
-
         <select name="teacher_content" class="custom-select subtitulo-signUp">
           <option value="0">Selecione o conteúdo:</option>
           {{#each data.foundCategories}}
           <option value="{{this.content.0.content_name}}">{{this.content.0.content_name}}</option>
           {{/each}}
         </select>
-
         <label for="input-about" class="required label">Título do seu curso </label>
         <input class="form-control" type="text" id="input-about" name="course_name" placeholder="Insira o título aqui"
           aria-label="default input example">
+        <div class="mb-3">
+          <label for="input-course-description" class="form-label required label">Descreva um pouco sobre o
+            curso:</label>
+          <textarea class="form-control" id="input-course-description" name="course_description" rows="2"></textarea>
+        </div>
 
-                   <div class="mb-3">
-      <label for="input-course-description" class="form-label required label">Descreva um pouco sobre o curso:</label>
-      <textarea class="form-control" id="input-course-description" name="course_description" rows="2"></textarea>
-    </div>
+        <div class="mb-3">
+          <label for="input-classes" class="form-label required label">Número mínimmo de Aulas do Curso:</label>
+          <input class="form-control" type="number" id="input-classes" name="classes" placeholder=1>
+        </div>
 
-             <div class="mb-3">
-      <label for="input-classes" class="form-label required label">Número mínimmo de Aulas do Curso:</label>
-           <input class="form-control" type="number" id="input-classes" name="classes" placeholder=1>
-    </div>
-    
-        <label for="input-about" class="required label">Escolha os dias e períodos que você costuma ter disponível: </label>
+        <label for="input-about" class="required label">Escolha os dias e períodos que você costuma ter disponível:
+        </label>
 
         <label for="input-about" class="label">Agenda</label>
-<div class="margem-agenda">
-        <div class='agenda'>
-          <ul class="list-group list-group-horizontal">
-            <li class="list-group-item li-agenda label"> <input class="form-check-input me-1 input-agenda" name="week_availability" type="checkbox"
-                value="0"> SEG </li>
-            <li class="list-group-item li-agenda label"> <input class="form-check-input me-1 input-agenda" name="hour_availability" type="checkbox"
-                value="1">Manhã</li>
-            <li class="list-group-item li-agenda label"><input class="form-check-input me-1 input-agenda" name="hour_availability" type="checkbox"
-                value="2">Tarde</li>
-            <li class="list-group-item li-agenda label"><input class="form-check-input me-1 input-agenda" name="hour_availability" type="checkbox"
-                value="3">Noite</li>
-          </ul>
-          <ul class="list-group list-group-horizontal-sm">
-            <li class="list-group-item li-agenda label"> <input class="form-check-input me-1 input-agenda" name="week_availability" type="checkbox"
-                value="4"> TER </li>
-            <li class="list-group-item li-agenda label"> <input class="form-check-input me-1 input-agenda" name="hour_availability" type="checkbox"
-                value="5">Manhã</li>
-            <li class="list-group-item li-agenda label"><input class="form-check-input me-1 input-agenda" name="hour_availability" type="checkbox"
-                value="6">Tarde</li>
-            <li class="list-group-item li-agenda label"><input class="form-check-input me-1 input-agenda" name="hour_availability" type="checkbox"
-                value="7">Noite</li>
-          </ul>
-          <ul class="list-group list-group-horizontal-sm">
-            <li class="list-group-item li-agenda label"> <input class="form-check-input me-1 input-agenda" name="week_availability" type="checkbox"
-                value="8"> QUA </li>
-            <li class="list-group-item li-agenda label"> <input class="form-check-input me-1 input-agenda" name="hour_availability" type="checkbox"
-                value="9">Manhã</li>
-            <li class="list-group-item li-agenda label"><input class="form-check-input me-1 input-agenda" name="hour_availability" type="checkbox"
-                value="10">Tarde</li>
-            <li class="list-group-item li-agenda label"><input class="form-check-input me-1 input-agenda" name="hour_availability" type="checkbox"
-                value="11">Noite</li>
-          </ul>
-          <ul class="list-group list-group-horizontal-sm">
-            <li class="list-group-item li-agenda label"> <input class="form-check-input me-1 input-agenda" name="week_availability" type="checkbox"
-                value="12"> QUI </li>
-            <li class="list-group-item li-agenda label"> <input class="form-check-input me-1 input-agenda" name="hour_availability" type="checkbox"
-                value="13">Manhã</li>
-            <li class="list-group-item li-agenda label"><input class="form-check-input me-1 input-agenda" name="hour_availability" type="checkbox"
-                value="14">Tarde</li>
-            <li class="list-group-item li-agenda label"><input class="form-check-input me-1 input-agenda" name="hour_availability" type="checkbox"
-                value="15">Noite</li>
-          </ul>
-          <ul class="list-group list-group-horizontal-sm">
-            <li class="list-group-item li-agenda label"> <input class="form-check-input me-1 input-agenda" name="week_availability" type="checkbox"
-                value="16"> SEX </li>
-            <li class="list-group-item li-agenda label"> <input class="form-check-input me-1 input-agenda" name="hour_availability" type="checkbox"
-                value="17">Manhã</li>
-            <li class="list-group-item li-agenda label"><input class="form-check-input me-1 input-agenda" name="hour_availability" type="checkbox"
-                value="18">Tarde</li>
-            <li class="list-group-item li-agenda label"><input class="form-check-input me-1 input-agenda" name="hour_availability" type="checkbox"
-                value="19">Noite</li>
-          </ul>
-          <ul class="list-group list-group-horizontal-sm">
-            <li class="list-group-item li-agenda label"> <input class="form-check-input me-1 input-agenda" name="week_availability" type="checkbox"
-                value="20"> SAB </li>
-            <li class="list-group-item li-agenda label"> <input class="form-check-input me-1 input-agenda" name="hour_availability" type="checkbox"
-                value="21">Manhã</li>
-            <li class="list-group-item li-agenda label"><input class="form-check-input me-1 input-agenda" name="hour_availability" type="checkbox"
-                value="22">Tarde</li>
-            <li class="list-group-item li-agenda label"><input class="form-check-input me-1 input-agenda" name="hour_availability" type="checkbox"
-                value="23">Noite</li>
-          </ul>
-          <ul class="list-group list-group-horizontal-sm">
-            <li class="list-group-item li-agenda label"> <input class="form-check-input me-1 input-agenda" name="week_availability" type="checkbox"
-                value="24"> DOM </li>
-            <li class="list-group-item li-agenda label"> <input class="form-check-input me-1 input-agenda" name="hour_availability" type="checkbox"
-                value="25">Manhã</li>
-            <li class="list-group-item li-agenda label"><input class="form-check-input me-1 input-agenda" name="hour_availability" type="checkbox"
-                value="26">Tarde</li>
-            <li class="list-group-item li-agenda label"><input class="form-check-input me-1 input-agenda" name="hour_availability" type="checkbox"
-                value="27">Noite</li>
-          </ul>
+        <div class="margem-agenda">
+          <div class='agenda'>
+            <ul class="list-group list-group-horizontal">
+              <li class="list-group-item li-agenda-edit label"> <input class="form-check-input me-1 input-agenda-edit"
+                  name="week_availability" type="checkbox" value="0"> SEG </li>
+              <li class="list-group-item li-agenda-edit label"> <input class="form-check-input me-1 input-agenda-edit"
+                  name="hour_availability" type="checkbox" value="1">Manhã</li>
+              <li class="list-group-item li-agenda-edit label"><input class="form-check-input me-1 input-agenda-edit"
+                  name="hour_availability" type="checkbox" value="2">Tarde</li>
+              <li class="list-group-item li-agenda-edit label"><input class="form-check-input me-1 input-agenda-edit"
+                  name="hour_availability" type="checkbox" value="3">Noite</li>
+            </ul>
+            <ul class="list-group list-group-horizontal-sm">
+              <li class="list-group-item li-agenda-edit label"> <input class="form-check-input me-1 input-agenda-edit"
+                  name="week_availability" type="checkbox" value="4"> TER </li>
+              <li class="list-group-item li-agenda-edit label"> <input class="form-check-input me-1 input-agenda-edit"
+                  name="hour_availability" type="checkbox" value="5">Manhã</li>
+              <li class="list-group-item li-agenda-edit label"><input class="form-check-input me-1 input-agenda-edit"
+                  name="hour_availability" type="checkbox" value="6">Tarde</li>
+              <li class="list-group-item li-agenda-edit label"><input class="form-check-input me-1 input-agenda-edit"
+                  name="hour_availability" type="checkbox" value="7">Noite</li>
+            </ul>
+            <ul class="list-group list-group-horizontal-sm">
+              <li class="list-group-item li-agenda-edit label"> <input class="form-check-input me-1 input-agenda-edit"
+                  name="week_availability" type="checkbox" value="8"> QUA </li>
+              <li class="list-group-item li-agenda-edit label"> <input class="form-check-input me-1 input-agenda-edit"
+                  name="hour_availability" type="checkbox" value="9">Manhã</li>
+              <li class="list-group-item li-agenda-edit label"><input class="form-check-input me-1 input-agenda-edit"
+                  name="hour_availability" type="checkbox" value="10">Tarde</li>
+              <li class="list-group-item li-agenda-edit label"><input class="form-check-input me-1 input-agenda-edit"
+                  name="hour_availability" type="checkbox" value="11">Noite</li>
+            </ul>
+            <ul class="list-group list-group-horizontal-sm">
+              <li class="list-group-item li-agenda-edit label"> <input class="form-check-input me-1 input-agenda-edit"
+                  name="week_availability" type="checkbox" value="12"> QUI </li>
+              <li class="list-group-item li-agenda-edit label"> <input class="form-check-input me-1 input-agenda-edit"
+                  name="hour_availability" type="checkbox" value="13">Manhã</li>
+              <li class="list-group-item li-agenda-edit label"><input class="form-check-input me-1 input-agenda-edit"
+                  name="hour_availability" type="checkbox" value="14">Tarde</li>
+              <li class="list-group-item li-agenda-edit label"><input class="form-check-input me-1 input-agenda-edit"
+                  name="hour_availability" type="checkbox" value="15">Noite</li>
+            </ul>
+            <ul class="list-group list-group-horizontal-sm">
+              <li class="list-group-item li-agenda-edit label"> <input class="form-check-input me-1 input-agenda-edit"
+                  name="week_availability" type="checkbox" value="16"> SEX </li>
+              <li class="list-group-item li-agenda-edit label"> <input class="form-check-input me-1 input-agenda-edit"
+                  name="hour_availability" type="checkbox" value="17">Manhã</li>
+              <li class="list-group-item li-agenda-edit label"><input class="form-check-input me-1 input-agenda-edit"
+                  name="hour_availability" type="checkbox" value="18">Tarde</li>
+              <li class="list-group-item li-agenda-edit label"><input class="form-check-input me-1 input-agenda-edit"
+                  name="hour_availability" type="checkbox" value="19">Noite</li>
+            </ul>
+            <ul class="list-group list-group-horizontal-sm">
+              <li class="list-group-item li-agenda-edit label"> <input class="form-check-input me-1 input-agenda-edit"
+                  name="week_availability" type="checkbox" value="20"> SAB </li>
+              <li class="list-group-item li-agenda-edit label"> <input class="form-check-input me-1 input-agenda-edit"
+                  name="hour_availability" type="checkbox" value="21">Manhã</li>
+              <li class="list-group-item li-agenda-edit label"><input class="form-check-input me-1 input-agenda-edit"
+                  name="hour_availability" type="checkbox" value="22">Tarde</li>
+              <li class="list-group-item li-agenda-edit label"><input class="form-check-input me-1 input-agenda-edit"
+                  name="hour_availability" type="checkbox" value="23">Noite</li>
+            </ul>
+            <ul class="list-group list-group-horizontal-sm">
+              <li class="list-group-item li-agenda-edit label"> <input class="form-check-input me-1 input-agenda-edit"
+                  name="week_availability" type="checkbox" value="24"> DOM </li>
+              <li class="list-group-item li-agenda-edit label"> <input class="form-check-input me-1 input-agenda-edit"
+                  name="hour_availability" type="checkbox" value="25">Manhã</li>
+              <li class="list-group-item li-agenda-edit label"><input class="form-check-input me-1 input-agenda-edit"
+                  name="hour_availability" type="checkbox" value="26">Tarde</li>
+              <li class="list-group-item li-agenda-edit label"><input class="form-check-input me-1 input-agenda-edit"
+                  name="hour_availability" type="checkbox" value="27">Noite</li>
+            </ul>
+          </div>
+        </div>
+        <button type="submit">Adicionar Curso</button>
+      </form>
+    </div>
+  </div>
 
-            <button type="submit">Adicionar Curso</button>
-  </form>
-    
-
-
-  
-      </div>
+</div>
