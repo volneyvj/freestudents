@@ -2,16 +2,11 @@ const express = require("express");
 const router = express.Router();
 const User = require("../models/User.model");
 const Message = require("../models/Message.model");
+const Category = require("../models/Category.model");
 const Course = require("../models/Course.model");
 const Schedule = require("../models/Schedule.model");
+const fileUploader = require('../configs/cloudinary.config');
 
-
-// // ********* require fileUploader in order to use it *********
-// const fileUploader = require("../configs/cloudinary.config");
-
-// // ****************************************************************************************
-// // GET route to display all the movies
-// // ****************************************************************************************
 
 router.get("/user/:id/", (req, res) => {
   const { id } = req.params;
@@ -21,44 +16,130 @@ router.get("/user/:id/", (req, res) => {
   .populate('course')
   .then((scheduleFound) => {
     const scheduleFounded = scheduleFound
+    let formatedStudentDates = [];
+    for (let schedulesS of scheduleFounded) {
+      for (let datesRegistraded of schedulesS.schedule_dates) {
+        if (datesRegistraded === null) {
+          formatedStudentDates.push({"fDate": datesRegistraded})
+        }
+        else {
+          formatedStudentDates.push({"fDate": datesRegistraded.toISOString().substring(0, 10)});
+        }
+      }
+    }
+
   User.findById(id)
     .then((userFound) => {
       const userFounded = userFound
+      // console.log(userFounded);
       interest_category_id = userFounded.interests[0]
-  Message.find({to: id})
+  Message.find({to: id}).limit(10)
+  .populate('from')
   .then((msgFound) => {
     const messagesFounded = msgFound
-    Course.find({}).sort('category').limit(6)
+  Schedule.find({teacher: id, status: 'Solicitado'})
+  .populate('student')
+  .populate('course')
+  .then((schedule_notification) => {
+    const schedule_notes = schedule_notification;
+// console.log(schedule_notification);
+let formatedDates = [];
+for (let schedulesN of schedule_notification) {
+  for (let datesDesired of schedulesN.schedule_dates) {
+    if (datesDesired === null) {
+      formatedDates.push({"fDate": datesDesired})
+    }
+    else {
+      formatedDates.push({"fDate": datesDesired.toISOString().substring(0, 10)});
+    }
+  }
+}
+   Course.find({ user: { $ne: id } }).sort('category').limit(6)
+   .populate('user')
+   .populate('category')
   .then((searchFound) => {
       const searchFounded = searchFound
-  
-      res.render("user/main.hbs", {data: {userFounded, messagesFounded, scheduleFounded, searchFounded}}) 
+      res.render("user/main.hbs", {data: {userFounded, messagesFounded, scheduleFounded, searchFounded, schedule_notes, formatedDates, formatedStudentDates}}) 
   })
     })
   })
 })
-    .catch((err) => console.log(`Error while getting the user from the DB: ${err}`));
+  })
+    .catch((err) =>
+      console.log(`Error while getting the user from the DB: ${err}`)
+    ) 
+
 });
+
 
 router.get("/user/:id/edit", (req, res) => {
-  const { id } = req.params;
+  const {
+    id
+  } = req.params;
   User.findById(id)
-  .populate('courses')
-    .then((userToEdit) => res.render("user/edit.hbs", userToEdit))
-    .catch((error) => console.log(`Error while getting a single user for edit: ${error}`));
+    .populate("my_courses")
+    .then((userToEdit) => {
+      Category.find().then((allCategories) => {
+        const foundCategories = allCategories;
+        res.render("user/edit.hbs", {
+          data: {
+            userToEdit,
+            foundCategories
+          }
+        });
+      });
+    })
+    .catch((error) =>
+      console.log(`Error while getting a single user for edit: ${error}`)
+    );
 });
 
+router.post("/add_course/:id", (req, res) => {
+  const id = req.params.id;
+  const course_name = req.body.course_name;
+  const teacher_category = req.body.teacher_category;
+  const teacher_content = req.body.teacher_content;
+  const course_description = req.body.course_description;
+  const classes = req.body.classes;
+  const week_availability = req.body.week_availability;
+  const hour_availability = req.body.hour_availability;
 
-<<<<<<< HEAD
-//formulário 0 // 
+  Course.create({
+      name: course_name,
+      category: teacher_category,
+      content: teacher_content,
+      description: course_description,
+      user: id,
+      classes: classes,
+      week_availability: week_availability,
+      hour_availability: hour_availability,
+      status: "Ativo",
+    })
+    .then((addedCourse) => {
+      const courseAddedId = addedCourse._id;
+      User.findByIdAndUpdate(
+        id, {
+          $push: {
+            my_courses: courseAddedId
+          }
+        }, {
+          new: true
+        }
+      ).then((updatedUserCourse) => res.redirect(`/user/${id}`));
+    })
+    .catch((error) =>
+      console.log(`Error while updating a single schedule: ${error}`)
+    );
+});
 
-router.post('/signup', (req, res, next) => {
-
+router.post("/edituser/:id", fileUploader.single("imageUrl"), (req, res) => {
+  const {
+    id
+  } = req.params;
   const {
     email,
     password,
-    completeName,
-    telefone,
+    name,
     city,
     state,
     birthdate,
@@ -69,109 +150,53 @@ router.post('/signup', (req, res, next) => {
     other_com,
     other_com_username,
     about,
-    imageUrl,
-    student_category,
-    student_content,
-    teacher_category,
-    teacher_content,
-    title_course,
-
+    phone,
   } = req.body;
 
-  return user.create({
-    email,
-    password,
-    completeName,
-    telefone,
-    city,
-    estate,
-    birthdate,
-    how_got_to_us,
-    skype_username,
-    zoom_username,
-    teams_username,
-    other_com,
-    other_com_username,
-    about,
-    imageUrl,
-    student_category,
-    student_content,
-    teacher_category,
-    teacher_content,
-    title_course,
-  })
-//    if (!email || !password) {
-//     res.render('user/login', {
-//       errorMessage: '!Please provide your email and password.'
-//     });
-//     return;
-//   }
-//   console.log(req.session);
+  let imageUrl;
+  if (req.file) {
+    imageUrl = req.file.path;
+  } else {
+    imageUrl = req.body.existingImage;
+  }
 
-//   User.findOne({
-//       completeName
-//     })
-//     .then(user => {
-//       if (!user) {
-//         res.render('auth/login', {
-//           errorMessage: 'USER  not registered.'
-//         });
-//         return;
-//       } else if (bcryptjs.compareSync(password, user.password)) {
-//         //   console.log(`${username} and password ${user.password}`)
-//         req.session.currentUser = user;
-//         res.redirect('/user/view_profile.hbs');
-//       } else {
-//         res.render('auth/login', {
-//           errorMessage: 'Incorrect password.'
-//         });
-//       }
-//     })
-//     .catch(error => next(error));
+  // const regex = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}/;
+  // if (!regex.test(password)) {
+  //   res
+  //     .status(500)
+  //     .render('signup', { errorMessage: 'Password needs to have at least 6 chars and must contain at least one number, one lowercase and one uppercase letter.' });
+  //   return;
+  // }
+
+  // bcryptjs
+  //   .genSalt(saltRounds)
+  //   .then(salt => bcryptjs.hash(password, salt))
+  //   .then(hashedPassword => {
+  User.findByIdAndUpdate(
+      id, {
+        email,
+        // password: hashedPassword,
+        name,
+        city,
+        state,
+        birthdate,
+        how_got_to_us,
+        skype_username,
+        zoom_username,
+        teams_username,
+        other_com,
+        other_com_username,
+        about,
+        phone,
+        imageUrl,
+      }, {
+        new: true
+      }
+    )
+    .then((updatedUser) => res.redirect(`/user/${id}`))
+    .catch((error) =>
+      console.log(`Error while updating a single schedule: ${error}`)
+    );
 });
 
-
-
-// // ****************************************************************************************
-// // GET route to display the form to create a new movie
-// // ****************************************************************************************
-
-// router.get("/movies/create", (req, res) => res.render("movie-create"));
-
-// // ****************************************************************************************
-// // POST route for saving a new movie in the database
-// // This route has the image upload example 🥳
-// // ****************************************************************************************
-
-// router.post("/movies/create", fileUploader.single("image"), (req, res) => {
-//   const { title, description } = req.body;
-
-//   Movie.create({ title, description, imageUrl: req.file.path })
-//     .then(() => res.redirect("/movies"))
-//     .catch((error) => console.log(`Error while creating a new movie: ${error}`));
-// });
-
-
-// // ****************************************************************************************
-// // POST route to save changes after updates in a specific movie
-// // ****************************************************************************************
-
-// router.post("/movies/:id/edit", fileUploader.single("image"), (req, res) => {
-//   const { id } = req.params;
-//   const { title, description } = req.body;
-
-//   let imageUrl;
-//   if (req.file) {
-//     imageUrl = req.file.path;
-//   } else {
-//     imageUrl = req.body.existingImage;
-//   }
-
-//   Movie.findByIdAndUpdate(id, { title, description, imageUrl }, { new: true })
-//     .then(() => res.redirect(`/movies`))
-//     .catch((error) => console.log(`Error while updating a single movie: ${error}`));
-// });
-
-=======
->>>>>>> 22982216ff2c49154b0235abf6c6c98f2cb202b5
 module.exports = router;

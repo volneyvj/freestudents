@@ -1,7 +1,26 @@
-<h2>Pagina de mnesagems</h2>
 
-{{#each this}}
-From: {{from.name}} - <br>
-{{message}}
-{{/each}}
+<h3 style='margin-botton:1vw; margin-top:2vw; margin-left:2vw;'> PAINEL DE MENSAGENS</h3> 
+  <br>
+ {{#each data.userMsg}}
+
+  {{#if this}}
+  <b> De: {{from.name}} </b> <br />
+  <h4>Mensagem: {{message}} </h4>
+  <p>      
+    <form class="form-msg" action="/sendmessage/{{this.from._id}}" method="POST">
+        <label for="mensagem-input" class="form-label"> <h5>Responder mensagem:</h5></label>
+        <textarea class="form-control" name="mensagem" id="mensagem-input" rows="3"></textarea>
+    </div>
+   <button type="submit" class="btn btn-lg disabled button-signUp button-escrever-se">ENVIAR MENSAGEM</button>
+   </form>
+   <br>
+{{else}}
+  <br>
+  <p class="error">Sem Mensagem por hoje</p>
+  {{/if}}
+{{/each}} 
+
+
+ <a class='a-link-details button-retornar' href="/user/{{data.userMsg.0.from._id}}"> <button class="btn btn-lg disabled button-signUp button-escrever-se">Retornar </button></a>
+
 

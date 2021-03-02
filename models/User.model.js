@@ -1,5 +1,8 @@
 const mongoose = require("mongoose");
-const { Schema, model } = mongoose;
+const {
+    Schema,
+    model
+} = mongoose;
 
 const userSchema = new Schema(
     // dados para preencher no signup:
@@ -33,35 +36,32 @@ const userSchema = new Schema(
             // match: [/^(?:\+)[0-9]{2}\s?(?:\()[0-9]{2}(?:\))\s?[0-9]{4,5}(?:-)[0-9]{4}$/, "Insira telefone completo com DDD"],
             type: String,
         },
-      
-        imageUrl: String, 
+        imageUrl: String,
         student: Boolean,
         teacher: Boolean,
         // teacher_content: Boolean, 
-    
-         // SOMENTE para quem clicar no QUERO SER ESTUDANTE 
-         interests: [String],
-         student_content: String,
 
-
+        // SOMENTE para quem clicar no QUERO SER ESTUDANTE 
+        interests: [String],
+        student_content: String,
         // SOMENTE para quem clicar no QUERO SER PROFESSOR
-        my_courses: [
-            {
-                courseid: { type: Schema.Types.ObjectId, ref: 'courses' },
-            },
-        ],
+        my_courses: [{
+            type: Schema.Types.ObjectId,
+            ref: 'courses'
+        }],
+        // a partir daqui nao é preenchido, atualiazado conforme uso do aplicativo:
 
-
-// a partir daqui nao é preenchido, atualiazado conforme uso do aplicativo:
-
-        rating: Number,   // colocar numero padrao quando nao coloca
+        rating: Number, // colocar numero padrao quando nao coloca
         given_rates: [{
-            userid: { type: Schema.Types.ObjectId, ref: 'users' },
-            given_rate: Number,
-        },
-        {
-            timestamps: true
-        },
+                userid: {
+                    type: Schema.Types.ObjectId,
+                    ref: 'users'
+                },
+                given_rate: Number,
+            },
+            {
+                timestamps: true
+            },
         ],
         // registrated_courses: [
         //     {
@@ -72,16 +72,14 @@ const userSchema = new Schema(
         //         classes_completed: Number,
         //     },
         // ],
-
-        messages: [
-            {
-                messageid: { type: Schema.Types.ObjectId, ref: 'messages' },
+        messages: [{
+            messageid: {
+                type: Schema.Types.ObjectId,
+                ref: 'messages'
             },
-        ],
-
+        }, ],
         // extra fora do signup , no footer
-        testimonials: [
-            {
+        testimonials: [{
                 title: String,
                 testimonial: String,
             },
@@ -89,15 +87,10 @@ const userSchema = new Schema(
                 timestamps: true
             },
         ],
-    
         admin_level: Number,
-        },
-    {
+    }, {
         timestamps: true
     }
 );
 
-
 module.exports = model("users", userSchema);
-
-

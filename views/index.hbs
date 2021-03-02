@@ -1,5 +1,4 @@
 {{!-- Menu com login --}}
-
 <nav class="navbar navbar-expand-lg navbar-light bg-light menu-login">
   <div class="container-fluid">
     <a class="navbar-brand logotipo" href="#">FreeStudents</a>
@@ -8,7 +7,7 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav ul-mainPage">
+      <ul class="navbar-nav ul-mainPage-index">
 
         <li class="nav-item li-mainPageHowToWork">
           <a class="nav-link" href="#comofunciona">Como funciona?</a>
@@ -16,27 +15,31 @@
         <li class="nav-item li-mainPage">
           <a class="nav-link" href="/signup">Sign up</a>
         </li>
-        {{!-- login --}}
       </ul>
-       <form action="/login" class="form-menu" method="POST">
-             <label class= 'label-login' for="exampleInputEmail1" class="form-label">Email</label>
-            <input type="email"  name="email" class="form-control" id="email" aria-describedby="emailHelp">
-         
-          <label  class= 'label-login' for="exampleInputPassword1" class="form-label">Senha</label>
-            <input  type="password" name="password" class="form-control" id="password"> 
 
-  <button type="submit" class="btn btn-warning">Login</button>
-
-</form>
+{{!-- login --}}
     </div>
+    <form class="form-menu-index" action="/login" method="POST">
+      <label class='label-login form-label' for="exampleInputEmail1" class="form-label">Email</label>
+      <input type="email" name="email" class="form-control" id="email" aria-describedby="emailHelp">
+
+      <label class='label-login form-label' for="exampleInputPassword1">Senha</label>
+      <input type="password" name="password" class="form-control" id="password">
+
+      <button type="submit" class="btn btn-warning button-login-index">Login</button>
+
+    </form>
+
   </div>
 </nav>
 
-    {{#if errorMessage}}
-<p class="error">{{errorMessage}} </p>
-{{/if}}
+<div class='part-login-message'>
+  {{#if errorMessage}}
+  <p class="error">{{errorMessage}} </p>
+  {{/if}}
+</div>
 
-{{!-- Primeira parte --}} <br>
+{{!-- Primeira parte --}}
 
 <div id="carouselExampleControlsNoTouching" class="carousel slide div-carrossel" data-bs-touch="false"
   data-bs-interval="false">
@@ -115,17 +118,22 @@
 
 <div class=" div-comoFunciona">
 
-  <img src="../images/como-funciona.png" class="card-img  img-comoFunciona" alt="..." >
+  <img src="../images/como-funciona.png" class="card-img  img-comoFunciona" alt="...">
   <div>
     <h1>Como a FreeStudents funciona? </h1>
-    <p class="card-text p-comoFunciona">This is a wider card with supporting text below as a natural lead-in to
-      additional content. This content is a little bit longer. This is a wider card with supporting text below as a natural lead-in to
-      additional content. This content is a little bit longer.This is a wider card with supporting text below as a natural lead-in to
-      additional content. This content is a little bit longer. <br> <br>  This is a wider card with supporting text below as a natural lead-in to
-      additional content. This content is a little bit longer.This is a wider card with supporting text below as a natural lead-in to
-      additional content. This content is a little bit longer.<br> <br> This is a wider card with supporting text below as a natural lead-in to
-      additional content. This content is a little bit longer.</p>
+    <p class="card-text p-comoFunciona">Já parou para pensar que estudantes são gratuitos ? <br> <br> 
+Se você tem interesse em ajudar no aprendizado de alguém com uma de suas especialidades, seja na área de culinária, programação de software, idiomas ou física quântica, a FreeStudents permite esse colaboração entre pessoas que desejam aprender mas estão com dificuldades financeiras para isso e do outro lado alguém que esteja apto a ensinar voluntariamente.
+<br><br>
+Faça o seu cadastro como estudante e coloque seus interesses de aprendizado, porém se deseja ensinar, inclua seus cursos com o máximo de detalhes possível.
+<br> <br>
+O Aluno que deve tomar a iniciativa e se inscrever em um curso registrado. Após a solicitação, temos que aguardar o professor confirmar sua disponibilidade. Caso seja confirmado, os envolvidos podem trocar mensagens através do nosso site ou já partir para comunicação via plataforma de vossa preferência.
+<br><br>
+A FreeStudents ainda não possui um recurso de sala online, sendo assim, vocês devem combinar entre si qual a melhor forma de realizar as aulas, seja online ou presencial.
+<br>Ajudamos vocês a se encontrarem, o resto é com vocês! Aproveitem!
+</p>
 
-  <butto type="button" class="btn btn-outline-warning">Quero me inscrever  </button>
+    <a href="/signup">
+      <butto type="button" class="btn btn-outline-warning">Quero me inscrever</button>
+    </a>
   </div>
 </div>
