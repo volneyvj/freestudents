@@ -1,8 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;500&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;500&display=swap");
 
 body {
   padding: 50px;
-  font: 14px 'Lucida Grande', Helvetica, Arial, sans-serif;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   margin: 0;
   padding: 0;
   font-family: "Montserrat";
@@ -20,7 +20,6 @@ a:link {
   display: flex;
   flex-wrap: wrap;
 }
-
 
 /*  Tela de sign Up   */
 
@@ -45,12 +44,10 @@ input:focus {
 
 .button-login-signup {
   margin-right: 5%;
-
 }
 
 input {
   border-radius: 138px;
-
 }
 
 .formulario {
@@ -61,7 +58,6 @@ input {
   margin-right: 100px;
   margin-left: 100px;
   border-radius: 20px;
-
 }
 
 .required:after {
@@ -84,7 +80,6 @@ input {
   margin: 50px auto;
   width: 600px;
   align-items: center;
-
 }
 
 #signup-form>label {
@@ -130,11 +125,9 @@ input {
   text-align: center;
   width: 100%;
   font-size: 23px;
-
 }
 
 .subtitulo-signUp {
-
   margin-top: 10px;
   margin-bottom: 20px;
 }
@@ -143,24 +136,18 @@ input {
   display: inline-block;
   text-align: center;
   margin-left: 250px;
-
 }
 
 .margem-agenda {
-
-  background-color: #E9ECEF;
+  background-color: #e9ecef;
   border-radius: 10px;
   padding-bottom: 40px;
 }
 
 .agenda {
   display: block;
-
   justify-content: space-between;
-
   text-align: left;
-
-
 }
 
 .li-agenda {
@@ -179,7 +166,6 @@ input {
   background-color: black;
   color: #ffc107 !important;
   opacity: 0.6;
-
 }
 
 .input-agenda {
@@ -195,9 +181,7 @@ input {
   padding-right: 5px;
 }
 
-
 .button-signUp:hover {
-
   background-color: black;
   color: #ffc107;
   border-color: white;
@@ -213,20 +197,14 @@ input {
 }
 
 .button-signUp-cadastrar:hover {
-
   background-color: black;
   color: #ffc107;
   border-color: white;
 }
 
-
-
-
-
 /* Tela de principal */
-
 .menu-login {
-  background-color: #E9ECEF !important;
+  background-color: #e9ecef !important;
   border-bottom: solid #ffc107 3px;
 }
 
@@ -236,12 +214,9 @@ input {
 
 .p-mainPage {
   font-size: 20px;
-
-
 }
 
 .logotipo {
-
   font-size: 24px;
 }
 
@@ -262,45 +237,35 @@ input {
   justify-content: center;
   margin-top: 10px;
   margin-left: 40%;
-
 }
 
 .button-login-index {
   margin-left: 2%;
-
-
 }
 
 .li-mainPage {
-
   font-size: 20px;
   margin-left: 5px;
-
-
-
 }
 
 .li-mainPageHowToWork {
   font-size: 20px;
   margin-left: 20px;
-
 }
 
 .a-link-details:link,
 .a-link-details:visited {
-  text-decoration: none !important
+  text-decoration: none !important;
 }
 
 a:hover {
   text-decoration: underline !important;
-  color: #ffc107 !important
+  color: #ffc107 !important;
 }
 
 a:active {
-  text-decoration: none !important
+  text-decoration: none !important;
 }
-
-
 
 .form-menu-signup {
   margin-left: 15%;
@@ -308,7 +273,6 @@ a:active {
   display: flex !important;
   justify-content: space-between !important;
   align-items: baseline !important;
-
 }
 
 .form-menu-index {
@@ -323,11 +287,9 @@ a:active {
   margin-left: 10px;
 }
 
-
 .label-login {
   margin: 25px;
   justify-content: space-between;
-
 }
 
 /* Div carrossel */
@@ -335,10 +297,7 @@ a:active {
   margin-top: 1vw;
 }
 
-
-
 /* Segunda parte */
-
 .hr-mainPage {
   border: 10px solid #ffc107;
   border-radius: 5px;
@@ -352,8 +311,7 @@ a:active {
   padding-right: 10%;
   padding-top: 10%;
   padding-bottom: 10%;
-  background-color: #E9ECEF;
-
+  background-color: #e9ecef;
 }
 
 .div-thi-part {
@@ -373,32 +331,26 @@ a:active {
   margin: auto;
   display: flex;
   position: relative;
-
-
 }
 
 .carrossel-button {
   width: 100px;
   height: 200px;
   opacity: 0.2;
-  background-color: #E9ECEF;
+  background-color: #e9ecef;
   margin-top: 20%;
   border-radius: 10px;
 }
 
 .carrossel-spam {
   color: black;
-
 }
 
 /*  Quarta parte - Como funciona? */
-
 .img-comoFunciona {
   width: auto;
   height: 550px;
   margin: auto;
-
-
 }
 
 .div-comoFunciona {
@@ -414,24 +366,19 @@ a:active {
 .div-comoFunciona>div {
   margin-left: 25px;
   margin-right: 40px;
-
 }
 
 .p-comoFunciona {
-
   font-size: 25px;
-
 }
 
 /* Footer*/
 
 footer {
-
   background-color: #ffc107;
   margin-top: 70px;
   padding-bottom: 20px;
   padding-top: 10px;
-
   border-top: 3px solid black;
   justify-content: space-between;
 }
@@ -441,7 +388,7 @@ footer {
 }
 
 .a-footer:hover {
-  color: #E9ECEF;
+  color: #e9ecef;
   background-color: black;
 }
 
@@ -451,14 +398,10 @@ footer {
   margin-top: 40px;
 }
 
-
-
 /* User profile  "main.hbs"   */
-
 .h4-main {
   font-weight: bold;
   margin: 20px;
-
 }
 
 .section-info {
@@ -480,7 +423,6 @@ footer {
   padding-top: 10px;
   padding-bottom: 10px;
   margin-top: 5px;
-
 }
 
 #curso-registrado {
@@ -489,15 +431,11 @@ footer {
 }
 
 .section-info>ul>li {
-
   list-style: none;
-
 }
 
 .li-main {
   list-style: none;
-
-
 }
 
 .button-main {
@@ -509,7 +447,6 @@ footer {
   align-content: center;
   text-align: center;
   font-size: 15px;
-
 }
 
 #button-students-group {
@@ -519,12 +456,10 @@ footer {
 }
 
 .button-main:hover {
-
   background-color: black;
   color: #ffc107;
   border-color: white;
 }
-
 
 .link-main:link {
   font-size: 15px;
@@ -535,9 +470,7 @@ footer {
 
 .dates-hours {
   margin-right: 70%;
-
 }
-
 
 .morecourses {
   background-color: chocolate;
@@ -551,13 +484,11 @@ footer {
   display: flex;
   justify-content: center;
   margin-left: 10%;
-
 }
 
 #photo-user {
   border-radius: 50px;
   border: solid black 1px;
-
 }
 
 .menu-user {
@@ -567,17 +498,13 @@ footer {
 }
 
 .link-list {
-
   margin-right: 20px;
-
 }
 
 .links-main {
-
   margin-left: 15px;
   margin-right: 20px;
   font-size: 20px;
-
 }
 
 .section-main {
@@ -593,8 +520,6 @@ footer {
   border-radius: 10px;
   border: solid black 2px;
 }
-
-
 
 .section-main>section {
   margin-bottom: 15px;
@@ -618,11 +543,9 @@ footer {
   border-radius: 10px;
   text-align: center;
   align-content: center;
-
 }
 
 #button-saber-mais {
-
   justify-content: right;
   text-align: center;
   margin-right: 100px;
@@ -631,32 +554,27 @@ footer {
 
 #botao-ver-todos-cursos {
   margin-left: 5%;
-
 }
-
 
 /* Details Course   */
-
-#menu-courses-details{ 
-display: flex; 
-align-items:center;
+#menu-courses-details {
+  display: flex;
+  align-items: center;
 }
-#menu-courses-details > a {
 
-margin-bottom:1vw; 
-margin-top:2vw; 
-margin-left:25vw;
-
+#menu-courses-details>a {
+  margin-bottom: 1vw;
+  margin-top: 2vw;
+  margin-left: 25vw;
 }
+
 .formulario-new-course-details {
-
   background-color: #ffc107;
-  
   padding-bottom: 2vw;
   margin-right: 3%;
   margin-left: 3%;
   border-radius: 10px;
-  border: solid black 1px; 
+  border: solid black 1px;
 }
 
 .section-details-course {
@@ -674,7 +592,6 @@ margin-left:25vw;
 }
 
 .label-details-course {
-
   color: black;
   margin-bottom: 1vw;
   margin-top: 1vw;
@@ -684,15 +601,13 @@ margin-left:25vw;
   list-style: none;
 }
 
-.button-escrever-se { 
+.button-escrever-se {
   font-size: 15px;
   padding-right: 12px;
-margin-top: 1vw;
-
+  margin-top: 1vw;
 }
 
 /* Formulário de edição de perfil */
-
 .menu-edit {
   display: flex;
   justify-content: space-between;
@@ -701,7 +616,6 @@ margin-top: 1vw;
   margin-left: 10%;
   margin-right: 10%;
 }
-
 
 .formulario-edit {
   background-color: #ffc107;
@@ -713,12 +627,10 @@ margin-top: 1vw;
   border-radius: 10px;
 }
 
-
 #signup-form-edit {
   margin: 50px auto;
   width: 600px;
   align-items: center;
-
 }
 
 #signup-form-edit label {
@@ -747,10 +659,9 @@ margin-top: 1vw;
 .h3-edit-page {
   text-align: center;
   margin-top: 1vw;
-
 }
 
-.button-alterar{
+.button-alterar {
   margin-left: 40%;
   font-size: 15px;
   text-align: center;
@@ -762,26 +673,21 @@ margin-top: 1vw;
   border-radius: 10px;
   background-color: white;
   border-color: black;
-  
+
   font-size: 15px;
   margin-bottom: 2%;
   text-align: center;
-  
 }
-
 
 .button-deletar-link:link,
 .button-deletar-link:visited {
-  
-text-decoration: none !important;
-text-align: center;
+  text-decoration: none !important;
+  text-align: center;
 }
 
 .button-deletar:active {
   text-decoration: none !important;
 }
-
-
 
 .section-info-edit {
   background-color: white;
@@ -799,20 +705,19 @@ text-align: center;
 
 .button-deletar:link,
 .button-deletar:visited {
-  text-decoration: none !important
+  text-decoration: none !important;
 }
 
 .button-deletar:hover {
   text-decoration: underline !important;
-  color: #ffc107 !important
+  color: #ffc107 !important;
 }
 
 .button-deletar:active {
-  text-decoration: none !important
+  text-decoration: none !important;
 }
 
-
-.formulario-edit-add-course { 
+.formulario-edit-add-course {
   background-color: #ffc107;
   padding-top: 2vw;
   padding-bottom: 3vw;
@@ -820,10 +725,9 @@ text-align: center;
   padding-right: 21vw;
   margin-top: 30px;
   border-radius: 10px;
-  margin-left: 6vw ;
+  margin-left: 6vw;
   margin-right: 6vw;
 }
-
 
 #formulario-edit-add-course label {
   color: black;
@@ -859,7 +763,6 @@ text-align: center;
   background-color: black;
   color: #ffc107 !important;
   opacity: 0.6;
-
 }
 
 .input-agenda-edit {
@@ -867,7 +770,7 @@ text-align: center;
   margin-left: 30px;
 }
 
-.button-adicionar-curso {  
-margin-top: 1vw;
-padding-right: 10px;
+.button-adicionar-curso {
+  margin-top: 1vw;
+  padding-right: 10px;
 }

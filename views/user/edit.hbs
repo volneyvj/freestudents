@@ -1,37 +1,24 @@
 <div class='menu-edit'>
-
   <a style="text-align: center;" href="/user/{{data.userToEdit._id}}"><button
       class="btn btn-lg disabled button-signUp">Voltar</button></a>
-
   <h2 class='h2-edit-page'>Pagina de Ediçao do Usuario</h2>
-
 </div>
 
 {{!-- Alteração de perfil--}}
 
 <div class="formulario-edit">
-
   <form id="signup-form-edit" action="/signup" enctype="multipart/form-data" method="POST">
-
     <label for="input-completeName" class="required label">Nome completo</label>
     <input class="form-control" type="text" id="input-completeName" name="name" value="{{data.userToEdit.name}}" />
-
     <label for="input-email">E-mail</label>
     <input class="form-control" type="text" id="input-email" name="email" value="{{data.userToEdit.email}}" />
-
     <label for="input-password">Mudar Senha</label>
     <input class="form-control" type="password" name="password" id="input-password" />
-
     <label for="input-telefone">Telefone</label>
     <input class="form-control" type="text" id="input-telefone" name="telefone" value="{{data.userToEdit.phone}}" />
-
-
     <label for="input-city">Cidade</label>
-
     <input class="form-control" type="text" id="input-city" name="city" value={{data.userToEdit.city}} />
-
     <h4 class="h4-signUp">Selecione seu estado</h4>
-
     <select class="form-control" name="estate">
       <option value="0">Selecione</option>
       <option value="1">AC</option>
@@ -62,52 +49,36 @@
       <option value="26">TO</option>
       <option value="26">DF</option>
     </select>
-
     <label style='margin-top: 10px;' for="input-city">Data de nascimento</label>
     <input class="form-control" type="date" id="input-birthdate" name="birthdate"
       value="{{data.userToEdit.birthdate}}" />
-
     <label for="input-skypeUsername">Skype Username</label>
     <input class="form-control" type="text" id="input-skype" name="skype_username"
       value="{{data.userToEdit.skype_username}}" />
-
     <label for="input-zoomUsername">Zoom Username</label>
     <input class="form-control" type="text" id="input-zoom" name="zoom_username"
       value="{{data.userToEdit.zoom_username}}" />
-
     <label for="input-teamsUsername">Teams Username</label>
     <input class="form-control" type="text" id="input-teams" name="teams_username"
       value="{{data.userToEdit.teams_username}}" />
-
     <label for="input-teamsUsername">Outras plataformas</label>
     <input class="form-control" type="text" id="input-teams" name="other_com" value="{{data.userToEdit.other_com}}" />
-
     <label for="input-teamsUsername">Username da plataforma</label>
     <input class="form-control" type="text" id="input-teams" name="other_com_username"
       value="{{data.userToEdit.other_username}}" />
-
     <div class="mb-3">
-
       <label for="exampleFormControlTextarea1" class="form-label">Fale um pouco sobre você:</label>
       <textarea class="form-control" id="exampleFormControlTextarea1" rows="3">{{about}}</textarea>
     </div>
-
-
     <h4 class="h4-signUp">Altere sua foto aqui</h4>
     <input class="form-control" type="file" name="imageUrl" />
-
     <button type="submit" class="btn btn-lg disabled button-signUp button-alterar">ALTERAR</button>
-
-
   </form>
 </div>
-
-
 
 <div class="formulario-edit">
   <h3 class='h3-edit-page'> Seus Cursos </h3>
   <section class="section-info-edit">
-
     {{#each this.my_courses}}
     <p> {{this.name}} - {{this.description}} </p>
     {{/each}}
@@ -117,25 +88,18 @@
 <div class="formulario-edit">
   <h3 class='h3-edit-page'> Seus Cursos Ministrados </h3>
   <section class="section-info-edit">
-
-
     {{#each data.userToEdit.my_courses}}
     <h5> {{this.name}} </h5>
     <p> {{this.description}} </p>
-
     <a class='button-deletar-link' href="/courses/{{this._id}}/{{this.user}}/delete"><button type="button"
         class="btn btn-lg disabled button-deletar">DELETAR</button></a>
     {{/each}}
-
 </div>
 </section>
-
-
-
 <div class="checkbox">
   <h3 class='h3-edit-page'> Adicionar mais cursos </h3>
-  <button onclick="addCourse()" class="btn btn-lg  disabled button-signUp button-adicionar-curso" tabindex="-1" role="button"
-    aria-disabled="true" type="button">Adicionar </button>
+  <button onclick="addCourse()" class="btn btn-lg  disabled button-signUp button-adicionar-curso" tabindex="-1"
+    role="button" aria-disabled="true" type="button">Adicionar </button>
   <div class="formulario-edit-add-course" id="formulario-edit-add-course">
     <div id='formAddCourse' style="display: none">
       <form action="/add_course/{{data.userToEdit._id}}/" method="POST">
@@ -159,15 +123,12 @@
             curso:</label>
           <textarea class="form-control" id="input-course-description" name="course_description" rows="2"></textarea>
         </div>
-
         <div class="mb-3">
           <label for="input-classes" class="form-label required label">Número mínimmo de Aulas do Curso:</label>
           <input class="form-control" type="number" id="input-classes" name="classes" placeholder=1>
         </div>
-
         <label for="input-about" class="required label">Escolha os dias e períodos que você costuma ter disponível:
         </label>
-
         <label for="input-about" class="label">Agenda</label>
         <div class="margem-agenda">
           <div class='agenda'>
@@ -243,9 +204,8 @@
             </ul>
           </div>
         </div>
-        <button class="btn btn-lg  disabled button-signUp button-adicionar-curso"  type="submit">Adicionar Curso</button>
+        <button class="btn btn-lg  disabled button-signUp button-adicionar-curso" type="submit">Adicionar Curso</button>
       </form>
     </div>
   </div>
-
 </div>
