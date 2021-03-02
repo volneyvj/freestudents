@@ -1,7 +1,8 @@
 const mongoose = require("mongoose");
+require('dotenv').config();
 
 mongoose
-  .connect("mongodb://localhost/freestudents-db-dev", {
+  .connect(process.env.MONGODBURL, {
     useCreateIndex: true,
     useNewUrlParser: true,
     useUnifiedTopology: true,
