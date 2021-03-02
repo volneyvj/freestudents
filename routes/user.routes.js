@@ -5,76 +5,70 @@ const Message = require("../models/Message.model");
 const Category = require("../models/Category.model");
 const Course = require("../models/Course.model");
 const Schedule = require("../models/Schedule.model");
-const fileUploader = require("../configs/cloudinary.config");
+const fileUploader = require('../configs/cloudinary.config');
 
-// // ********* require fileUploader in order to use it *********
-// const fileUploader = require("../configs/cloudinary.config");
-
-// // ****************************************************************************************
-// // GET route to display all the movies
-// // ****************************************************************************************
 
 router.get("/user/:id/", (req, res) => {
-  const {
-    id
-  } = req.params;
-  Schedule.find({
-      $or: [{
-        teacher: id
-      }, {
-        student: id
-      }]
-    })
-    .populate("teacher")
-    .populate("student")
-    .populate("course")
-    .then((scheduleFound) => {
-      const scheduleFounded = scheduleFound;
-      User.findById(id).then((userFound) => {
-        const userFounded = userFound;
-        // console.log(userFounded);
-        interest_category_id = userFounded.interests[0];
-        Message.find({
-            to: id
-          })
-          .limit(10)
-          .then((msgFound) => {
-            const messagesFounded = msgFound;
-            Schedule.find({
-                teacher: id,
-                status: "Solicitado"
-              })
-              .populate("student")
-              .populate("course")
-              .then((schedule_notification) => {
-                const schedule_notes = schedule_notification;
-                // console.log(schedule_notes[0].schedule_dates);
-                // let datesNotification = schedule_notes[0].schedule_dates[0].toLocaleString('en-GB');
+  const { id } = req.params;
+    Schedule.find({$or:[{teacher: id},{student: id}]})
+  .populate('teacher')
+  .populate('student')
+  .populate('course')
+  .then((scheduleFound) => {
+    const scheduleFounded = scheduleFound
 
-                Course.find({})
-                  .sort("category")
-                  .limit(6)
-                  .then((searchFound) => {
-                    const searchFounded = searchFound;
+    let formatedStudentDates = [];
+    for (let schedulesS of scheduleFounded) {
+      for (let datesRegistraded of schedulesS.schedule_dates) {
+        if (datesRegistraded === null) {
+          formatedStudentDates.push({"fDate": datesRegistraded})
+        }
+        else {
+          formatedStudentDates.push({"fDate": datesRegistraded.toISOString().substring(0, 10)});
+        }
+      }
+    }
 
-                    res.render("user/main.hbs", {
-                      data: {
-                        userFounded,
-                        messagesFounded,
-                        scheduleFounded,
-                        searchFounded,
-                        schedule_notes,
-                      },
-                    });
-                  });
-              });
-          });
-      });
+  User.findById(id)
+    .then((userFound) => {
+      const userFounded = userFound
+      // console.log(userFounded);
+      interest_category_id = userFounded.interests[0]
+  Message.find({to: id}).limit(10)
+  .then((msgFound) => {
+    const messagesFounded = msgFound
+  Schedule.find({teacher: id, status: 'Solicitado'})
+  .populate('student')
+  .populate('course')
+  .then((schedule_notification) => {
+    const schedule_notes = schedule_notification;
+// console.log(schedule_notification);
+let formatedDates = [];
+for (let schedulesN of schedule_notification) {
+  for (let datesDesired of schedulesN.schedule_dates) {
+    if (datesDesired === null) {
+      formatedDates.push({"fDate": datesDesired})
+    }
+    else {
+      formatedDates.push({"fDate": datesDesired.toISOString().substring(0, 10)});
+    }
+  }
+}
+   Course.find({}).sort('category').limit(6)
+  .then((searchFound) => {
+      const searchFounded = searchFound
+      res.render("user/main.hbs", {data: {userFounded, messagesFounded, scheduleFounded, searchFounded, schedule_notes, formatedDates, formatedStudentDates}}) 
+  })
     })
+  })
+})
+  })
     .catch((err) =>
       console.log(`Error while getting the user from the DB: ${err}`)
-    );
+    ) 
+
 });
+
 
 router.get("/user/:id/edit", (req, res) => {
   const {

@@ -44,7 +44,12 @@
   <li class="li-main">
     <section class="section-info" id="notificacoes">
       <h5 style="font-weight: bold;"> {{this.course.name}} - Solicitado por: {{this.student.name}} </h5>
-      <p class='dates-hours'> Dias e horários selecionados: <br> {{this.schedule_dates}} </p>
+
+      <p class='dates-hours'> Dias e horários selecionados: <br> 
+      {{#each ../data.formatedDates}}
+      <input type="datetime"  style="text-align:center;" value="{{this.fDate}}">
+      {{/each}} </p>
+
       <div id="button-students-group">
         <form action="/aceitar/{{this._id}}/{{this.teacher._id}}" method="POST">
           <button class="btn btn-lg  disabled button-main" type="submit"> Aceitar </button>
@@ -69,6 +74,11 @@
       <p> Professor: {{this.teacher.name}} </p>
       <p> Aluno: {{this.student.name}} </p>
       <p class='dates-hours'> Horários: <br>
+       
+      {{#each ../data.formatedStudentDates}}
+      <input type="datetime"  style="text-align:center;" value="{{this.fDate}}">
+      {{/each}} </p>
+
         {{this.schedule_dates}} </p>
       <br>Status: {{this.status}}  
       <p> Aulas completadas: {{this.classes_completed}} </p>
