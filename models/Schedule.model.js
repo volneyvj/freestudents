@@ -1,18 +1,27 @@
 const mongoose = require("mongoose");
-const { Schema, model } = mongoose;
+const {
+    Schema,
+    model
+} = mongoose;
 
-const scheduleSchema = new Schema(
-    {
-        course: { type: Schema.Types.ObjectId, ref: 'Course' },
-        teacher: { type: Schema.Types.ObjectId, ref: 'User' },
-        student: { type: Schema.Types.ObjectId, ref: 'User' },
-        schedule_dates: [Dates],
-        status: String,
+const scheduleSchema = new Schema({
+    course: {
+        type: Schema.Types.ObjectId,
+        ref: 'courses'
     },
-    {
-        timestamps: true
-    }
-);
+    teacher: {
+        type: Schema.Types.ObjectId,
+        ref: 'users'
+    },
+    student: {
+        type: Schema.Types.ObjectId,
+        ref: 'users'
+    },
+    schedule_dates: [Date],
+    status: String,
+    classes_completed: Number,
+}, {
+    timestamps: true
+});
 
 module.exports = model("schedules", scheduleSchema);
-

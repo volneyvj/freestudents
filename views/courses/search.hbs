@@ -1,1 +1,25 @@
-<h2>Pagina de Pesquisa de cursos, fora da main</h2>
+<nav class="navbar">
+    <img class="logo" src="/images/logo.png" width="10%" />
+    <ul class="menu-course">
+        <li><a href="/user/{{data.user_id}}">Retornar</a></li>
+        <li><a href="/logout">LogOut</a></li>
+    </ul>
+</nav>
+
+
+<div class="course-details">
+    <h2>Busca de Cursos</h2> <br>
+        <div class='row'>
+            {{#each data.coursesF}}
+            <div class="col-md-4">
+                <ul>
+                    <li>{{this.name}} <a href="/courses-details/{{this._id}}"> Saber Mais </a></li> <br>
+                    Breve Descrição: {{this.description}}<br>
+                    Professor: {{this.user.name}}
+                    <br>Categoria: {{this.category.name}}
+                    </P>
+                </ul>
+                <hr>
+            </div>
+            {{/each}}
+    </div>

@@ -1,5 +1,8 @@
 const mongoose = require("mongoose");
-const { Schema, model } = mongoose;
+const {
+    Schema,
+    model
+} = mongoose;
 
 const userSchema = new Schema(
     // dados para preencher no signup:
@@ -19,8 +22,6 @@ const userSchema = new Schema(
             type: String,
             required: [true, 'Nome é necessario.'],
         },
-        teacher: Boolean,
-        student: Boolean,
         city: String,
         state: String,
         birthdate: Date,
@@ -32,52 +33,53 @@ const userSchema = new Schema(
         other_com_username: String,
         about: String,
         phone: {
-            match: [/^(?:\+)[0-9]{2}\s?(?:\()[0-9]{2}(?:\))\s?[0-9]{4,5}(?:-)[0-9]{4}$/, "Insira telefone completo com DDD"],
+            // match: [/^(?:\+)[0-9]{2}\s?(?:\()[0-9]{2}(?:\))\s?[0-9]{4,5}(?:-)[0-9]{4}$/, "Insira telefone completo com DDD"],
             type: String,
         },
-        imageUrl: String, 
+        imageUrl: String,
+        student: Boolean,
+        teacher: Boolean,
+        // teacher_content: Boolean, 
 
+        // SOMENTE para quem clicar no QUERO SER ESTUDANTE 
+        interests: [String],
+        student_content: String,
+        // SOMENTE para quem clicar no QUERO SER PROFESSOR
+        my_courses: [{
+            type: Schema.Types.ObjectId,
+            ref: 'courses'
+        }],
+        // a partir daqui nao é preenchido, atualiazado conforme uso do aplicativo:
 
-        // somente para quem clicar no QUERO SER PROFESSOR
-        my_courses: [
-            {
-                courseid: { type: Schema.Types.ObjectId, ref: 'Course' },
-            },
-        ],
-           // SOMENTE para quem clicar no QUERO SER ESTUDANTE 
-           interests: [String],
-  
-
-// a partir daqui nao é preenchido, atualiazado conforme uso do aplicativo:
-
-        rating: Number,   // colocar numero padrao quando nao coloca
+        rating: Number, // colocar numero padrao quando nao coloca
         given_rates: [{
-            userid: { type: Schema.Types.ObjectId, ref: 'User' },
-            given_rate: Number,
-        },
-        {
-            timestamps: true
-        },
-        ],
-        registrated_courses: [
+                userid: {
+                    type: Schema.Types.ObjectId,
+                    ref: 'users'
+                },
+                given_rate: Number,
+            },
             {
-                courseid: { type: Schema.Types.ObjectId, ref: 'Course' },
-                schedules: [{ type: Schema.Types.ObjectId, ref: 'Schedule' }],
-                status: String,
-                lecturing: Boolean,
-                classes_completed: Number,
+                timestamps: true
             },
         ],
-
-        messages: [
-            {
-                messageid: { type: Schema.Types.ObjectId, ref: 'Message' },
+        // registrated_courses: [
+        //     {
+        //         courseid: { type: Schema.Types.ObjectId, ref: 'Course' },
+        //         schedules: [{ type: Schema.Types.ObjectId, ref: 'Schedule' }],
+        //         status: String,
+        //         lecturing: Boolean,
+        //         classes_completed: Number,
+        //     },
+        // ],
+        messages: [{
+            messageid: {
+                type: Schema.Types.ObjectId,
+                ref: 'messages'
             },
-        ],
-
+        }, ],
         // extra fora do signup , no footer
-        testimonials: [
-            {
+        testimonials: [{
                 title: String,
                 testimonial: String,
             },
@@ -85,15 +87,10 @@ const userSchema = new Schema(
                 timestamps: true
             },
         ],
-    
         admin_level: Number,
-        },
-    {
+    }, {
         timestamps: true
     }
 );
 
-
-module.exports = model("Users", userSchema);
-
-
+module.exports = model("users", userSchema);

@@ -1,1 +1,50 @@
-<h2>Pagina de Detalhes de um Curso especifico</h2>
+<div id='menu-courses-details'>  
+ <a class='a-link-details button-retornar' href="/user/{{data.user_id}}"> <button class="btn btn-lg disabled button-signUp button-escrever-se">Retornar </button></a>
+<h3 style='margin-botton:1vw; margin-top:2vw; margin-left:15vw;'> FreeStudents - Descrição do curso </h3> 
+</div>
+
+
+
+<div class="formulario-new-course-details">
+
+  <section class="section-details-course">
+
+    <div id="texts-bottom">
+      <h4><span>Nome do Curso: {{data.courseDetalhes.name}}</span> </h4>
+      <p> Descrição: {{data.courseDetalhes.description}}</p>
+      <p>CATEGORIA: {{data.courseDetalhes.category.name}} - {{data.courseDetalhes.category.content.content_name}} </p>
+      <p>Professor: {{data.courseDetalhes.user.name}}</p>
+      <p> Número de aulas: {{data.courseDetalhes.classes}}</p>
+      <p> Dias e Horarios Disponíveis: {{data.courseDetalhes.WeekAvailability}} -
+        {{data.courseDetalhes.HourAvailability}} </p>
+    </div>
+
+  </section>
+  <section class="section-details-course">
+
+
+    <form action="/signcourse/{{data.courseDetalhes._id}}/{{data.courseDetalhes.user._id}}" method="POST">
+      {{#each data.classesArray}}
+      <label class='label label-details-course' for="input-date{{this}}">Escolha data para {{this}}° aula do
+        curso:</label>
+      <input class='form-control' type="date" id="input-date{{this}}" name="date{{this}}" />
+
+      {{/each}}
+   <button type="submit" class="btn btn-lg disabled button-signUp">INSCREVER-SE NO CURSO</button>
+
+    </form>
+
+  </section>
+  <section class="section-details-course">
+
+    <div class="course-details">
+      <h4>Quer enviar uma mensagem ao professor?</h4>
+      <form class="form-msg" action="/sendmessage/{{data.courseDetalhes.user._id}}" method="POST">
+
+        <label for="mensagem-input" class="form-label"></label>
+        <textarea class="form-control" name="mensagem" id="mensagem-input" rows="5"></textarea>
+    </div>
+   <button type="submit" class="btn btn-lg disabled button-signUp button-escrever-se">ENVIAR MENSAGEM</button>
+    </form>
+  </section>
+</div>
