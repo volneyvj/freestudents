@@ -6,7 +6,7 @@
 // const Schedule = require('../models/Schedule.model');
 
 // mongoose
-//   .connect('mongodb+srv://USER:SENHA@cluster0.kwmwv.mongodb.net/dbname?retryWrites=true&w=majority',
+//   .connect('C',
 //     {
 //     useCreateIndex: true,
 //     useNewUrlParser: true,
