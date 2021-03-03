@@ -1,8 +1,8 @@
-const express = require("express");
-const router = express.Router();
-const mongoose = require('mongoose');
-const Course = require("../models/Course.model");
-const Category = require('../models/Category.model')
+// const express = require("express");
+// const router = express.Router();
+// const mongoose = require('mongoose');
+// const Course = require("../models/Course.model");
+// const Category = require('../models/Category.model')
 
 document.addEventListener(
   "DOMContentLoaded",
@@ -76,14 +76,14 @@ function OutrosMeios() {
 // }
 
 
-function categorySelected() {
-  let selectedCategory = document.getElementById("interests-input").value;
-  // alert(selectedCategory);
-  Category.findById(selectedCategory)
-    .then((showContents) => {
-      alert(showContents);
-      res.render("signup", showContents);
-    })
-    .catch((error) => next(error));
-}
-module.exports = router;
+// function categorySelected() {
+//   let selectedCategory = document.getElementById("interests-input").value;
+//   // alert(selectedCategory);
+//   Category.findById(selectedCategory)
+//     .then((showContents) => {
+//       alert(showContents);
+//       res.render("signup", showContents);
+//     })
+//     .catch((error) => next(error));
+// }
+// module.exports = router;
