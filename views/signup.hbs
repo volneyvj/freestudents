@@ -165,9 +165,9 @@
 
         <h4 class="h4-signUp required label"> O que você quer aprender? Veja as opções:</h4>
 
-        <select class="custom-select subtitulo-signUp" onChange="categorySelected()" name='interests'
+        <select class="custom-select subtitulo-signUp" name='interests'
           id="interests-input">
-          <option value="602db676593d3e15ee1a65b3">Selecione a categoria:</option>
+          <option value="603ecacfc7a5b1df1a95563d">Selecione a categoria:</option>
           {{#each data.foundCategories}}
           <option value="{{this.id}}">{{this.name}}</option>
           {{/each}}
@@ -187,7 +187,7 @@
       <div id='formQueroEnsinar' style="display: none">
         <h4 class="h4-signUp required label"> Você quer dar aula do quê? Veja as opções:</h4>
         <select name="teacher_category" class="custom-select subtitulo-signUp">
-          <option value="602db676593d3e15ee1a65b3" class="required">Selecione a categoria:</option>
+          <option value="603ecacfc7a5b1df1a95563d" class="required">Selecione a categoria:</option>
           {{#each data.foundCategories}}
           <option value="{{this.id}}">{{this.name}}</option>
           {{/each}}
