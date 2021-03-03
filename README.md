@@ -11,4 +11,4 @@ Why we did it?
 We see a huge discrepancy over those living in poverty conditions comparing to fortunate young 
 that could study in a private school and have extra-curricular activities all day long.
 
-WEBSITE LINK: https://git.heroku.com/freestudents.git
+WEBSITE LINK: https://freestudents.herokuapp.com/
