@@ -50,6 +50,10 @@ input {
   border-radius: 138px;
 }
 
+#button-login-signup{
+margin-left: 2vw;
+}
+
 .formulario {
   background-color: #ffc107;
   padding-top: 5px;
