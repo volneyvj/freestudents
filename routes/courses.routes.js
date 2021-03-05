@@ -36,6 +36,24 @@ router.get("/courses-details/:id/", (req, res, next) => {
     .catch((err) => console.log(`Error while getting the course from the DB: ${err}`));
 });
 
+
+router.get('/course-search', (req, res, next) => {
+  const course = req.query.course
+  Course.find({ $or:[ {"name" : {$regex : `.*${course}.*`}}, {"description" : {$regex : `.*${course}.*`}} ]})
+.then(queryCourseFound => {
+  const user_id = req.session.currentUser._id;
+  const coursesF = queryCourseFound
+  res.render("courses/search.hbs", {
+    data: {
+      coursesF,
+      user_id
+    }
+  })
+})
+.catch((err) => console.log(`Error while getting the course from the DB: ${err}`));
+});
+
+
 router.get("/courses-search/", (req, res) => {
   Course.find()
     .populate('category')

@@ -15,8 +15,17 @@ router.get("/messages/:id/", (req, res) => {
     .populate('from')
     .then(userMessages => {
       const userMsg = userMessages
-      res.render("user/messages.hbs", {data: { userMsg }})
+    Message.find({
+        to: id,
+        status: "Não Respondida",
+      })
+      .populate('to')
+      .populate('from')
+      .then(notAnswered => {
+        const notAnsweredMsg = notAnswered
+      res.render("user/messages.hbs", {data: { userMsg, notAnsweredMsg }})
     })
+  })
     .catch((err) => console.log(`Error while getting the messages from the DB: ${err}`));
 });
 
@@ -26,7 +35,8 @@ router.post("/sendmessage/:to/", (req, res) => {
   } = req.params;
   const from = req.session.currentUser._id;
   const message = req.body.mensagem;
-  const status = "Enviado"
+  const status = "Não Respondida"
+  const id = req.body.idMsg
   Message.create({
       message,
       from,
@@ -34,6 +44,10 @@ router.post("/sendmessage/:to/", (req, res) => {
       status
     })
     .then(sentMessage => res.redirect(`/user/${from}`))
+Message.findByIdAndUpdate(id)
+  status: "Respondida"
+Message.findByIdAndUpdate(id, {status: "Respondida"}, { new: true })
+.then(updatedMsg => console.log ("okkk"))
     .catch((err) => console.log(`Error while sending the messages to the DB: ${err}`));
 });
 
