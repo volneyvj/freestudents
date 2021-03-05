@@ -1,25 +1,54 @@
-<nav class="navbar">
-    <img class="logo" src="/images/logo.png" width="10%" />
-    <ul class="menu-course">
-        <li><a href="/user/{{data.user_id}}">Retornar</a></li>
-        <li><a href="/logout">LogOut</a></li>
-    </ul>
+<nav class="navbar menu-search-course">
+    <div class="menu-course"  id='button-search-course'>
+        
+            <a href="/user/{{data.user_id}}">
+             <button class="btn btn-lg disabled button-signUp button-search-courses" >   Retornar</button> 
+            </a>
+
+            <a href="/logout">
+             <button class="btn btn-lg disabled button-signUp button-search-courses" >LogOut </button>   
+            </a>
+     
+    </div>
+    <img class="logo" style="border-color: black; solid;  1px;"  src="/images/logo.png" width="auto" height="200px;" />
+    
 </nav>
 
 
-<div class="course-details">
-    <h2>Busca de Cursos</h2> <br>
-        <div class='row'>
+<div class="courses-details-main">
+    <h3 class="h3-edit-page"> 
+        Cursos disponíveis   </h3>
+    <div class="course-details">
+        <div class="row">
             {{#each data.coursesF}}
-            <div class="col-md-4">
-                <ul>
-                    <li>{{this.name}} <a href="/courses-details/{{this._id}}"> Saber Mais </a></li> <br>
-                    Breve Descrição: {{this.description}}<br>
-                    Professor: {{this.user.name}}
-                    <br>Categoria: {{this.category.name}}
-                    </P>
-                </ul>
-                <hr>
-            </div>
+            <ul>
+                <li>
+                    <div class="li-search-courses">
+                        <img src="/images/lecture.jpg" alt="curso" width="auto" height="70px" />
+                        <h5>
+                            {{this.name}}
+                        </h5>
+                    </div>
+                    <div class="li-search-courses-list-p"> 
+                    <p>
+                        Breve Descrição:
+                        {{this.description}}
+                    </p>
+                    <p>
+                        Professor:
+                        {{this.user.name}}
+                    </p>
+                    <p>
+                        Categoria:
+                        {{this.category.name}}
+                    </p>
+                    </div>
+                  <a  href="/courses-details/{{this._id}}">
+                         <button class="btn btn-lg  disabled button-signUp button-adicionar-curso"> Saber Mais </button>
+                    </a>
+                </li>
+            </ul>
             {{/each}}
+        </div>
     </div>
+</div>
