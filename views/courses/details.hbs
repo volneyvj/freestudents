@@ -1,5 +1,6 @@
 <div id='menu-courses-details'>  
  <a class='a-link-details button-retornar' href="/user/{{data.user_id}}"> <button class="btn btn-lg disabled button-signUp button-escrever-se">Retornar </button></a>
+
 <h3 style='margin-botton:1vw; margin-top:2vw; margin-left:15vw;'> FreeStudents - Descrição do curso </h3> 
 </div>
 
@@ -42,12 +43,13 @@
   </section>
   <section class="section-details-course">
 
-    <div class="course-details">
+    <div style="padding-botton: 10vw;" class="course-details">
       <h4>Quer enviar uma mensagem ao professor?</h4>
       <form class="form-msg" action="/sendmessage/{{data.courseDetalhes.user._id}}" method="POST">
 
-        <label for="mensagem-input" class="form-label"></label>
-        <textarea class="form-control" name="mensagem" id="mensagem-input" rows="5"></textarea>
+       
+        <textarea class="form-control"  name="mensagem" id="mensagem-input" rows="5"></textarea> <br>
+   
     </div>
    <button type="submit" class="btn btn-lg disabled button-signUp button-escrever-se">ENVIAR MENSAGEM</button>
     </form>
