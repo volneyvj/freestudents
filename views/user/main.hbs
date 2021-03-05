@@ -32,8 +32,8 @@
       {{#each data.messagesFounded}}
       <li>
         De: {{this.from.name}} - 
-        {{this.message}}
-      </li>
+        Mensagem: {{this.message}} / {{this.status}}
+      </li> 
       {{/each}}
     </ul>
   </section>
@@ -94,8 +94,19 @@
 </div>
 
 <div class='section-main'>
-  <h4 class='h4-main'>BUSCAR MAIS CURSOS</h4>
+  <h4 class='h4-main'>MAIS CURSOS</h4>
+    <div class="container">
+    <form action="/course-search" method="GET">
+  <label>
+    <input type="text" placeholder="Inglês" size="35" name="course">
+  </label>
+  <br>
+  <button class="btn-sm btn-danger" type="submit">Buscar</button>
+</form>
+</div>
   <section class="section-info" id="maiscursos">
+
+    
     <ul id='buscar-cursos-list'>
       {{#each data.searchFounded}}
       <li id='buscar-cursos'>
