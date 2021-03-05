@@ -1,13 +1,24 @@
-<nav class="navbar navbar-expand-lg  bg-light navbar-light  main-nav menu-user ">
+<nav class="navbar navbar-expand-lg   navbar-light  main-nav menu-user ">
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
     aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <div class="collapse navbar-collapse" id="navbarNav">
-    <div class="photo-link"> <img id='photo-user' width="20%" src="{{data.userFounded.imageUrl}}"></div>
-    <ul class="navbar-nav link-list">
+
+
+  <div class="collapse navbar-collapse sub-nav-main" id="navbarNav">
+    
+    <div class="photo-link"> 
+      
+      <img id='photo-user' width="auto" height="120px;"   src="{{data.userFounded.imageUrl}}">
+      
+
+    </div>
+   
+     <ul class="navbar-nav link-list">
+
       <li class="nav-item active links-main">
         <a class="nav-link " href="/user/{{data.userFounded._id}}/edit">Meu Perfil</a>
+       
       </li>
       <li class="nav-item links-main">
         <a class="nav-link" href="#meuscursos">Meus Cursos</a>
@@ -18,8 +29,11 @@
       <li class="nav-item links-main">
         <a class="nav-link" href="/logout">LogOut</a>
       </li>
-    </ul>
+  </ul>
+  <h5> FreeStudents </h5>
   </div>
+
+ 
 </nav>
 
 <div class='section-main' id="top-section">
@@ -46,12 +60,13 @@
     <section class="section-info" id="notificacoes">
       <h5 style="font-weight: bold;"> {{this.course.name}} - Solicitado por: {{this.student.name}} </h5>
 
-      <p class='dates-hours'> Dias e horários selecionados: <br> 
-      {{#each ../data.formatedDates}}
-      {{#if this.fDate}}
-      <input type="datetime"  style="text-align:center;" value="{{this.fDate}}">
-      {{/if}}
-      {{/each}} </p>
+      <p class='dates-hours'> Dias e horários selecionados: <br>
+        {{#each ../data.formatedDates}}
+        {{#if this.fDate}}
+        <input type="datetime" style="text-align:center;" value="{{this.fDate}}">
+        {{/if}}
+        {{/each}}
+      </p>
 
       <div id="button-students-group">
         <form action="/aceitar/{{this._id}}/{{this.teacher._id}}" method="POST">
@@ -77,17 +92,20 @@
       <p> Professor: {{this.teacher.name}} </p>
       <p> Aluno: {{this.student.name}} </p>
       <p class='dates-hours'> Horários: <br>
-       
-      {{#each ../data.formatedStudentDates}}
-      {{#if this.fDate}}
-      <input type="datetime"  style="text-align:center;" value="{{this.fDate}}">
-      {{/if}}
-      {{/each}} </p>
-  
-      <br>Status: {{this.status}}  
+
+        {{#each ../data.formatedStudentDates}}
+        {{#if this.fDate}}
+        <input type="datetime" style="text-align:center;" value="{{this.fDate}}">
+        {{/if}}
+        {{/each}}
+      </p>
+
+      <br>Status: {{this.status}}
       <p> Aulas completadas: {{this.classes_completed}} </p>
-      <li class="li-main" style="margin-bottom: 20px;"> 
-        <a href="/courses-details/{{this.course._id}}"><button class="btn btn-lg  disabled button-main">Mais Detalhes </button></a></li>
+      <li class="li-main" style="margin-bottom: 20px;">
+        <a href="/courses-details/{{this.course._id}}"><button class="btn btn-lg  disabled button-main">Mais Detalhes
+          </button></a>
+      </li>
       {{/each}}
     </div>
   </section>
@@ -111,12 +129,12 @@
       {{#each data.searchFounded}}
       <li id='buscar-cursos'>
         <div>
-           <img width="15%" src="/images/lecture.jpg">
+          <img width="15%" src="/images/lecture.jpg">
           <P> {{this.name}} </P> - Categoria: {{this.category.name}}
-          <br> Professor: {{this.user.name}} 
+          <br> Professor: {{this.user.name}}
         </div>
-        <a class="link-main"
-            href="/courses-details/{{this._id}}"><button id='button-saber-mais' class="btn btn-lg  disabled button-main" type="submit"> Saber Mais</button></a>
+        <a class="link-main" href="/courses-details/{{this._id}}"><button id='button-saber-mais'
+            class="btn btn-lg  disabled button-main" type="submit"> Saber Mais</button></a>
       </li>
       {{/each}}
     </ul>
