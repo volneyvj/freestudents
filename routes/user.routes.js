@@ -30,6 +30,7 @@ router.get("/user/:id/", (req, res) => {
 
   User.findById(id)
     .then((userFound) => {
+      req.session.currentUser = userFound;
       const userFounded = userFound
       // console.log(userFounded);
       interest_category_id = userFounded.interests[0]

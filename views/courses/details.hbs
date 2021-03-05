@@ -17,13 +17,13 @@
       <p> Número de aulas: {{data.courseDetalhes.classes}}</p>
       <p> Dias e Horarios Disponíveis: {{data.courseDetalhes.WeekAvailability}} -
         {{data.courseDetalhes.HourAvailability}} </p>
-              <b><p>Professor: {{data.courseDetalhes.user.name}}</p></b>
+              <b><p>Professor: {{data.courseDetalhes.user.name}}</b>
               <br>Plataformas de Comunicação:
               <br>Zoom: {{data.courseDetalhes.user.zoom_username}}
               <br>Teams: {{data.courseDetalhes.user.teams_username}}
               <br>Skype: {{data.courseDetalhes.user.skype_username}}
               <br>Outra Plataforma: {{data.courseDetalhes.user.other_com}} /  {{data.courseDetalhes.user.other_com_username}}
-    </div>
+ </p>   </div>
 
   </section>
   <section class="section-details-course">
@@ -47,9 +47,9 @@
       <h4>Quer enviar uma mensagem ao professor?</h4>
       <form class="form-msg" action="/sendmessage/{{data.courseDetalhes.user._id}}" method="POST">
 
-       
-        <textarea class="form-control"  name="mensagem" id="mensagem-input" rows="5"></textarea> <br>
-   
+        <label for="mensagem-input" class="form-label"></label>
+        <textarea class="form-control" name="mensagem" id="mensagem-input" rows="5"></textarea>
+        <input type="hidden" name="idMsg" value="60416ef4783a4df0abf3cdaf">
     </div>
    <button type="submit" class="btn btn-lg disabled button-signUp button-escrever-se">ENVIAR MENSAGEM</button>
     </form>
