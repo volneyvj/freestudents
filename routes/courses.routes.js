@@ -37,9 +37,11 @@ router.get("/courses-details/:id/", (req, res, next) => {
 });
 
 
-router.get('/course-search', (req, res, next) => {
+router.get('/course-search/', (req, res) => {
   const course = req.query.course
   Course.find({ $or:[ {"name" : {$regex : `.*${course}.*`}}, {"description" : {$regex : `.*${course}.*`}} ]})
+  .populate('category')
+  .populate('user')
 .then(queryCourseFound => {
   const user_id = req.session.currentUser._id;
   const coursesF = queryCourseFound
