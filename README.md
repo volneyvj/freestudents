@@ -12,3 +12,5 @@ We see a huge discrepancy over those living in poverty conditions comparing to f
 that could study in a private school and have extra-curricular activities all day long.
 
 WEBSITE LINK: https://freestudents.herokuapp.com/
+
+Slides lINK: https://slides.com/volneyfaustini/freestudents-fabio-volney
