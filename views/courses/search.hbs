@@ -4,13 +4,8 @@
             <a href="/user/{{data.user_id}}">
              <button class="btn btn-lg disabled button-signUp button-search-courses" >   Retornar</button> 
             </a>
-
-            <a href="/logout">
-             <button class="btn btn-lg disabled button-signUp button-search-courses" >LogOut </button>   
-            </a>
-     
     </div>
-    <img class="logo" style="border-color: black; solid;  1px;"  src="/images/logo.png" width="auto" height="200px;" />
+    <img class="logo logo-search-course" style="border-color: black; solid;  1px;"  src="/images/logo.png" width="auto" height="100px;" />
     
 </nav>
 
@@ -18,7 +13,7 @@
 <div class="courses-details-main">
     <h3 class="h3-edit-page"> 
         Cursos disponíveis   </h3>
-    <div class="course-details">
+    <div class="course-details available-courses">
         <div class="row">
             {{#each data.coursesF}}
             <ul>
