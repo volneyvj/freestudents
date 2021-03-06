@@ -113,11 +113,8 @@
 
 
 <div class='section-main ' id="maiscursos">
-  
-<div class='section-main'>
-  <section id="maiscursos">
-
   <h4 class='h4-main'>MAIS CURSOS</h4>
+  
     <div class="container buscar-cursos-label">
     <form action="/course-search" method="GET" class= "buscar-cursos-label">
       <label>
@@ -127,7 +124,11 @@
       <button class="btn btn-lg  disabled button-main buscar-button"  type="submit">Buscar</button>
     </form>
 </div>
-  <div class="section-info">
+
+ 
+
+ 
+  <div class="section-info" id="maiscursos">
 
     
     <ul id='buscar-cursos-list'>
@@ -144,9 +145,10 @@
       {{/each}}
     </ul>
     <div id='botao-ver-todos-cursos'>
-      <button class="btn btn-lg  disabled button-main" type="submit"><a class="link-main" href="/courses-search/">Ver
+            <button class="btn btn-lg  disabled button-main" type="submit"><a class="link-main" href="/courses-search/">Ver
           todos cursos</a></button>
     </div>
-  </div>
-  </section>
+
+ 
+</div>
 </div>
