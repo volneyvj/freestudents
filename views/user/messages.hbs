@@ -1,38 +1,55 @@
 
-<h3 style='margin-botton:1vw; margin-top:2vw; margin-left:2vw;'> PAINEL DE MENSAGENS</h3> 
-  <br>
+<div class='menu-edit'>
+  <a style="text-align: center;" href="/user/{{data.userToEdit._id}}"><button
+      class="btn btn-lg disabled button-signUp">Voltar</button></a>
+  <h2 class='h2-edit-page'>Painel de mensagens</h2>
+      <img class="logo" style="border-color: black; solid;  1px;"  src="/images/logo.png" width="auto" height="80px;" />
+
+</div>
+
+
+<div class='mensagens-div'> 
+<div class='mensagens-sub-div'> 
+
  {{#each data.notAnsweredMsg}}
   {{#if this}}
-  <h4><b> De: {{from.name}} </b></h4>
-  <h3>Mensagem: {{message}} </h3>
-  <p>      
+  <h4> De: {{from.name}} </h4>
+  <h6>Mensagem: {{message}} </h6>
+       
     <form class="form-msg" action="/sendmessage/{{this.from._id}}" method="POST">
         <label for="mensagem-input" class="form-label"> <h5>Responder mensagem:</h5></label>
         <textarea class="form-control" name="mensagem" id="mensagem-input" rows="3"></textarea>
         <input type="hidden" name="idMsg" value="{{this._id}}">
-    </div>
-   <button type="submit" class="btn btn-lg disabled button-signUp button-escrever-se">ENVIAR MENSAGEM</button>
+    
+       <button type="submit" class="btn btn-lg disabled button-signUp mensagem-button">ENVIAR MENSAGEM</button>
    </form>
-   <br>
+   
  {{/if}}
- <br>
-{{/each}} 
-<P>
 
-  <div class="morecourses">
-<h3> Mensagens Antigas já respondidas: </h3>
-
-<div class="p-mainPage">
- {{#each data.userMsg}}
-  {{#if this}}
-  <b> De: {{from.name}} </b>  - 
-  Mensagem: {{message}} 
-  <p>     
-     {{/if}}
- <br>
 {{/each}} 
 </div>
 </div>
+          <div class='mensagens-div'> 
+
+          <div class='mensagens-sub-div'> 
+          
+        <h3> Mensagens Antigas já respondidas: </h3>
+
+        <div class="mensagens-respondidas">
+        {{#each data.userMsg}}
+          {{#if this}}
+          <h5> De: {{from.name}} </h5>
+         <p> Mensagem: {{message}} </p> 
+               
+            {{/if}}
+           
+{{/each}} 
+ </div>
+</div>
+</div>
+</div>
+</div>
+
  {{!-- <a class='a-link-details button-retornar' href="/user/{{data.userMsg.0.from._id}}"> <button class="btn btn-lg disabled button-signUp button-escrever-se">Retornar </button></a> --}}
 
 

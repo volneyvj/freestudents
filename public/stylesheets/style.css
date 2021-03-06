@@ -206,7 +206,7 @@ margin-left: 2vw;
   border-color: white;
 }
 
-/* Tela de principal */
+/* Tela de principal (main) */
 .menu-login {
   background-color: #e9ecef !important;
   border-bottom: solid #ffc107 3px;
@@ -294,6 +294,16 @@ a:active {
 .label-login {
   margin: 25px;
   justify-content: space-between;
+}
+
+.buscar-cursos-label { 
+  display: flex; 
+  justify-content:space-between;
+    align-items: center;
+}
+.buscar-button { 
+  margin-left: 2vw;
+  margin-bottom:10px;
 }
 
 /* Div carrossel */
@@ -476,10 +486,6 @@ footer {
   margin-right: 70%;
 }
 
-.morecourses {
-  background-color: chocolate;
-}
-
 .main-nav {
   background-color: #ffc107;
 }
@@ -592,10 +598,13 @@ footer {
   border: solid black 1px;
 }
 
+.available-courses { 
+  margin-left: 5%;
+}
 .section-details-course {
   background-color: white;
   border-radius: 5px;
-  padding-left: 10%;
+  padding-left: 3vw;
   padding-right: 10%;
   padding-top: 10px;
   padding-bottom: 10px;
@@ -618,29 +627,38 @@ footer {
 
 .button-escrever-se {
   font-size: 15px;
-  margin-left: 20vw;
+  margin-left: 1vw;
   padding-right: 12px;
   margin-top: 1vw;
+}
+
+.inscrever-no-curso { 
+  font-size: 13px;
+  margin-top: 1vw;
+}
+.retornar-button { 
+  margin-left: 5vw;
 }
 
 /* Formulário de edição de perfil */
 .menu-edit {
   display: flex;
   justify-content: space-between;
-  margin-top: 2%;
-  margin-bottom: 30px;
-  margin-left: 10%;
+  align-items:center;
+  margin-left: 20vw;
   margin-right: 10%;
+  
 }
 
 .formulario-edit {
   background-color: #ffc107;
   padding-top: 5px;
   padding-bottom: 5px;
-  margin-top: 30px;
+  margin-top: 10px;
   margin-right: 100px;
   margin-left: 100px;
   border-radius: 10px;
+  border: black solid 1px;
 }
 
 #signup-form-edit {
@@ -669,7 +687,7 @@ footer {
 
 .h2-edit-page {
   text-align: center;
-  margin-right: 23vw;
+  margin-right: 10vw;
 }
 
 .h3-edit-page {
@@ -743,6 +761,7 @@ footer {
   border-radius: 10px;
   margin-left: 6vw;
   margin-right: 6vw;
+  border: solid black 1px;
 }
 
 #formulario-edit-add-course label {
@@ -809,13 +828,12 @@ footer {
 .course-details { 
   background-color: white;
   border-radius: 5px;
-  padding-left: 4%;
-  padding-right: 10%;
+  padding-left: 3vw;
+  padding-right: 5vw;
   padding-top: 10px;
-  padding-bottom: auto;
+  padding-bottom: 3vw;
   margin-top: 2vw;
-  margin-bottom: 2vw;
-  margin-left: 5%;
+  margin-bottom: 1vw;
   margin-right: 5%;
   border: solid black 1px;
   display: block;
@@ -856,7 +874,8 @@ justify-content: center;
 .menu-search-course { 
 display: flex;
 align-items: center;
-margin-left: 2vw;
+margin-left: 10vw;
+
 
 }
 
@@ -867,8 +886,53 @@ margin-left: 2vw;
   padding-right: 12px;
 }
 
-#button-search-course > li{ 
+#button-search-course { 
   display: flex;
 list-style-type: none;
+padding-top:5vw;
+}
+
+.logo-search-course { 
+margin-right:42vw;
+
+}
+
+/* tela de mensagens*/ 
+.mensagens-div{ 
+background-color: #ffc107;
+  padding-bottom: 3vw;
+  padding-left: 5vw;
+  padding-right: 5vw;
+  margin-top: 10px;
+  border-radius: 10px;
+  margin-left: 6vw;
+  margin-right: 6vw;
+  border: solid black 1px;
+  }
+
+  .mensagem-button { 
+    margin-bottom: 2vw;
+    font-size: 12px;
+    margin-top: 1vw;
+    
+  }
+
+.mensagens-sub-div{ 
+  background-color: white;
+  border-radius: 5px;
+  padding-left: 2vw;
+  padding-right: 10vw;
+  padding-top: 2vw;
+  padding-bottom: 10px;
+  margin-top: 2vw;
+  margin-bottom: 2vw;
+
+  border: solid black 1px;
+}
+
+.mensagens-respondidas { 
+
+
+
 
 }
