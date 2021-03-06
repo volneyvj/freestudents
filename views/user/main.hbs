@@ -51,8 +51,8 @@
       {{/each}}
     </ul>
   </section>
-  <button class="btn btn-lg  disabled button-main"> <a class="link-main" href="/messages/{{data.userFounded._id}}/">Ver
-      todas as mensagens </a> </button>
+ <a class="link-main" href="/messages/{{data.userFounded._id}}/"> <button class="btn btn-lg  disabled button-main"> Ver
+      todas as mensagens </button></a> 
   <h4 class='h4-main'>SOLICITAÇÕES DE AULAS</h4>
   {{#each data.schedule_notes}}
 
@@ -111,16 +111,17 @@
   </section>
 </div>
 
-<div class='section-main'>
+<div class='section-main ' id="maiscursos">
+  
   <h4 class='h4-main'>MAIS CURSOS</h4>
-    <div class="container">
-    <form action="/course-search" method="GET">
-  <label>
-    <input type="text" placeholder="Inglês" size="35" name="course">
-  </label>
-  <br>
-  <button class="btn-sm btn-danger" type="submit">Buscar</button>
-</form>
+    <div class="container buscar-cursos-label">
+    <form action="/course-search" method="GET" class= "buscar-cursos-label">
+      <label>
+        <input class='form-control'type="text" placeholder="   Escrever nome do curso" size="35" name="course" >
+      </label>
+      
+      <button class="btn btn-lg  disabled button-main buscar-button"  type="submit">Buscar</button>
+    </form>
 </div>
   <section class="section-info" id="maiscursos">
 
